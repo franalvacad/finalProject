@@ -2,6 +2,8 @@
 #include <fstream>
 using namespace std;
 
+//this is great!
+
 bool countFile(ifstream &inFile, int &asdf)
 {
 	return (bool)(inFile >> asdf);
