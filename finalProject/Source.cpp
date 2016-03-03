@@ -21,6 +21,12 @@ int main()
 	int *ptrAsdf = new int[c];
 
 	while (countFile(inFile, asdf))
+	{
+		*(ptrAsdf+c) = asdf;
+	}
+
+	for (int p = 0; p < c; p++)
+		cout << "elements" << *(ptrAsdf + p);
 
 
 
