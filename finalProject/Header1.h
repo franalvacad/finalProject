@@ -15,6 +15,6 @@ public:
 		" " + baseClass::getISBN() + " " + to_string(baseClass::getCost()) + " " + to_string(baseClass::getMSRP()) + " " + to_string(baseClass::getQty()) +
 		" " + to_string(baseClass::Serial()) + " " + to_string(baseClass::getYear());
 		return tempstr;
-		string Getlist()
+		string Getlist();
 	}
 };

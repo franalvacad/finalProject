@@ -2,7 +2,7 @@
 #include <fstream>
 using namespace std;
 
-//this is great!
+//no it's not
 
 bool countFile(ifstream &inFile, int &asdf)
 {
