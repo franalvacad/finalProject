@@ -79,11 +79,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="baseClass.cpp" />
+    <ClCompile Include="displayClass.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="baseClass.h" />
-    <ClInclude Include="Header1.h" />
+    <ClInclude Include="displayClass.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

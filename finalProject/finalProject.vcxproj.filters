@@ -21,12 +21,15 @@
     <ClCompile Include="baseClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="displayClass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="baseClass.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Header1.h">
+    <ClInclude Include="displayClass.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
