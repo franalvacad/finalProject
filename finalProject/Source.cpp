@@ -2,7 +2,7 @@
 #include <fstream>
 using namespace std;
 
-
+//yuiyui
 
 bool countFile(ifstream &inFile, int &asdf)
 {
