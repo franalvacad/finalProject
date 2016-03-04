@@ -9,5 +9,5 @@ public:
 	display();
 
 //	accsessors afsdadg
-	inline string Getline();
+	inline string Getlist();
 };
