@@ -5,9 +5,15 @@ using namespace std;
 class display : public baseClass{
 private:
 	string tempstr;
+	string outstr;
 public:
 	display();
 
 //	accsessors afsdadg
 	inline string Getlist();
+	inline string GetWholelist();
+	inline string GetRetaillist();
+	inline string GetQTYlist();
+
+
 };

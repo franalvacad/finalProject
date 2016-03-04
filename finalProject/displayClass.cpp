@@ -5,11 +5,56 @@ using namespace std;
 
 
 inline string display::Getlist()
+{// this is not final function, we have to change it a lot
+
+
+	//outstr = " sadf";
+	for (int i = 0; i < size - 1/* depends from base class (if size = 0 and then ++ : size ? size - 1) */; i++){
+		tempstr = to_string(baseClass::getSerial(i)) + " " + baseClass::getTitle(i) + " " + baseClass::getPublisher(i) + " " + baseClass::getAuthor(i) + " " + to_string(baseClass::getYear(i)) +
+			" " + baseClass::getISBN(i)/* + " " + to_string(baseClass::getCost(i)) + " " + to_string(baseClass::getMSRP(i)) */ + " " + to_string(baseClass::getQty(i)) + " " + baseClass::getTyped(i)
+		  +  '\n';
+		outstr += tempstr;
+	}
+	return outstr;
+}
+
+
+inline string display::GetWholelist()
+{// this is not final function, we have to change it a lot
+	double totPrice = 0;
+
+	for (int i = 0; i < size - 1/* depends from base class (if size = 0 and then ++ : size ? size - 1) */; i++){
+		tempstr = to_string(baseClass::getSerial(i)) + " " + baseClass::getTitle(i) + " " + baseClass::getPublisher(i) + " " + baseClass::getAuthor(i) + " " + to_string(baseClass::getYear(i)) +
+			" " + baseClass::getISBN(i)/*  + " " + to_string(baseClass::getCost(i))*/ + " " + to_string(baseClass::getMSRP(i)) + " " + to_string(baseClass::getQty(i)) + " " + baseClass::getTyped(i)
+			+ '\n';
+		outstr += tempstr;
+		totPrice += baseClass::getMSRP(i);
+		outstr += "Total MSRP is: " + to_string(totPrice) + '\n';
+	}
+	return outstr;
+}
+
+
+inline string display::GetRetaillist()
+{// this is not final function, we have to change it a lot
+	double totPrice = 0;
+
+	for (int i = 0; i < size - 1/* depends from base class (if size = 0 and then ++ : size ? size - 1) */; i++){
+		tempstr = to_string(baseClass::getSerial(i)) + " " + baseClass::getTitle(i) + " " + baseClass::getPublisher(i) + " " + baseClass::getAuthor(i) + " " + to_string(baseClass::getYear(i)) +
+			" " + baseClass::getISBN(i) + " " + to_string(baseClass::getCost(i))/* + " " + to_string(baseClass::getMSRP(i)) */ + " " + to_string(baseClass::getQty(i)) + " " + baseClass::getTyped(i)
+			+ '\n';
+		outstr += tempstr;
+		totPrice += baseClass::getCost(i);
+		outstr += "Total retail price is: " + to_string(totPrice) + '\n';
+	}
+	return outstr;
+}
+
+
+inline string display::GetQTYlist()
 {
 
 
+	return outstr;
+}
 
-	tempstr = baseClass::getTitle() + " " + baseClass::getPublisher() + " " + baseClass::getAuthor() +
-		" " + baseClass::getISBN() + " " + to_string(baseClass::getCost()) + " " + to_string(baseClass::getMSRP()) + " " + to_string(baseClass::getQty()) +
-		" " + to_string(baseClass::getSerial()) + " " + to_string(baseClass::getYear());
-	return tempstr; }
