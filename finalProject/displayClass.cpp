@@ -4,7 +4,7 @@
 using namespace std;
 
 
-string display::Getline()
+inline string display::Getline()
 {
 	tempstr = baseClass::getTitle() + " " + baseClass::getPublisher() + " " + baseClass::getAuthor() +
 		" " + baseClass::getISBN() + " " + to_string(baseClass::getCost()) + " " + to_string(baseClass::getMSRP()) + " " + to_string(baseClass::getQty()) +

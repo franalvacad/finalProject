@@ -9,5 +9,5 @@ public:
 	display();
 
 //	accsessors afsdadg
-	string Getline();
+	inline string Getline();
 };
