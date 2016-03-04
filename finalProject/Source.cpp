@@ -2,7 +2,7 @@
 #include <fstream>
 using namespace std;
 
-///absfhsadvfhsavdfjsaf
+
 
 bool countFile(ifstream &inFile, int &asdf)
 {
