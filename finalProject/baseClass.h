@@ -13,6 +13,8 @@ public:
 	baseClass(string, string, string, string, string, double, double, int, int);
 	~baseClass();
 
+	bool countFile(ifstream &inFile, int &asdf);
+
 	void setTitle(string x);
 	void setPublisher(string x);
 	void setAuthor(string x);

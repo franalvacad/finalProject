@@ -3,15 +3,7 @@
 
 baseClass::baseClass()
 {
-	title = "";
-	publisher = "";
-	author = "";
-	isbn = "";
-	cost = 0;
-	msrp = 0;
-	qty = 0;
-	serial = 0;
-	year = 0;
+
 }
 
 baseClass::baseClass(string, string, string, string, string, double, double, int, int)
