@@ -12,7 +12,7 @@ bool countFile(ifstream &inFile, int &asdf)
 int main()
 {
 	ifstream inFile;
-	inFile.open("C:/example.txt");
+	inFile.open("example.txt");
 	int asdf, c = 0, i = 0;;
 	
 	while (countFile(inFile, asdf))
@@ -24,7 +24,7 @@ int main()
 	int *array2 = new int[c];
 
 	inFile.close();
-	inFile.open("C:/example.txt");
+	inFile.open("example.txt");
 
 	while (countFile(inFile, asdf))
 	{
