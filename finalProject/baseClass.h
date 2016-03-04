@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 class baseClass
@@ -8,10 +9,13 @@ class baseClass
 	string title, publisher, author, isbn;
 	double cost, msrp;
 	int qty, serial, year;
+	ifstream inFile;
 public:
 	baseClass();
 	baseClass(string, string, string, string, string, double, double, int, int);
 	~baseClass();
+
+	bool countFile(ifstream &inFile, int &asdf);
 
 	void setTitle(string x);
 	void setPublisher(string x);
