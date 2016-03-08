@@ -1,11 +1,10 @@
 #pragma once
 #include <string>
-#include <iostream>
 using namespace std;
 
 class baseClass
 {
-	string title, publisher, author, isbn;
+	string title, publisher, author, isbn, type;
 	double cost, msrp;
 	int qty, serial, year;
 public:
@@ -24,6 +23,7 @@ public:
 	void setQty(int x);
 	void setSerial(int x);
 	void setYear(int x);
+	void setType(string x);
 
 	string getTitle();
 	string getPublisher();
@@ -34,5 +34,6 @@ public:
 	int getQty();
 	int getSerial();
 	int getYear();
+	string getType();
 };
 

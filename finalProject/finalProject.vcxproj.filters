@@ -36,4 +36,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="author.txt" />
+    <Text Include="cost.txt" />
+    <Text Include="isbn.txt" />
+    <Text Include="msrp.txt" />
+    <Text Include="pub.txt" />
+    <Text Include="qty.txt" />
+    <Text Include="serial.txt" />
+    <Text Include="title.txt" />
+    <Text Include="type.txt" />
+  </ItemGroup>
 </Project>
