@@ -2,7 +2,7 @@
 #include <fstream>
 #include <string>
 #include <cstring>
-#include "baseClass.cpp";
+#include "baseClass.cpp"
 using namespace std;
 
 
@@ -21,7 +21,7 @@ int main()
 
 	string titleHold, publisherHold, authorHold, isbnHold, typeHold;
 	double costHold, msrpHold;
-	int qtyHold, serialHold, yearHold;
+	int qtyHold, serialHold;
 	
 	serial.open("serial.txt"); //master file
 	title.open("title.txt");
@@ -36,9 +36,7 @@ int main()
 	while (countFile(serial, holder)) //counts the number of lines
 		lineNumb++;
 
-	cout << lineNumb;
 
-	baseClass *all = new baseClass[lineNumb]; //array with everything basically
 
 	serial.clear();
 	serial.seekg(0);
@@ -62,32 +60,27 @@ int main()
 	for (int c = 0; c < lineNumb; c++)
 	{
 		serial >> serialHold;
-		(all + c)->setSerial(serialHold);
 		
-		title >> titleHold;
-		(all + c)->setTitle(titleHold);
+		getline(title, titleHold);
+		cout << titleHold << endl;
 
-		author >> authorHold;
-		(all + c)->setAuthor(authorHold);
+		getline(author, authorHold);
 		
-		pub >> publisherHold;
-		(all + c)->setPublisher(publisherHold);
+		getline(pub, publisherHold);
 
-		isbn >> isbnHold;
-		(all + c)->setISBN(isbnHold);
+		getline(isbn, isbnHold);
 
 		msrp >> msrpHold;
-		(all + c)->setMSRP(msrpHold);
 
 		cost >> costHold;
-		(all + c)->setCost(costHold);
 
 		qty >> qtyHold;
-		(all + c)->setQty(qtyHold);
 
-		type >> typeHold;
-		(all + c)->setType(typeHold);
+		getline(type, typeHold);
 	}
+
+	
+	cout << endl;
 
 	system("pause>nul");
 	return 0;
