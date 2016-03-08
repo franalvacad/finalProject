@@ -7,11 +7,14 @@ using namespace std;
 inline string display::Getlist()
 {// this is not final function, we have to change it a lot
 
+	int size = 25; //testing purposes
+
 
 	//outstr = " sadf";
-	for (int i = 0; i < size - 1/* depends from base class (if size = 0 and then ++ : size ? size - 1) */; i++){
-		tempstr = to_string(baseClass::getSerial(i)) + " " + baseClass::getTitle(i) + " " + baseClass::getPublisher(i) + " " + baseClass::getAuthor(i) + " " + to_string(baseClass::getYear(i)) +
-			" " + baseClass::getISBN(i)/* + " " + to_string(baseClass::getCost(i)) + " " + to_string(baseClass::getMSRP(i)) */ + " " + to_string(baseClass::getQty(i)) + " " + baseClass::getTyped(i)
+	for (int i = 0; i < size - 1; i++) /* depends from base class (if size = 0 and then ++ : size ? size - 1) */
+	{
+		tempstr = to_string(baseClass::getSerial()) + " " + baseClass::getTitle() + " " + baseClass::getPublisher() + " " + baseClass::getAuthor() + " " + to_string(baseClass::getYear()) +
+			" " + baseClass::getISBN()/* + " " + to_string(baseClass::getCost(i)) + " " + to_string(baseClass::getMSRP(i)) */ + " " + to_string(baseClass::getQty()) + " " /*+ baseClass::getType(i)*/
 		  +  '\n';
 		outstr += tempstr;
 	}
@@ -22,13 +25,15 @@ inline string display::Getlist()
 inline string display::GetWholelist()
 {// this is not final function, we have to change it a lot
 	double totPrice = 0;
-
-	for (int i = 0; i < size - 1/* depends from base class (if size = 0 and then ++ : size ? size - 1) */; i++){
-		tempstr = to_string(baseClass::getSerial(i)) + " " + baseClass::getTitle(i) + " " + baseClass::getPublisher(i) + " " + baseClass::getAuthor(i) + " " + to_string(baseClass::getYear(i)) +
-			" " + baseClass::getISBN(i)/*  + " " + to_string(baseClass::getCost(i))*/ + " " + to_string(baseClass::getMSRP(i)) + " " + to_string(baseClass::getQty(i)) + " " + baseClass::getTyped(i)
+	int size = 25; //testing purposes
+	
+	for (int i = 0; i < size - 1; i++) /* depends from base class (if size = 0 and then ++ : size ? size - 1) */
+	{
+		tempstr = to_string(baseClass::getSerial()) + " " + baseClass::getTitle() + " " + baseClass::getPublisher() + " " + baseClass::getAuthor() + " " + to_string(baseClass::getYear()) +
+			" " + baseClass::getISBN()/*  + " " + to_string(baseClass::getCost())*/ + " " + to_string(baseClass::getMSRP()) + " " + to_string(baseClass::getQty()) + " " /*+ baseClass::getTyped()*/
 			+ '\n';
 		outstr += tempstr;
-		totPrice += baseClass::getMSRP(i);
+		totPrice += baseClass::getMSRP();
 		outstr += "Total MSRP is: " + to_string(totPrice) + '\n';
 	}
 	return outstr;
@@ -38,13 +43,15 @@ inline string display::GetWholelist()
 inline string display::GetRetaillist()
 {// this is not final function, we have to change it a lot
 	double totPrice = 0;
+	int size = 25; //testing purposes
 
-	for (int i = 0; i < size - 1/* depends from base class (if size = 0 and then ++ : size ? size - 1) */; i++){
-		tempstr = to_string(baseClass::getSerial(i)) + " " + baseClass::getTitle(i) + " " + baseClass::getPublisher(i) + " " + baseClass::getAuthor(i) + " " + to_string(baseClass::getYear(i)) +
-			" " + baseClass::getISBN(i) + " " + to_string(baseClass::getCost(i))/* + " " + to_string(baseClass::getMSRP(i)) */ + " " + to_string(baseClass::getQty(i)) + " " + baseClass::getTyped(i)
+	for (int i = 0; i < size - 1; i++) /* depends from base class (if size = 0 and then ++ : size ? size - 1) */
+	{
+		tempstr = to_string(baseClass::getSerial()) + " " + baseClass::getTitle() + " " + baseClass::getPublisher() + " " + baseClass::getAuthor() + " " + to_string(baseClass::getYear()) +
+			" " + baseClass::getISBN() + " " + to_string(baseClass::getCost())/* + " " + to_string(baseClass::getMSRP()) */ + " " + to_string(baseClass::getQty()) + " "/* + baseClass::getTyped()*/
 			+ '\n';
 		outstr += tempstr;
-		totPrice += baseClass::getCost(i);
+		totPrice += baseClass::getCost();
 		outstr += "Total retail price is: " + to_string(totPrice) + '\n';
 	}
 	return outstr;
