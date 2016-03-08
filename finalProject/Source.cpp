@@ -59,7 +59,7 @@ int main()
 	type.clear();
 	type.seekg(0);
 
-	for (int c = 0; c < lineNumb; c++)
+	for (int c = 0; c < numOfLines; c++)
 	{
 		serial >> serialHold;
 		(all + c)->setSerial(serialHold);
