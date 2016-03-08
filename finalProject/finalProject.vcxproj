@@ -81,10 +81,13 @@
     <ClCompile Include="baseClass.cpp" />
     <ClCompile Include="displayClass.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Source1.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="baseClass.h" />
+    <ClInclude Include="Cashier.h" />
     <ClInclude Include="displayClass.h" />
+    <ClInclude Include="Header.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="author.txt" />
