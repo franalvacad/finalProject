@@ -16,7 +16,7 @@ bool countFile(fstream &inFile, string &asdf)
 int main()
 {
 	fstream serial, title, author, pub, isbn, msrp, cost, qty, type;
-	int lineNumb = 0;
+	int numOfLines = 0;
 	string holder;
 
 	string titleHold, publisherHold, authorHold, isbnHold, typeHold;
@@ -34,11 +34,11 @@ int main()
 	type.open("type.txt");
 
 	while (countFile(serial, holder)) //counts the number of lines
-		lineNumb++;
+		numOfLines++;
 
-	cout << lineNumb;
+	cout << numOfLines;
 
-	baseClass *all = new baseClass[lineNumb]; //array with everything basically
+	baseClass *all = new baseClass[numOfLines]; //array with everything basically
 
 	serial.clear();
 	serial.seekg(0);
