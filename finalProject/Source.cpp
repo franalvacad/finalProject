@@ -34,9 +34,9 @@ int main()
 
 	cout << lineNumb;
 
-	baseClass 
+	//baseClass 
 
 
-	system("pause>nul");
+	//system("pause>nul");
 	return 0;
 }
