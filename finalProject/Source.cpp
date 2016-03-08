@@ -5,7 +5,7 @@
 #include "baseClass.cpp";
 using namespace std;
 
-//yuiyui
+
 
 
 bool countFile(fstream &inFile, string &asdf)
@@ -18,6 +18,10 @@ int main()
 	fstream serial, title, author, pub, isbn, msrp, cost, qty, type;
 	int lineNumb = 0;
 	string holder;
+
+	string titleHold, publisherHold, authorHold, isbnHold, typeHold;
+	double costHold, msrpHold;
+	int qtyHold, serialHold = 0 , yearHold;
 	
 	serial.open("serial.txt"); //master file
 	title.open("title.txt");
@@ -34,8 +38,29 @@ int main()
 
 	cout << lineNumb;
 
-	baseClass 
+	baseClass *all = new baseClass[lineNumb]; //array with everything basically
 
+	serial.clear();
+	serial.seekg(0);
+	title.clear();
+	title.seekg(0);
+	author.clear();
+	author.seekg(0);
+	pub.clear();
+	pub.seekg(0);
+	isbn.clear();
+	isbn.seekg(0);
+	msrp.clear();
+	msrp.seekg(0);
+	cost.clear();
+	cost.seekg(0);
+	qty.clear();
+	qty.seekg(0);
+	type.clear();
+	type.seekg(0);
+
+	serial << serialHold;
+	cout << serialHold;
 
 	system("pause>nul");
 	return 0;
