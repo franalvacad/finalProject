@@ -69,10 +69,25 @@ string baseClass::getAuthor()
 }
 string baseClass::getISBN()
 {
-	return
+	return isbn;
 }
-double baseClass::getCost();
-double baseClass::getMSRP();
-int baseClass::getQty();
-int baseClass::getSerial();
-int baseClass::getYear();
+double baseClass::getCost()
+{
+	return cost;
+}
+double baseClass::getMSRP()
+{
+	return msrp;
+}
+int baseClass::getQty()
+{
+	return qty;
+}
+int baseClass::getSerial()
+{
+	return serial;
+}
+int baseClass::getYear()
+{
+	return year;
+}

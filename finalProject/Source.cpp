@@ -29,12 +29,12 @@ int main()
 	qty.open("qty.txt");
 	type.open("type.txt");
 
-	while (countFile(serial, holder))
+	while (countFile(serial, holder)) //counts the number of lines
 		lineNumb++;
 
 	cout << lineNumb;
 
-
+	baseClass 
 
 
 	system("pause>nul");
