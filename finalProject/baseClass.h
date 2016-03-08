@@ -6,7 +6,7 @@ class baseClass
 {
 	string title, publisher, author, isbn, type;
 	double cost, msrp;
-	int qty, serial, year;
+	int qty, serial;
 public:
 	inline baseClass();
 	inline baseClass(string, string, string, string, string, double, double, int, int);
@@ -22,7 +22,6 @@ public:
 	inline void setMSRP(double x);
 	inline void setQty(int x);
 	inline void setSerial(int x);
-	inline void setYear(int x);
 	inline void setType(string x);
 
 	inline string getTitle();
@@ -33,7 +32,6 @@ public:
 	inline double getMSRP();
 	inline int getQty();
 	inline int getSerial();
-	inline int getYear();
 	inline string getType();
 };
 

@@ -21,7 +21,7 @@ int main()
 
 	string titleHold, publisherHold, authorHold, isbnHold, typeHold;
 	double costHold, msrpHold;
-	int qtyHold, serialHold = 0 , yearHold;
+	int qtyHold, serialHold, yearHold;
 	
 	serial.open("serial.txt"); //master file
 	title.open("title.txt");
@@ -59,8 +59,35 @@ int main()
 	type.clear();
 	type.seekg(0);
 
-	serial << serialHold;
-	cout << serialHold;
+	for (int c = 0; c < lineNumb; c++)
+	{
+		serial >> serialHold;
+		(all + c)->setSerial(serialHold);
+		
+		title >> titleHold;
+		(all + c)->setTitle(titleHold);
+
+		author >> authorHold;
+		(all + c)->setAuthor(authorHold);
+		
+		pub >> publisherHold;
+		(all + c)->setPublisher(publisherHold);
+
+		isbn >> isbnHold;
+		(all + c)->setISBN(isbnHold);
+
+		msrp >> msrpHold;
+		(all + c)->setMSRP(msrpHold);
+
+		cost >> costHold;
+		(all + c)->setCost(costHold);
+
+		qty >> qtyHold;
+		(all + c)->setQty(qtyHold);
+
+		type >> typeHold;
+		(all + c)->setType(typeHold);
+	}
 
 	system("pause>nul");
 	return 0;
