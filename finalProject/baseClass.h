@@ -4,6 +4,7 @@ using namespace std;
 
 class baseClass
 {
+private:
 	string title, publisher, author, isbn, type;
 	double cost, msrp;
 	int qty, serial;
