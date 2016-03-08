@@ -13,7 +13,7 @@ inline string display::Getlist()
 	//outstr = " sadf";
 	for (int i = 0; i < size - 1; i++) /* depends from base class (if size = 0 and then ++ : size ? size - 1) */
 	{
-		tempstr = to_string(baseClass::getSerial()) + " " + baseClass::getTitle() + " " + baseClass::getPublisher() + " " + baseClass::getAuthor() + " " + to_string(baseClass::getYear()) +
+		tempstr = to_string(baseClass::getSerial()) + " " + baseClass::getTitle() + " " + baseClass::getPublisher() + " " + baseClass::getAuthor() + " " +
 			" " + baseClass::getISBN()/* + " " + to_string(baseClass::getCost(i)) + " " + to_string(baseClass::getMSRP(i)) */ + " " + to_string(baseClass::getQty()) + " " /*+ baseClass::getType(i)*/
 		  +  '\n';
 		outstr += tempstr;
@@ -29,7 +29,7 @@ inline string display::GetWholelist()
 	
 	for (int i = 0; i < size - 1; i++) /* depends from base class (if size = 0 and then ++ : size ? size - 1) */
 	{
-		tempstr = to_string(baseClass::getSerial()) + " " + baseClass::getTitle() + " " + baseClass::getPublisher() + " " + baseClass::getAuthor() + " " + to_string(baseClass::getYear()) +
+		tempstr = to_string(baseClass::getSerial()) + " " + baseClass::getTitle() + " " + baseClass::getPublisher() + " " + baseClass::getAuthor() + " " +
 			" " + baseClass::getISBN()/*  + " " + to_string(baseClass::getCost())*/ + " " + to_string(baseClass::getMSRP()) + " " + to_string(baseClass::getQty()) + " " /*+ baseClass::getTyped()*/
 			+ '\n';
 		outstr += tempstr;
@@ -47,7 +47,7 @@ inline string display::GetRetaillist()
 
 	for (int i = 0; i < size - 1; i++) /* depends from base class (if size = 0 and then ++ : size ? size - 1) */
 	{
-		tempstr = to_string(baseClass::getSerial()) + " " + baseClass::getTitle() + " " + baseClass::getPublisher() + " " + baseClass::getAuthor() + " " + to_string(baseClass::getYear()) +
+		tempstr = to_string(baseClass::getSerial()) + " " + baseClass::getTitle() + " " + baseClass::getPublisher() + " " + baseClass::getAuthor() + " " +
 			" " + baseClass::getISBN() + " " + to_string(baseClass::getCost())/* + " " + to_string(baseClass::getMSRP()) */ + " " + to_string(baseClass::getQty()) + " "/* + baseClass::getTyped()*/
 			+ '\n';
 		outstr += tempstr;

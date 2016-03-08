@@ -2,94 +2,86 @@
 
 #include "baseClass.h"
 
-baseClass::baseClass()
+inline baseClass::baseClass()
 {
 }
 
-baseClass::baseClass(string, string, string, string, string, double, double, int, int)
+inline baseClass::baseClass(string, string, string, string, string, double, double, int, int)
 {
 }
 
 
-baseClass::~baseClass()
+inline baseClass::~baseClass()
 {
 }
 
-void baseClass::setTitle(string x)
+inline void baseClass::setTitle(string x)
 {
 	title = x;
 }
-void baseClass::setPublisher(string x)
+inline void baseClass::setPublisher(string x)
 {
 	publisher = x;
 }
-void baseClass::setAuthor(string x)
+inline void baseClass::setAuthor(string x)
 {
 	author = x;
 }
-void baseClass::setISBN(string x)
+inline void baseClass::setISBN(string x)
 {
 	isbn = x;
 }
-void baseClass::setCost(double x)
+inline void baseClass::setCost(double x)
 {
 	cost = x;
 }
-void baseClass::setMSRP(double x)
+inline void baseClass::setMSRP(double x)
 {
 	msrp = x;
 }
-void baseClass::setQty(int x)
+inline void baseClass::setQty(int x)
 {
 	qty = x;;
 }
-void baseClass::setSerial(int x)
+inline void baseClass::setSerial(int x)
 {
 	serial = x;
 }
-void baseClass::setYear(int x)
-{
-	year = x;
-}
 
-void baseClass::setType(string x)
+inline void baseClass::setType(string x)
 {
 	type = x;
 }
 
-string baseClass::getTitle()
+inline string baseClass::getTitle()
 {
 	return title;
 }
-string baseClass::getPublisher()
+inline string baseClass::getPublisher()
 {
 	return publisher;
 }
-string baseClass::getAuthor()
+inline string baseClass::getAuthor()
 {
 	return author;
 }
-string baseClass::getISBN()
+inline string baseClass::getISBN()
 {
 	return isbn;
 }
-double baseClass::getCost()
+inline double baseClass::getCost()
 {
 	return cost;
 }
-double baseClass::getMSRP()
+inline double baseClass::getMSRP()
 {
 	return msrp;
 }
-int baseClass::getQty()
+inline int baseClass::getQty()
 {
 	return qty;
 }
-int baseClass::getSerial()
+inline int baseClass::getSerial()
 {
 	return serial;
-}
-int baseClass::getYear()
-{
-	return year;
 }
