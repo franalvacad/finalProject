@@ -89,6 +89,9 @@ int main()
 		(all + c)->setType(typeHold);
 	}
 
+
+	cout << (all + 1)->getPublisher;
+
 	system("pause>nul");
 	return 0;
 }
