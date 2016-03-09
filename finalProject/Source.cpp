@@ -16,12 +16,14 @@ bool countFile(fstream &inFile, string &asdf)
 int main()
 {
 	fstream serial, title, author, pub, isbn, msrp, cost, qty, type;
-	int lineNumb = 0;
+	int numOfLines = 0, pointLoc = 0;
 	string holder;
 
-	string titleHold, publisherHold, authorHold, isbnHold, typeHold;
-	double costHold, msrpHold;
-	int qtyHold, serialHold;
+	string titleData[1000], publisherData[1000], authorData[1000], isbnData[1000], typeData[1000];
+	double costData[1000], msrpData[1000];
+	int qtyData[1000], serialData[1000];
+
+	baseClass mains[1000];
 	
 	serial.open("serial.txt"); //master file
 	title.open("title.txt");
@@ -34,9 +36,7 @@ int main()
 	type.open("type.txt");
 
 	while (countFile(serial, holder)) //counts the number of lines
-		lineNumb++;
-
-
+		numOfLines++;
 
 	serial.clear();
 	serial.seekg(0);
@@ -59,27 +59,38 @@ int main()
 
 	for (int c = 0; c < numOfLines; c++)
 	{
-		serial >> serialHold;
+		serial >> serialData[c];
+		mains[c].setSerial(serialData[c]);
 		
-		getline(title, titleHold);
-		cout << titleHold << endl;
+		getline(title, titleData[c]);
+		mains[c].setTitle(titleData[c]);
 
-		getline(author, authorHold);
-		
-		getline(pub, publisherHold);
+		getline(author, authorData[c]);
+		mains[c].setAuthor(authorData[c]);
 
-		getline(isbn, isbnHold);
+		getline(pub, publisherData[c]);
+		mains[c].setPublisher(publisherData[c]);
 
-		msrp >> msrpHold;
+		getline(isbn, isbnData[c]);
+		mains[c].setISBN(isbnData[c]);
 
-		cost >> costHold;
+		msrp >> msrpData[c];
+		mains[c].setMSRP(msrpData[c]);
 
-		qty >> qtyHold;
+		cost >> costData[c];
+		mains[c].setCost(costData[c]);
 
-		getline(type, typeHold);
+		qty >> qtyData[c];
+		mains[c].setQty(qtyData[c]);
+
+		getline(type, typeData[c]);
+		mains[c].setType(typeData[c]);
 	}
 
-	
+	for (int i = 0; i < numOfLines; i++)
+	{
+		cout << mains[i].getSerial() << " " << mains[i].getTitle() << " " << mains[i].getAuthor() << " " << mains[i].getMSRP() << " " << mains[i].getCost() << " " << mains[i].getISBN() << " " << mains[i].getPublisher() << " " << mains[i].getType() << " " << mains[i].getQty() << endl;
+	}
 	cout << endl;
 
 	system("pause>nul");
