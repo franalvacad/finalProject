@@ -16,7 +16,7 @@ bool countFile(fstream &inFile, string &asdf)
 int main()
 {
 	fstream serial, title, author, pub, isbn, msrp, cost, qty, type;
-	int lineNumb = 0;
+	int numOfLines = 0;
 	string holder;
 
 	string titleHold, publisherHold, authorHold, isbnHold, typeHold;
@@ -34,10 +34,12 @@ int main()
 	type.open("type.txt");
 
 	while (countFile(serial, holder)) //counts the number of lines
-		lineNumb++;
+		numOfLines++;
 
-
-
+	baseClass * classPtr;
+	classPtr = new baseClass[numOfLines];
+	
+	
 	serial.clear();
 	serial.seekg(0);
 	title.clear();
@@ -56,28 +58,38 @@ int main()
 	qty.seekg(0);
 	type.clear();
 	type.seekg(0);
-
-	for (int c = 0; c < lineNumb; c++)
+	
+	// Insert data into object array
+	for (int c = 0; c < numOfLines; c++)
 	{
 		serial >> serialHold;
-		
+		(classPtr + c)->setSerial(serialHold);
+
 		getline(title, titleHold);
-		cout << titleHold << endl;
+		(classPtr + c)->setTitle(titleHold);
 
 		getline(author, authorHold);
-		
+		(classPtr + c)->setAuthor(authorHold);
+
 		getline(pub, publisherHold);
+		(classPtr + c)->setPublisher(publisherHold);
 
 		getline(isbn, isbnHold);
+		(classPtr + c)->setISBN(isbnHold);
 
 		msrp >> msrpHold;
+		(classPtr + c)->setMSRP(msrpHold);
 
 		cost >> costHold;
+		(classPtr + c)->setCost(costHold);
 
 		qty >> qtyHold;
+		(classPtr + c)->setQty(qtyHold);
 
-		getline(type, typeHold);
+		type >> typeHold;
+		(classPtr + c)->setType(typeHold);
 	}
+
 
 	
 	cout << endl;
