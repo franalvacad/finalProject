@@ -1,38 +1,43 @@
 #pragma once
 #include <string>
+#include <fstream>
+
 using namespace std;
+
+const int SIZE = 1000;
 
 class baseClass
 {
 private:
-	string title, publisher, author, isbn, type;
-	double cost, msrp;
-	int qty, serial;
+	string title[SIZE], publisher[SIZE], author[SIZE], isbn[SIZE], type[SIZE];
+	double cost[SIZE], msrp[SIZE];
+	int qty[SIZE], serial[SIZE], numOfLines = 0;
 public:
 	inline baseClass();
-	inline baseClass(string, string, string, string, string, double, double, int, int);
 	inline ~baseClass();
 
-	bool countFile(ifstream &inFile, int &asdf);
+	inline bool countFile(fstream&);
 
-	inline void setTitle(string x);
-	inline void setPublisher(string x);
-	inline void setAuthor(string x);
-	inline void setISBN(string x);
-	inline void setCost(double x);
-	inline void setMSRP(double x);
-	inline void setQty(int x);
-	inline void setSerial(int x);
-	inline void setType(string x);
+	inline void setTitle(string x, int c);
+	inline void setPublisher(string x, int c);
+	inline void setAuthor(string x, int c);
+	inline void setISBN(string x, int c);
+	inline void setCost(double x, int c);
+	inline void setMSRP(double x, int c);
+	inline void setQty(int x, int c);
+	inline void setSerial(int x, int c);
+	inline void setType(string x, int c);
 
-	inline string getTitle();
-	inline string getPublisher();
-	inline string getAuthor();
-	inline string getISBN();
-	inline double getCost();
-	inline double getMSRP();
-	inline int getQty();
-	inline int getSerial();
-	inline string getType();
+	inline string getTitle(int c);
+	inline string getAuthor(int c);
+	inline string getISBN(int c);
+	inline double getCost(int c);
+	inline double getMSRP(int c);
+	inline int getQty(int c);
+	inline int getSerial(int c);
+	inline string getType(int c);
+	inline string getPublisher(int c);
+	inline int getSizeLine();
+
 };
 
