@@ -2,6 +2,11 @@
 using namespace std;
 //string and iostream were included already in the baseClass <---------
 
+inline display::display()
+{
+
+}
+
 inline string display::getList()
 {// this is not final function, we have to change it a lot
 
@@ -75,39 +80,39 @@ inline string display::getQTYlist()
 	}
 }
 
-inline string display::getQTYlist()
-{
-	int max = 0; // depeds from list (qty,cost,age) sort displaylistis
-	int x = baseClass::getSizeLine();
-	bool *chk = new bool[x];
-
-	for (int i = 0; i < x; i++){
-		for (int j = 0; j < x; j++){
-			if (max <= baseClass::getQty(j) && chk[j] == false){
-				max = j;
-				chk[j] = true;
-				cout << "(T__T)";
-				max = 0;
-
-			}
-		}
-	}
-}
-inline string display::getQTYlist()
-{
-	int max = 0; // depeds from list (qty,cost,age) sort displaylistis
-	int x = baseClass::getSizeLine();
-	bool *chk = new bool[x];
-
-	for (int i = 0; i < x; i++){
-		for (int j = 0; j < x; j++){
-			if (max <= baseClass::getQty(j) && chk[j] == false){
-				max = j;
-				chk[j] = true;
-				cout << "(T__T)";
-				max = 0;
-
-			}
-		}
-	}
-}
+//inline string display::getQTYlist()
+//{
+//	int max = 0; // depeds from list (qty,cost,age) sort displaylistis
+//	int x = baseClass::getSizeLine();
+//	bool *chk = new bool[x];
+//
+//	for (int i = 0; i < x; i++){
+//		for (int j = 0; j < x; j++){
+//			if (max <= baseClass::getQty(j) && chk[j] == false){
+//				max = j;
+//				chk[j] = true;
+//				cout << "(T__T)";
+//				max = 0;
+//
+//			}
+//		}
+//	}
+//}
+//inline string display::getQTYlist()
+//{
+//	int max = 0; // depeds from list (qty,cost,age) sort displaylistis
+//	int x = baseClass::getSizeLine();
+//	bool *chk = new bool[x];
+//
+//	for (int i = 0; i < x; i++){
+//		for (int j = 0; j < x; j++){
+//			if (max <= baseClass::getQty(j) && chk[j] == false){
+//				max = j;
+//				chk[j] = true;
+//				cout << "(T__T)";
+//				max = 0;
+//
+//			}
+//		}
+//	}
+//}

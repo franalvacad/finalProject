@@ -11,8 +11,6 @@ inline bool baseClass::countFile(fstream &inFile)
 //constructors
 inline baseClass::baseClass()
 {
-	fstream serialFile, titleFile, authorFile, pubFile, isbnFile, msrpFile, costFile, qtyFile, typeFile; //make file variables
-
 	serialFile.open("serial.txt"); //master file
 	titleFile.open("title.txt");//titles here
 	authorFile.open("author.txt");//authors here
