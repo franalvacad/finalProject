@@ -1,5 +1,7 @@
 #pragma once
 #include <string>
+#include <fstream>
+
 using namespace std;
 
 const int SIZE = 1000;

@@ -10,7 +10,7 @@ int main()
 	
 	for (int c = 0; c < size; c++)
 	{
-		mains.getTitle(c);
+		cout << mains.getSerial(c) << endl;
 	}
 
 	system("pause>nul");
