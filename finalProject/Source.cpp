@@ -6,8 +6,6 @@
 using namespace std;
 
 
-
-
 bool countFile(fstream &inFile, string &asdf)
 {
 	return (bool)(getline(inFile,asdf));
@@ -37,6 +35,7 @@ int main()
 		lineNumb++;
 
 	cout << lineNumb;
+
 
 	baseClass *all = new baseClass[lineNumb]; //array with everything basically
 

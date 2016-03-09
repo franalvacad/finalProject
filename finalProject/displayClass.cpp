@@ -4,22 +4,27 @@
 using namespace std;
 
 
-inline string display::Getlist()
-{// this is not final function, we have to change it a lot
-
-	int size = 25; //testing purposes
+inline void display::Getlist()
+{
 
 
-	//outstr = " sadf";
-	for (int i = 0; i < size - 1; i++) /* depends from base class (if size = 0 and then ++ : size ? size - 1) */
-	{
-		tempstr = to_string(baseClass::getSerial()) + " " + baseClass::getTitle() + " " + baseClass::getPublisher() + " " + baseClass::getAuthor() + " " + to_string(baseClass::getYear()) +
-			" " + baseClass::getISBN()/* + " " + to_string(baseClass::getCost(i)) + " " + to_string(baseClass::getMSRP(i)) */ + " " + to_string(baseClass::getQty()) + " " /*+ baseClass::getType(i)*/
-		  +  '\n';
-		outstr += tempstr;
-	}
-	return outstr;
+		cout << getSerial() << " " << getTitle() << " " << getPublisher() << " " << getAuthor() << " " << " " 
+			 << getISBN() << " " << getType() << " " << getCost(i) << " " << getMSRP(i) << " " << getQty(i) << endl;
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 inline string display::GetWholelist()
