@@ -13,7 +13,7 @@ inline string display::Getlist()
 	//outstr = " sadf";
 	for (int i = 0; i < size - 1; i++) /* depends from base class (if size = 0 and then ++ : size ? size - 1) */
 	{
-		tempstr = to_string(baseClass::getSerial()) + " " + baseClass::getTitle() + " " + baseClass::getPublisher() + " " + baseClass::getAuthor() + " " +
+		tempstr = to_string(baseClass::getSerial(i)) + " " + baseClass::getTitle() + " " + baseClass::getPublisher() + " " + baseClass::getAuthor() + " " +
 			" " + baseClass::getISBN()/* + " " + to_string(baseClass::getCost(i)) + " " + to_string(baseClass::getMSRP(i)) */ + " " + to_string(baseClass::getQty()) + " " /*+ baseClass::getType(i)*/
 		  +  '\n';
 		outstr += tempstr;
@@ -57,6 +57,19 @@ inline string display::GetRetaillist()
 	return outstr;
 }
 
+//int max = 0; // depeds from list (qty,cost,age) sort displaylistis
+//bool *chk = new bool[linenum];
+//for(int i = 0; i < lnenum; i++){
+//	for (int j = 0; j < lnenum; j++){
+//		if (max = < qty[j] && chk[j] == false){
+//			max = j;
+//			chk[j] = true;
+//			cout << "(T__T)";
+//			max = 0;
+//
+//		}
+//	}
+//}
 
 inline string display::GetQTYlist()
 {

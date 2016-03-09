@@ -56,9 +56,9 @@ inline string baseClass::getType()
 	return type;
 }
 
-inline string baseClass::getTitle()
+inline string baseClass::getTitle(int i)
 {
-	return title;
+	return title[i];
 }
 inline string baseClass::getPublisher()
 {

@@ -25,7 +25,7 @@ public:
 	inline void setSerial(int x);
 	inline void setType(string x);
 
-	inline string getTitle();
+	inline string getTitle(int);
 	inline string getPublisher();
 	inline string getAuthor();
 	inline string getISBN();
