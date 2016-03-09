@@ -17,10 +17,10 @@ public:
 	double finalSale;
 };
 
-int Cashier::booksPurchased()
-{
-	return 
-}
+//int Cashier::booksPurchased()
+//{
+//	return 
+//}
 
 
 
