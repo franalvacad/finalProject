@@ -1,20 +1,18 @@
 #include"displayClass.h"
-#include <string>
-#include <iostream>
 using namespace std;
+//string and iostream were included already in the baseClass <---------
 
-
-inline string display::Getlist()
+inline string display::getList()
 {// this is not final function, we have to change it a lot
 
-	int size = 25; //testing purposes
+	int size = baseClass::getSizeLine(); //here, use the official one :D <--------
 
 
 	//outstr = " sadf";
 	for (int i = 0; i < size - 1; i++) /* depends from base class (if size = 0 and then ++ : size ? size - 1) */
 	{
-		tempstr = to_string(baseClass::getSerial(i)) + " " + baseClass::getTitle() + " " + baseClass::getPublisher() + " " + baseClass::getAuthor() + " " +
-			" " + baseClass::getISBN()/* + " " + to_string(baseClass::getCost(i)) + " " + to_string(baseClass::getMSRP(i)) */ + " " + to_string(baseClass::getQty()) + " " /*+ baseClass::getType(i)*/
+		tempstr = to_string(baseClass::getSerial(i)) + " " + baseClass::getTitle(i) + " " + baseClass::getPublisher(i) + " " + baseClass::getAuthor(i) + " " +
+			" " + baseClass::getISBN(i)/* + " " + to_string(baseClass::getCost(i)) + " " + to_string(baseClass::getMSRP(i)) */ + " " + to_string(baseClass::getQty(i)) + " " /*+ baseClass::getType(i)*/
 		  +  '\n';
 		outstr += tempstr;
 	}
@@ -22,43 +20,43 @@ inline string display::Getlist()
 }
 
 
-inline string display::GetWholelist()
+inline string display::getWholelist() //changed variables to match c++ grammar rules <---------
 {// this is not final function, we have to change it a lot
 	double totPrice = 0;
 	int size = 25; //testing purposes
 	
 	for (int i = 0; i < size - 1; i++) /* depends from base class (if size = 0 and then ++ : size ? size - 1) */
 	{
-		tempstr = to_string(baseClass::getSerial()) + " " + baseClass::getTitle() + " " + baseClass::getPublisher() + " " + baseClass::getAuthor() + " " +
-			" " + baseClass::getISBN()/*  + " " + to_string(baseClass::getCost())*/ + " " + to_string(baseClass::getMSRP()) + " " + to_string(baseClass::getQty()) + " " /*+ baseClass::getTyped()*/
+		tempstr = to_string(baseClass::getSerial(i)) + " " + baseClass::getTitle(i) + " " + baseClass::getPublisher(i) + " " + baseClass::getAuthor(i) + " " +
+			" " + baseClass::getISBN(i)/*  + " " + to_string(baseClass::getCost())*/ + " " + to_string(baseClass::getMSRP(i)) + " " + to_string(baseClass::getQty(i)) + " " /*+ baseClass::getTyped()*/
 			+ '\n';
 		outstr += tempstr;
-		totPrice += baseClass::getMSRP();
+		totPrice += baseClass::getMSRP(i);
 		outstr += "Total MSRP is: " + to_string(totPrice) + '\n';
 	}
 	return outstr;
 }
 
 
-inline string display::GetRetaillist()
+inline string display::getRetaillist()
 {// this is not final function, we have to change it a lot
 	double totPrice = 0;
 	int size = 25; //testing purposes
 
 	for (int i = 0; i < size - 1; i++) /* depends from base class (if size = 0 and then ++ : size ? size - 1) */
 	{
-		tempstr = to_string(baseClass::getSerial()) + " " + baseClass::getTitle() + " " + baseClass::getPublisher() + " " + baseClass::getAuthor() + " " +
-			" " + baseClass::getISBN() + " " + to_string(baseClass::getCost())/* + " " + to_string(baseClass::getMSRP()) */ + " " + to_string(baseClass::getQty()) + " "/* + baseClass::getTyped()*/
+		tempstr = to_string(baseClass::getSerial(i)) + " " + baseClass::getTitle(i) + " " + baseClass::getPublisher(i) + " " + baseClass::getAuthor(i) + " " +
+			" " + baseClass::getISBN(i) + " " + to_string(baseClass::getCost(i))/* + " " + to_string(baseClass::getMSRP()) */ + " " + to_string(baseClass::getQty(i)) + " "/* + baseClass::getTyped()*/
 			+ '\n';
 		outstr += tempstr;
-		totPrice += baseClass::getCost();
+		totPrice += baseClass::getCost(i);
 		outstr += "Total retail price is: " + to_string(totPrice) + '\n';
 	}
 	return outstr;
 }
 
 
-inline string display::GetQTYlist()
+inline string display::getQTYlist()
 {
 	int max = 0; // depeds from list (qty,cost,age) sort displaylistis
 	int x = baseClass::getSizeLine();
@@ -77,7 +75,7 @@ inline string display::GetQTYlist()
 	}
 }
 
-inline string display::GetQTYlist()
+inline string display::getQTYlist()
 {
 	int max = 0; // depeds from list (qty,cost,age) sort displaylistis
 	int x = baseClass::getSizeLine();
@@ -95,7 +93,7 @@ inline string display::GetQTYlist()
 		}
 	}
 }
-inline string display::GetQTYlist()
+inline string display::getQTYlist()
 {
 	int max = 0; // depeds from list (qty,cost,age) sort displaylistis
 	int x = baseClass::getSizeLine();

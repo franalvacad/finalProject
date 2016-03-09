@@ -1,34 +1,33 @@
 #include "baseClass.h"
-#include <fstream>
-#include <string>
 using namespace std;
 
+//counts lines. can also be used to see if file works
 inline bool baseClass::countFile(fstream &inFile)
 {
 	string x;
 	return (bool)(inFile>>x);
 }
 
+//constructors
 inline baseClass::baseClass()
 {
-	fstream serialFile, titleFile, authorFile, pubFile, isbnFile, msrpFile, costFile, qtyFile, typeFile;
-	string holder;
+	fstream serialFile, titleFile, authorFile, pubFile, isbnFile, msrpFile, costFile, qtyFile, typeFile; //make file variables
 
 	serialFile.open("serial.txt"); //master file
-	titleFile.open("title.txt");
-	authorFile.open("author.txt");
-	pubFile.open("pub.txt");
-	isbnFile.open("isbn.txt");
-	msrpFile.open("msrp.txt");
-	costFile.open("cost.txt");
-	qtyFile.open("qty.txt");
-	typeFile.open("type.txt");
+	titleFile.open("title.txt");//titles here
+	authorFile.open("author.txt");//authors here
+	pubFile.open("pub.txt");//publishers here
+	isbnFile.open("isbn.txt");//isbn here
+	msrpFile.open("msrp.txt");//msrp here
+	costFile.open("cost.txt");//cost here
+	qtyFile.open("qty.txt");//quantity here
+	typeFile.open("type.txt");//types here
 
 	while (countFile(serialFile)) //counts the number of lines
 		numOfLines++;
 
-	serialFile.clear();
-	serialFile.seekg(0);
+	serialFile.clear(); //clear error flags
+	serialFile.seekg(0);//move seeker to begining of file
 	titleFile.clear();
 	titleFile.seekg(0);
 	authorFile.clear();
@@ -46,7 +45,7 @@ inline baseClass::baseClass()
 	typeFile.clear();
 	typeFile.seekg(0);
 
-	for (int c = 0; c < numOfLines; c++)
+	for (int c = 0; c < numOfLines; c++) //copy file contents to variables array
 	{
 		serialFile >> baseClass::serial[c];
 
@@ -73,7 +72,9 @@ inline baseClass::~baseClass()
 {
 }
 
-inline void baseClass::setTitle(string x, int c)
+
+//sets
+inline void baseClass::setTitle(string x, int c) //MAKE SURE TO ALWAYS PUT THE SERIAL NUMBER!!!!
 {
 	title[c] = x;
 }
@@ -111,6 +112,8 @@ inline void baseClass::setType(string x, int c)
 	type[c] = x;
 }
 
+
+//gets
 inline string baseClass::getType(int c)
 {
 	return type[c];
@@ -149,7 +152,7 @@ inline int baseClass::getSerial(int c)
 	return serial[c];
 }
 
-inline int baseClass::getSizeLine()
+inline int baseClass::getSizeLine() //returns size of file
 {
 	return numOfLines;
 }
