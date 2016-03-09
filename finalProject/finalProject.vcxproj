@@ -93,6 +93,7 @@
   <ItemGroup>
     <Text Include="author.txt" />
     <Text Include="cost.txt" />
+    <Text Include="date.txt" />
     <Text Include="isbn.txt" />
     <Text Include="msrp.txt" />
     <Text Include="pub.txt" />
