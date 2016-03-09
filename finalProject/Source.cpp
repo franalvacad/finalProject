@@ -2,7 +2,7 @@
 #include <fstream>
 #include <string>
 #include <cstring>
-#include "baseClass.cpp";
+#include "baseClass.cpp"
 using namespace std;
 
 
@@ -16,12 +16,14 @@ bool countFile(fstream &inFile, string &asdf)
 int main()
 {
 	fstream serial, title, author, pub, isbn, msrp, cost, qty, type;
-	int numOfLines = 0;
+	int numOfLines = 0, pointLoc = 0;
 	string holder;
 
-	string titleHold, publisherHold, authorHold, isbnHold, typeHold;
-	double costHold, msrpHold;
-	int qtyHold, serialHold, yearHold;
+	string titleData[1000], publisherData[1000], authorData[1000], isbnData[1000], typeData[1000];
+	double costData[1000], msrpData[1000];
+	int qtyData[1000], serialData[1000];
+
+	baseClass mains[1000];
 	
 	serial.open("serial.txt"); //master file
 	title.open("title.txt");
@@ -35,10 +37,6 @@ int main()
 
 	while (countFile(serial, holder)) //counts the number of lines
 		numOfLines++;
-
-	cout << numOfLines;
-
-	baseClass *all = new baseClass[numOfLines]; //array with everything basically
 
 	serial.clear();
 	serial.seekg(0);
@@ -61,36 +59,39 @@ int main()
 
 	for (int c = 0; c < lineNumb; c++)
 	{
-		serial >> serialHold;
-		(all + c)->setSerial(serialHold);
+		serial >> serialData[c];
+		mains[c].setSerial(serialData[c]);
 		
-		title >> titleHold;
-		(all + c)->setTitle(titleHold);
+		getline(title, titleData[c]);
+		mains[c].setTitle(titleData[c]);
 
-		author >> authorHold;
-		(all + c)->setAuthor(authorHold);
-		
-		pub >> publisherHold;
-		(all + c)->setPublisher(publisherHold);
+		getline(author, authorData[c]);
+		mains[c].setAuthor(authorData[c]);
 
-		isbn >> isbnHold;
-		(all + c)->setISBN(isbnHold);
+		getline(pub, publisherData[c]);
+		mains[c].setPublisher(publisherData[c]);
 
-		msrp >> msrpHold;
-		(all + c)->setMSRP(msrpHold);
+		getline(isbn, isbnData[c]);
+		mains[c].setISBN(isbnData[c]);
 
-		cost >> costHold;
-		(all + c)->setCost(costHold);
+		msrp >> msrpData[c];
+		mains[c].setMSRP(msrpData[c]);
 
-		qty >> qtyHold;
-		(all + c)->setQty(qtyHold);
+		cost >> costData[c];
+		mains[c].setCost(costData[c]);
 
-		type >> typeHold;
-		(all + c)->setType(typeHold);
+		qty >> qtyData[c];
+		mains[c].setQty(qtyData[c]);
+
+		getline(type, typeData[c]);
+		mains[c].setType(typeData[c]);
 	}
 
-
-	cout << (all + 1)->getPublisher;
+	for (int i = 0; i < numOfLines; i++)
+	{
+		cout << mains[i].getSerial() << " " << mains[i].getTitle() << " " << mains[i].getAuthor() << " " << mains[i].getMSRP() << " " << mains[i].getCost() << " " << mains[i].getISBN() << " " << mains[i].getPublisher() << " " << mains[i].getType() << " " << mains[i].getQty() << endl;
+	}
+	cout << endl;
 
 	system("pause>nul");
 	return 0;
