@@ -1,7 +1,9 @@
 #include <iostream>
+#include <string>
 #include "baseClass.cpp"
-using namespace std;
+#include "Cashier.h"
 
+using namespace std;
 
 int main()
 {
@@ -10,9 +12,14 @@ int main()
 	
 	for (int c = 0; c < size; c++)
 	{
-		cout << mains.getSerial(c) << endl;
+		cout << mains.getTitle(c) << endl;
 	}
 
-	system("pause>nul");
+	cout << "\t\tWhat book would you like to purchase?" << endl;
+	cin >> 
+
+
+
+
 	return 0;
 }

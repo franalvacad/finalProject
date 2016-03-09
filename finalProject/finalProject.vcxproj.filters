@@ -27,7 +27,7 @@
     <ClCompile Include="displayClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source1.cpp">
+    <ClCompile Include="Cashier.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
