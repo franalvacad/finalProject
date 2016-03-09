@@ -1,19 +1,21 @@
-#include "baseClass.h"
+#include "baseClass.cpp"
 #include "iostream"
 #include "string"
 using namespace std;
-class display : public baseClass{
+
+class display : public baseClass
+{
 private:
 	string tempstr;
 	string outstr;
+	
 public:
 	display();
 
 //	accsessors afsdadg
-	inline string Getlist();
+	inline void Getlist();
 	inline string GetWholelist();
 	inline string GetRetaillist();
 	inline string GetQTYlist();
-
 
 };
