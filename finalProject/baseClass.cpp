@@ -53,6 +53,11 @@ inline void baseClass::setType(string x)
 	type = x;
 }
 
+inline string baseClass::getType()
+{
+	return type;
+}
+
 inline string baseClass::getTitle()
 {
 	return title;

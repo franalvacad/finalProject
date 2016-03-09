@@ -16,12 +16,14 @@ bool countFile(fstream &inFile, string &asdf)
 int main()
 {
 	fstream serial, title, author, pub, isbn, msrp, cost, qty, type;
-	int numOfLines = 0;
+	int numOfLines = 0, pointLoc = 0;
 	string holder;
 
-	string titleHold, publisherHold, authorHold, isbnHold, typeHold;
-	double costHold, msrpHold;
-	int qtyHold, serialHold;
+	string titleData[1000], publisherData[1000], authorData[1000], isbnData[1000], typeData[1000];
+	double costData[1000], msrpData[1000];
+	int qtyData[1000], serialData[1000];
+
+	baseClass mains[1000];
 	
 	serial.open("serial.txt"); //master file
 	title.open("title.txt");
@@ -36,10 +38,6 @@ int main()
 	while (countFile(serial, holder)) //counts the number of lines
 		numOfLines++;
 
-	baseClass * classPtr;
-	classPtr = new baseClass[numOfLines];
-	
-	
 	serial.clear();
 	serial.seekg(0);
 	title.clear();
@@ -58,40 +56,41 @@ int main()
 	qty.seekg(0);
 	type.clear();
 	type.seekg(0);
-	
-	// Insert data into object array
+
 	for (int c = 0; c < numOfLines; c++)
 	{
-		serial >> serialHold;
-		(classPtr + c)->setSerial(serialHold);
+		serial >> serialData[c];
+		mains[c].setSerial(serialData[c]);
+		
+		getline(title, titleData[c]);
+		mains[c].setTitle(titleData[c]);
 
-		getline(title, titleHold);
-		(classPtr + c)->setTitle(titleHold);
+		getline(author, authorData[c]);
+		mains[c].setAuthor(authorData[c]);
 
-		getline(author, authorHold);
-		(classPtr + c)->setAuthor(authorHold);
+		getline(pub, publisherData[c]);
+		mains[c].setPublisher(publisherData[c]);
 
-		getline(pub, publisherHold);
-		(classPtr + c)->setPublisher(publisherHold);
+		getline(isbn, isbnData[c]);
+		mains[c].setISBN(isbnData[c]);
 
-		getline(isbn, isbnHold);
-		(classPtr + c)->setISBN(isbnHold);
+		msrp >> msrpData[c];
+		mains[c].setMSRP(msrpData[c]);
 
-		msrp >> msrpHold;
-		(classPtr + c)->setMSRP(msrpHold);
+		cost >> costData[c];
+		mains[c].setCost(costData[c]);
 
-		cost >> costHold;
-		(classPtr + c)->setCost(costHold);
+		qty >> qtyData[c];
+		mains[c].setQty(qtyData[c]);
 
-		qty >> qtyHold;
-		(classPtr + c)->setQty(qtyHold);
-
-		type >> typeHold;
-		(classPtr + c)->setType(typeHold);
+		getline(type, typeData[c]);
+		mains[c].setType(typeData[c]);
 	}
 
-
-	
+	for (int i = 0; i < numOfLines; i++)
+	{
+		cout << mains[i].getSerial() << " " << mains[i].getTitle() << " " << mains[i].getAuthor() << " " << mains[i].getMSRP() << " " << mains[i].getCost() << " " << mains[i].getISBN() << " " << mains[i].getPublisher() << " " << mains[i].getType() << " " << mains[i].getQty() << endl;
+	}
 	cout << endl;
 
 	system("pause>nul");

@@ -1,18 +1,13 @@
-Class Cashier
+// Casher Class Specification
 
+#include "baseClass.h"
+
+class Cashier: public baseClass
 {
 private:
-	    salesTaxRate;
-		booksPurchased;
-		totalPrice;
-		serial
-		title;
-		author;
-		pub;
-		isbn;
-		msrp;
-		cost;
-		qty;
-		type;
-public:
+	const double salesTaxRate=0.0825;
+	int	booksPurchased;
+	double totalPrice;
+
 };
+
