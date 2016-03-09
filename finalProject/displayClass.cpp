@@ -57,24 +57,59 @@ inline string display::GetRetaillist()
 	return outstr;
 }
 
-//int max = 0; // depeds from list (qty,cost,age) sort displaylistis
-//bool *chk = new bool[linenum];
-//for(int i = 0; i < lnenum; i++){
-//	for (int j = 0; j < lnenum; j++){
-//		if (max = < qty[j] && chk[j] == false){
-//			max = j;
-//			chk[j] = true;
-//			cout << "(T__T)";
-//			max = 0;
-//
-//		}
-//	}
-//}
 
 inline string display::GetQTYlist()
 {
+	int max = 0; // depeds from list (qty,cost,age) sort displaylistis
+	int x = baseClass::getSizeLine();
+	bool *chk = new bool[x];
 
+	for (int i = 0; i < x; i++){
+		for (int j = 0; j < x; j++){
+			if (max <= baseClass::getQty(j) && chk[j] == false){
+				max = j;
+				chk[j] = true;
+				cout << "(T__T)";
+				max = 0;
 
-	return outstr;
+			}
+		}
+	}
 }
 
+inline string display::GetQTYlist()
+{
+	int max = 0; // depeds from list (qty,cost,age) sort displaylistis
+	int x = baseClass::getSizeLine();
+	bool *chk = new bool[x];
+
+	for (int i = 0; i < x; i++){
+		for (int j = 0; j < x; j++){
+			if (max <= baseClass::getQty(j) && chk[j] == false){
+				max = j;
+				chk[j] = true;
+				cout << "(T__T)";
+				max = 0;
+
+			}
+		}
+	}
+}
+inline string display::GetQTYlist()
+{
+	int max = 0; // depeds from list (qty,cost,age) sort displaylistis
+	int x = baseClass::getSizeLine();
+	bool *chk = new bool[x];
+
+	for (int i = 0; i < x; i++){
+		for (int j = 0; j < x; j++){
+			if (max <= baseClass::getQty(j) && chk[j] == false){
+				max = j;
+				chk[j] = true;
+				cout << "(T__T)";
+				max = 0;
+
+			}
+		}
+	}
+}
