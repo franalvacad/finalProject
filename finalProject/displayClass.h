@@ -17,5 +17,5 @@ public:
 	string getWholelist();
 	string getRetaillist();
 	string getQTYlist();
-
+	string getCostlist();
 };
