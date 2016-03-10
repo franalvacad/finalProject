@@ -1,4 +1,5 @@
 #include"displayClass.h"
+#include "Date.h"
 using namespace std;
 //string and iostream were included already in the baseClass <---------
 
@@ -59,60 +60,76 @@ string display::getRetaillist()
 	return outstr;
 }
 
-
-string display::getQTYlist()
+void display::getQTYlist()
 {
+	int j = 0;
 	int max = 0; // depeds from list (qty,cost,age) sort displaylistis
+	int maxpos = 0;
 	int x = baseClass::getSizeLine();
 	bool *chk = new bool[x];
 
 	for (int i = 0; i < x; i++){
-		for (int j = 0; j < x; j++){
+		for (j = 0; j < x; j++){
 			if (max <= baseClass::getQty(j) && chk[j] == false){
-				max = j;
-				chk[j] = true;
-				cout << "(T__T)";
-				max = 0;
-
+				max = getQty(j);
+				maxpos = j;
 			}
 		}
+			chk[j] = true;
+			cout << "(T__T)";
+			max = 0;
+			j = 0;
+
 	}
-	return "test";
+	//return "test";
 }
 
-string display::getCostlist()
+void display::getCostlist()
 {
+	int j = 0;
 	int max = 0; // depeds from list (qty,cost,age) sort displaylistis
+	int maxpos = 0;
 	int x = baseClass::getSizeLine();
 	bool *chk = new bool[x];
 
 	for (int i = 0; i < x; i++){
-		for (int j = 0; j < x; j++){
-			if (max <= baseClass::getQty(j) && chk[j] == false){
-				max = j;
-				chk[j] = true;
-				cout << "(T__T)";
-				max = 0;
-
+		for (j = 0; j < x; j++){
+			if (max <= baseClass::getCost(j) && chk[j] == false){
+				max = getCost(j);
+				maxpos = j;
 			}
 		}
+
+		chk[j] = true;
+		cout << "(T__T)";
+		max = 0;
+		j = 0;
 	}
 }
-string display::getQTYlist()
+void display::getAgelist()
 {
-	int max = 0; // depeds from list (qty,cost,age) sort displaylistis
+	int j = 0;
+	int  maxy = 0; // depeds from list (qty,cost,age) sort displaylistis
+	int  maxm = 0;
+	int  maxd = 0;
+	int maxpos = 0;
 	int x = baseClass::getSizeLine();
 	bool *chk = new bool[x];
 
 	for (int i = 0; i < x; i++){
-		for (int j = 0; j < x; j++){
-			if (max <= baseClass::getQty(j) && chk[j] == false){
-				max = j;
-				chk[j] = true;
-				cout << "(T__T)";
-				max = 0;
+		for ( j = 0; j < x; j++){
+			if (maxy <= newDate[j].getYear() && maxm <= newDate[j].getMonth() && maxd <= newDate[j].getDay() && chk[j] == false){
+				maxy = newDate[j].getYear();
+				maxm = newDate[j].getMonth();
+				maxd <= newDate[j].getDay();
+				maxpos = j;
 
 			}
 		}
+		chk[j] = true;
+		cout << "(T__T)";
+		maxy = 0;
+		maxm = 0;
+		maxd = 0;	
 	}
 }
