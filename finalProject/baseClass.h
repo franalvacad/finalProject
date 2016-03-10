@@ -10,34 +10,36 @@ class baseClass
 {
 private:
 	string title[SIZE], publisher[SIZE], author[SIZE], isbn[SIZE], type[SIZE];
+	fstream serialFile, titleFile, authorFile, pubFile, isbnFile, msrpFile, costFile, qtyFile, typeFile; //make file variables
 	double cost[SIZE], msrp[SIZE];
 	int qty[SIZE], serial[SIZE], numOfLines = 0;
 public:
-	inline baseClass();
-	inline ~baseClass();
+	baseClass();
 
-	inline bool countFile(fstream&);
+	~baseClass();
 
-	inline void setTitle(string x, int c);
-	inline void setPublisher(string x, int c);
-	inline void setAuthor(string x, int c);
-	inline void setISBN(string x, int c);
-	inline void setCost(double x, int c);
-	inline void setMSRP(double x, int c);
-	inline void setQty(int x, int c);
-	inline void setSerial(int x, int c);
-	inline void setType(string x, int c);
+	bool countFile(fstream&);
 
-	inline string getTitle(int c);
-	inline string getAuthor(int c);
-	inline string getISBN(int c);
-	inline double getCost(int c);
-	inline double getMSRP(int c);
-	inline int getQty(int c);
-	inline int getSerial(int c);
-	inline string getType(int c);
-	inline string getPublisher(int c);
-	inline int getSizeLine();
+	void setTitle(string x, int c);
+	void setPublisher(string x, int c);
+	void setAuthor(string x, int c);
+	void setISBN(string x, int c);
+	void setCost(double x, int c);
+	void setMSRP(double x, int c);
+	void setQty(int x, int c);
+	void setSerial(int x, int c);
+	void setType(string x, int c);
+
+	string getTitle(int c);
+	string getAuthor(int c);
+	string getISBN(int c);
+	double getCost(int c);
+	double getMSRP(int c);
+	int getQty(int c);
+	int getSerial(int c);
+	string getType(int c);
+	string getPublisher(int c);
+	int getSizeLine();
 
 };
 
