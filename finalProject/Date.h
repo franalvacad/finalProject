@@ -19,13 +19,16 @@ public:
 	void setDay(int);
 	void setMonth(int);
 	void setYear(int);
-	void importDate(std::fstream&);
 
 	// Accesors
 	int getDay() const;
 	int getMonth() const;
 	int getYear() const;
 	std::string getDate() const;
+
+	// Friend Operator Overloaders
+	friend std::fstream& operator>>(std::fstream& in, Date& d);
+	friend std::ostream& operator<<(std::ostream& out, Date& d);
 };
 
 
