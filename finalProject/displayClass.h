@@ -14,7 +14,7 @@ public:
 	display();
 
 //	accsessors afsdadg
-	string getList();
+	void getList();
 	string getWholelist();
 	string getRetaillist();
 	void getQTYlist();
