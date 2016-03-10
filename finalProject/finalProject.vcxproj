@@ -81,7 +81,6 @@
     <ClCompile Include="baseClass.cpp" />
     <ClCompile Include="displayClass.cpp" />
     <ClCompile Include="Source.cpp" />
-    <ClCompile Include="Source1.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="baseClass.h" />
