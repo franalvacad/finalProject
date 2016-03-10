@@ -1,31 +1,39 @@
+//Base Class Implementation
+
 #include "baseClass.h"
+#include <fstream>
+#include <string>
+#include <sstream>
+#include <iostream>
 using namespace std;
 
-//counts lines. can also be used to see if file works
 bool baseClass::countFile(fstream &inFile)
 {
 	string x;
 	return (bool)(inFile>>x);
 }
 
-//constructors
 baseClass::baseClass()
 {
-	baseClass::serialFile.open("serial.txt"); //master file
-	baseClass::titleFile.open("title.txt");//titles here
-	baseClass::authorFile.open("author.txt");//authors here
-	baseClass::pubFile.open("pub.txt");//publishers here
-	baseClass::isbnFile.open("isbn.txt");//isbn here
-	baseClass::msrpFile.open("msrp.txt");//msrp here
-	baseClass::costFile.open("cost.txt");//cost here
-	baseClass::qtyFile.open("qty.txt");//quantity here
-	baseClass::typeFile.open("type.txt");//types here
+	fstream serialFile, titleFile, authorFile, pubFile, isbnFile, msrpFile, costFile, qtyFile, typeFile, dateFile;
+	string holder;
+
+	serialFile.open("serial.txt"); //master file
+	titleFile.open("title.txt");
+	authorFile.open("author.txt");
+	pubFile.open("pub.txt");
+	isbnFile.open("isbn.txt");
+	msrpFile.open("msrp.txt");
+	costFile.open("cost.txt");
+	qtyFile.open("qty.txt");
+	typeFile.open("type.txt");
+	dateFile.open("date.txt");
 
 	while (countFile(serialFile)) //counts the number of lines
 		numOfLines++;
 
-	serialFile.clear(); //clear error flags
-	serialFile.seekg(0);//move seeker to begining of file
+	serialFile.clear();
+	serialFile.seekg(0);
 	titleFile.clear();
 	titleFile.seekg(0);
 	authorFile.clear();
@@ -42,26 +50,30 @@ baseClass::baseClass()
 	qtyFile.seekg(0);
 	typeFile.clear();
 	typeFile.seekg(0);
+	dateFile.clear();
+	dateFile.seekg(0);
 
-	for (int c = 0; c < numOfLines; c++) //copy file contents to variables array
+	for (int c = 0; c < numOfLines; c++)
 	{
-		serialFile >> baseClass::serial[c];
+		serialFile >> this->serial[c];
 
-		getline(titleFile, baseClass::title[c]);
+		getline(titleFile, this->title[c]);
 
-		getline(authorFile, baseClass::author[c]);
+		getline(authorFile, this->author[c]);
 
-		getline(pubFile, baseClass::publisher[c]);
+		getline(pubFile, this->publisher[c]);
 
-		getline(isbnFile, baseClass::isbn[c]);
+		getline(isbnFile, this->isbn[c]);
 
-		msrpFile >> baseClass::msrp[c];
+		msrpFile >> this->msrp[c];
 
-		costFile >> baseClass::cost[c];
+		costFile >> this->cost[c];
 
-		qtyFile >> baseClass::qty[c];
+		qtyFile >> this->qty[c];
 
-		getline(typeFile, baseClass::type[c]);
+		getline(typeFile, this->type[c]);
+
+		dateFile >> newDate[c];
 	}
 }
 
@@ -70,9 +82,7 @@ baseClass::~baseClass()
 {
 }
 
-
-//sets
-void baseClass::setTitle(string x, int c) //MAKE SURE TO ALWAYS PUT THE SERIAL NUMBER!!!!
+void baseClass::setTitle(string x, int c)
 {
 	title[c] = x;
 }
@@ -110,8 +120,6 @@ void baseClass::setType(string x, int c)
 	type[c] = x;
 }
 
-
-//gets
 string baseClass::getType(int c)
 {
 	return type[c];
@@ -150,7 +158,12 @@ int baseClass::getSerial(int c)
 	return serial[c];
 }
 
-int baseClass::getSizeLine() //returns size of file
+string baseClass::getDate(int c)
+{
+	return newDate[c].getDate();
+}
+
+int baseClass::getSizeLine()
 {
 	return numOfLines;
 }

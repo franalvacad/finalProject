@@ -1,4 +1,7 @@
-#pragma once
+#ifndef BASECLASS_H
+#define BASECLASS_H
+
+#include "Date.h"
 #include <string>
 #include <fstream>
 
@@ -13,9 +16,9 @@ private:
 	fstream serialFile, titleFile, authorFile, pubFile, isbnFile, msrpFile, costFile, qtyFile, typeFile; //make file variables
 	double cost[SIZE], msrp[SIZE];
 	int qty[SIZE], serial[SIZE], numOfLines = 0;
+	Date newDate[SIZE];
 public:
 	baseClass();
-
 	~baseClass();
 
 	bool countFile(fstream&);
@@ -39,7 +42,10 @@ public:
 	int getSerial(int c);
 	string getType(int c);
 	string getPublisher(int c);
+	string getDate(int c);
 	int getSizeLine();
+
 
 };
 
+#endif
