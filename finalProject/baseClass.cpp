@@ -73,16 +73,7 @@ baseClass::baseClass()
 
 		getline(typeFile, this->type[c]);
 
-		stringstream iss;
-		string line;
-
-		while (getline(dateFile, line))
-		{
-			iss << line;
-			newDate[c].importDate(iss);
-
-		}
-
+		newDate[c].importDate(dateFile);
 	}
 }
 

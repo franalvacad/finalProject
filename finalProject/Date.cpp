@@ -1,10 +1,7 @@
 // Date Class Implementation
 
 #include "Date.h"
-#include <string>
-#include <fstream>
 #include <sstream>
-#include <iostream>
 
 using namespace std;
 
@@ -39,19 +36,24 @@ void Date::setYear(int x)
 	year = x;
 }
 
-void Date::importDate(stringstream &iss)
+void Date::importDate(fstream& dateFile)
 {
-	int token;
+	int dayPart,			// Placeholder for parts of date
+		dateArray[3];		// Holds parts of date
+	int x = 0;				// Steps through dateArray
 
-	int i = 0;
+	stringstream iss;		// Placeholder for getline data
+	string line;
 
-	// Import date into array
-	while (iss >> token)
+	// Insert line into iss
+	getline(dateFile, line);
+	iss << line;
+
+	// Extract iss for date into array
+	while (iss >> dayPart)
 	{
-		cout << token << endl;
-		dateArray[i++] = token;
+		dateArray[x++] = dayPart;
 	}
-
 
 	// Import dateArray into date variables
 	for (int i = 0; i < 3; i++)
@@ -59,15 +61,13 @@ void Date::importDate(stringstream &iss)
 		if (i == 0)
 			day = dateArray[i];
 		else if (i == 1)
-			day = dateArray[i];
+			month = dateArray[i];
 		else
-			day = dateArray[i];
+			year = dateArray[i];
 	}
-
 }
 
 // Accesors
-
 int Date::getDay() const
 {
 	return day;
