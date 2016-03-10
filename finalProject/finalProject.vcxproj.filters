@@ -27,6 +27,15 @@
     <ClCompile Include="displayClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Cashier.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Date.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="inventory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="baseClass.h">
@@ -38,16 +47,43 @@
     <ClInclude Include="Cashier.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Date.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inventory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="author.txt" />
-    <Text Include="cost.txt" />
-    <Text Include="isbn.txt" />
-    <Text Include="msrp.txt" />
-    <Text Include="pub.txt" />
-    <Text Include="qty.txt" />
-    <Text Include="serial.txt" />
-    <Text Include="title.txt" />
-    <Text Include="type.txt" />
+    <Text Include="author.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="cost.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="isbn.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="msrp.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="pub.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="qty.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="serial.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="title.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="type.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="date.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

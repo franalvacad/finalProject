@@ -10,10 +10,10 @@ public:
 	display();
 
 //	accsessors afsdadg
-	inline void Getlist();
-	inline string GetWholelist();
-	inline string GetRetaillist();
-	inline string GetQTYlist();
+	string Getlist();
+	string GetWholelist();
+	string GetRetaillist();
+	string GetQTYlist();
 
 
 };

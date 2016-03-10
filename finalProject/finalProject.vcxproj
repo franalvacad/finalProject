@@ -79,17 +79,23 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="baseClass.cpp" />
+    <ClCompile Include="Cashier.cpp" />
+    <ClCompile Include="Date.cpp" />
     <ClCompile Include="displayClass.cpp" />
+    <ClCompile Include="inventory.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="baseClass.h" />
     <ClInclude Include="Cashier.h" />
+    <ClInclude Include="Date.h" />
     <ClInclude Include="displayClass.h" />
+    <ClInclude Include="inventory.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="author.txt" />
     <Text Include="cost.txt" />
+    <Text Include="date.txt" />
     <Text Include="isbn.txt" />
     <Text Include="msrp.txt" />
     <Text Include="pub.txt" />
