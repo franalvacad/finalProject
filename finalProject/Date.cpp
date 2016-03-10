@@ -58,11 +58,6 @@ string Date::getDate() const
 	return to_string(day) + "-" + to_string(month) + "-" + to_string(year);
 }
 
-string Date::getComputerDate() const
-{
-	
-}
-
 // Operator >> overloader for inserting date
 fstream& operator>>(fstream& in, Date& d)
 {

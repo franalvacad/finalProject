@@ -73,7 +73,7 @@ baseClass::baseClass()
 
 		getline(typeFile, this->type[c]);
 
-		dateFile >> dateAdded[c];
+		dateFile >> newDate[c];
 	}
 }
 
