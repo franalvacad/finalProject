@@ -2,12 +2,11 @@
 using namespace std;
 //string and iostream were included already in the baseClass <---------
 
-inline display::display()
+display::display()
 {
-
 }
 
-inline string display::getList()
+string display::getList()
 {// this is not final function, we have to change it a lot
 
 	int size = baseClass::getSizeLine(); //here, use the official one :D <--------
@@ -25,7 +24,7 @@ inline string display::getList()
 }
 
 
-inline string display::getWholelist() //changed variables to match c++ grammar rules <---------
+string display::getWholelist() //changed variables to match c++ grammar rules <---------
 {// this is not final function, we have to change it a lot
 	double totPrice = 0;
 	int size = 25; //testing purposes
@@ -43,7 +42,7 @@ inline string display::getWholelist() //changed variables to match c++ grammar r
 }
 
 
-inline string display::getRetaillist()
+string display::getRetaillist()
 {// this is not final function, we have to change it a lot
 	double totPrice = 0;
 	int size = 25; //testing purposes
@@ -61,7 +60,7 @@ inline string display::getRetaillist()
 }
 
 
-inline string display::getQTYlist()
+string display::getQTYlist()
 {
 	int max = 0; // depeds from list (qty,cost,age) sort displaylistis
 	int x = baseClass::getSizeLine();
@@ -78,9 +77,10 @@ inline string display::getQTYlist()
 			}
 		}
 	}
+	return "test";
 }
 
-//inline string display::getQTYlist()
+//string display::getQTYlist()
 //{
 //	int max = 0; // depeds from list (qty,cost,age) sort displaylistis
 //	int x = baseClass::getSizeLine();
@@ -98,7 +98,7 @@ inline string display::getQTYlist()
 //		}
 //	}
 //}
-//inline string display::getQTYlist()
+//string display::getQTYlist()
 //{
 //	int max = 0; // depeds from list (qty,cost,age) sort displaylistis
 //	int x = baseClass::getSizeLine();
