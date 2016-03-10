@@ -2,24 +2,24 @@
 using namespace std;
 
 //counts lines. can also be used to see if file works
-inline bool baseClass::countFile(fstream &inFile)
+bool baseClass::countFile(fstream &inFile)
 {
 	string x;
 	return (bool)(inFile>>x);
 }
 
 //constructors
-inline baseClass::baseClass()
+baseClass::baseClass()
 {
-	serialFile.open("serial.txt"); //master file
-	titleFile.open("title.txt");//titles here
-	authorFile.open("author.txt");//authors here
-	pubFile.open("pub.txt");//publishers here
-	isbnFile.open("isbn.txt");//isbn here
-	msrpFile.open("msrp.txt");//msrp here
-	costFile.open("cost.txt");//cost here
-	qtyFile.open("qty.txt");//quantity here
-	typeFile.open("type.txt");//types here
+	baseClass::serialFile.open("serial.txt"); //master file
+	baseClass::titleFile.open("title.txt");//titles here
+	baseClass::authorFile.open("author.txt");//authors here
+	baseClass::pubFile.open("pub.txt");//publishers here
+	baseClass::isbnFile.open("isbn.txt");//isbn here
+	baseClass::msrpFile.open("msrp.txt");//msrp here
+	baseClass::costFile.open("cost.txt");//cost here
+	baseClass::qtyFile.open("qty.txt");//quantity here
+	baseClass::typeFile.open("type.txt");//types here
 
 	while (countFile(serialFile)) //counts the number of lines
 		numOfLines++;
@@ -66,91 +66,91 @@ inline baseClass::baseClass()
 }
 
 
-inline baseClass::~baseClass()
+baseClass::~baseClass()
 {
 }
 
 
 //sets
-inline void baseClass::setTitle(string x, int c) //MAKE SURE TO ALWAYS PUT THE SERIAL NUMBER!!!!
+void baseClass::setTitle(string x, int c) //MAKE SURE TO ALWAYS PUT THE SERIAL NUMBER!!!!
 {
 	title[c] = x;
 }
-inline void baseClass::setPublisher(string x, int c)
+void baseClass::setPublisher(string x, int c)
 {
 	publisher[c] = x;
 }
-inline void baseClass::setAuthor(string x, int c)
+void baseClass::setAuthor(string x, int c)
 {
 	author[c] = x;
 }
-inline void baseClass::setISBN(string x, int c)
+void baseClass::setISBN(string x, int c)
 {
 	isbn[c] = x;
 }
-inline void baseClass::setCost(double x, int c)
+void baseClass::setCost(double x, int c)
 {
 	cost[c] = x;
 }
-inline void baseClass::setMSRP(double x, int c)
+void baseClass::setMSRP(double x, int c)
 {
 	msrp[c] = x;
 }
-inline void baseClass::setQty(int x, int c)
+void baseClass::setQty(int x, int c)
 {
 	qty[c] = x;;
 }
-inline void baseClass::setSerial(int x, int c)
+void baseClass::setSerial(int x, int c)
 {
 	serial[c] = x;
 }
 
-inline void baseClass::setType(string x, int c)
+void baseClass::setType(string x, int c)
 {
 	type[c] = x;
 }
 
 
 //gets
-inline string baseClass::getType(int c)
+string baseClass::getType(int c)
 {
 	return type[c];
 }
 
-inline string baseClass::getTitle(int c)
+string baseClass::getTitle(int c)
 {
 	return title[c];
 }
-inline string baseClass::getPublisher(int c)
+string baseClass::getPublisher(int c)
 {
 	return publisher[c];
 }
-inline string baseClass::getAuthor(int c)
+string baseClass::getAuthor(int c)
 {
 	return author[c];
 }
-inline string baseClass::getISBN(int c)
+string baseClass::getISBN(int c)
 {
 	return isbn[c];
 }
-inline double baseClass::getCost(int c)
+double baseClass::getCost(int c)
 {
 	return cost[c];
 }
-inline double baseClass::getMSRP(int c)
+double baseClass::getMSRP(int c)
 {
 	return msrp[c];
 }
-inline int baseClass::getQty(int c)
+int baseClass::getQty(int c)
 {
 	return qty[c];
 }
-inline int baseClass::getSerial(int c)
+int baseClass::getSerial(int c)
 {
 	return serial[c];
 }
 
-inline int baseClass::getSizeLine() //returns size of file
+int baseClass::getSizeLine() //returns size of file
 {
 	return numOfLines;
 }

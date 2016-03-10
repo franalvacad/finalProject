@@ -1,4 +1,4 @@
-#include "baseClass.cpp"
+#include "baseClass.h"
 #include "iostream"
 #include "string"
 using namespace std;
@@ -13,9 +13,9 @@ public:
 	display();
 
 //	accsessors afsdadg
-	inline string getList();
-	inline string getWholelist();
-	inline string getRetaillist();
-	inline string getQTYlist();
+	string getList();
+	string getWholelist();
+	string getRetaillist();
+	string getQTYlist();
 
 };

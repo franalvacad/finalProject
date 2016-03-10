@@ -1,5 +1,5 @@
 // Casher Class Specification
-
+#pragma once
 #include "baseClass.h"
 
 class Cashier: public baseClass
