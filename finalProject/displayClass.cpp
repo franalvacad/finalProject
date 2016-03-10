@@ -3,13 +3,13 @@
 #include <iostream>
 using namespace std;
 
-
+/*
 inline void display::Getlist()
 {
 
 
-		cout << getSerial() << " " << getTitle() << " " << getPublisher() << " " << getAuthor() << " " << " " 
-			 << getISBN() << " " << getType() << " " << getCost(i) << " " << getMSRP(i) << " " << getQty(i) << endl;
+		//cout << getSerial() << " " << getTitle() << " " << getPublisher() << " " << getAuthor() << " " << " " 
+			 //<< getISBN() << " " << getType() << " " << getCost(i) << " " << getMSRP(i) << " " << getQty(i) << endl;
 
 
 }
@@ -70,3 +70,4 @@ inline string display::GetQTYlist()
 	return outstr;
 }
 
+*/
