@@ -3,11 +3,13 @@
 #include "baseClass.h"
 #include "Cashier.h"
 #include "Date.h"
+#include "displayClass.h"
 
 using namespace std;
 
 int main()
 {
+	string h;
 	baseClass mains;
 	int size = mains.getSizeLine();
 	
@@ -19,7 +21,6 @@ int main()
 			<< endl;
 	}
 
-	
 
 	//cout << "\t\tWhat book would you like to purchase?" << endl;
 	//cin >> 

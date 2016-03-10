@@ -6,5 +6,9 @@ class inventory :
 public:
 	inventory();
 	~inventory();
+
+	int binSearch(inventory, int);
+	int modify;
+	int add;
 };
 

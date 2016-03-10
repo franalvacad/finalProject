@@ -3,8 +3,12 @@
 #include <iostream>
 using namespace std;
 
+display::display()
+{
 
-inline string display::Getlist()
+}
+
+ string display::Getlist()
 {// this is not final function, we have to change it a lot
 
 	int size = 25; //testing purposes
@@ -22,7 +26,7 @@ inline string display::Getlist()
 }
 
 
-inline string display::GetWholelist()
+ string display::GetWholelist()
 {// this is not final function, we have to change it a lot
 	double totPrice = 0;
 	int size = 25; //testing purposes
@@ -40,7 +44,7 @@ inline string display::GetWholelist()
 }
 
 
-inline string display::GetRetaillist()
+ string display::GetRetaillist()
 {// this is not final function, we have to change it a lot
 	double totPrice = 0;
 	int size = 25; //testing purposes
@@ -58,7 +62,7 @@ inline string display::GetRetaillist()
 }
 
 
-inline string display::GetQTYlist()
+ string display::GetQTYlist()
 {
 
 
