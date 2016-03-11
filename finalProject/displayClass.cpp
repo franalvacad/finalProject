@@ -118,10 +118,10 @@ void display::getAgelist()
 
 	for (int i = 0; i < x; i++){
 		for ( j = 0; j < x; j++){
-			if (maxy <= newDate[j].getYear() && maxm <= newDate[j].getMonth() && maxd <= newDate[j].getDay() && chk[j] == false){
-				maxy = newDate[j].getYear();
-				maxm = newDate[j].getMonth();
-				maxd <= newDate[j].getDay();
+			if (maxy <= dateAdded[j].getYear() && maxm <= dateAdded[j].getMonth() && maxd <= dateAdded[j].getDay() && chk[j] == false){
+				maxy = dateAdded[j].getYear();
+				maxm = dateAdded[j].getMonth();
+				maxd <= dateAdded[j].getDay();
 				maxpos = j;
 
 			}
