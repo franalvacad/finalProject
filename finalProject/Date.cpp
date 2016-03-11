@@ -60,7 +60,9 @@ string Date::getDate() const
 
 string Date::getComputerDate() const
 {
-	
+	time_t now = time(0);
+	tm *tPtr = localtime(&now);
+	return to_string(tPtr->tm_mday) + "-" + to_string(tPtr->tm_mon) + "-" + to_string(tPtr->tm_year);
 }
 
 // Operator >> overloader for inserting date

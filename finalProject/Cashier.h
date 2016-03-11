@@ -18,7 +18,7 @@ public:
 		price = price*(1.0 + salesTaxRate);
 	}
 
-	int subtractBooksPurchased
+	int subtract(BooksPurchased)
 	{
 		booksPurchased = booksPurchased - 1;
 	}
@@ -35,6 +35,7 @@ public:
 
 };
 
+/*
 //The code here is to add later
 cout << "Serendipity Book Sellers" << endl << endl;
 cout << "Date" << endl << endl;
@@ -47,3 +48,6 @@ cout << "          Subtotal " << price << endl;
 cout << "          Tax      " << (price*salesTaxRate) << endl;
 cout << "                   " << price*(1.0 + salesTaxRate) << endl < endl;
 cout << "Thank You for Shopping at Serendipity!"
+*/
+
+#endif
