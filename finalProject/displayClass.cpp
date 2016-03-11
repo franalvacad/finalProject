@@ -1,5 +1,5 @@
 #include"displayClass.h"
-#include <iomanip>
+#include "Date.h"
 using namespace std;
 //string and iostream were included already in the baseClass <---------
 
@@ -7,23 +7,21 @@ display::display()
 {
 }
 
-void display::getList()
-{
+string display::getList()
+{// this is not final function, we have to change it a lot
 
-	int size = 25; //testing purposes
+	int size = baseClass::getSizeLine(); //here, use the official one :D <--------
 
 
-	cout << setw(4) << "No." << setw(35) << "Title" << setw(35) << "Publisher" << setw(25) << "Author" << setw(15) << "ISBN" << setw(8) << "Cost ($)"
-		<< setw(8) << "MSRP ($)" << setw(5) << "Qty" << setw(10) << "Type" << endl;
-	cout << "---------------------------------------------------------------------------------------------------------------------" << endl;
-
+	//outstr = " sadf";
 	for (int i = 0; i < size - 1; i++) /* depends from base class (if size = 0 and then ++ : size ? size - 1) */
 	{
-		cout << setw(4) << baseClass::getSerial(i) << setw(35) << baseClass::getTitle(i) << setw(35) << baseClass::getPublisher(i) << setw(25) << baseClass::getAuthor(i) << setw(15) <<
-			baseClass::getISBN(i) << setw(8) << baseClass::getCost(i) << setw(8) << baseClass::getMSRP(i) << setw(5) << baseClass::getQty(i) << setw(10) << baseClass::getType(i) << endl;
+		tempstr = to_string(baseClass::getSerial(i)) + " " + baseClass::getTitle(i) + " " + baseClass::getPublisher(i) + " " + baseClass::getAuthor(i) + " " +
+			" " + baseClass::getISBN(i)/* + " " + to_string(baseClass::getCost(i)) + " " + to_string(baseClass::getMSRP(i)) */ + " " + to_string(baseClass::getQty(i)) + " " /*+ baseClass::getType(i)*/
+		  +  '\n';
 		outstr += tempstr;
 	}
-	//return outstr;
+	return outstr;
 }
 
 
@@ -62,60 +60,76 @@ string display::getRetaillist()
 	return outstr;
 }
 
-
-string display::getQTYlist()
+void display::getQTYlist()
 {
+	int j = 0;
 	int max = 0; // depeds from list (qty,cost,age) sort displaylistis
+	int maxpos = 0;
 	int x = baseClass::getSizeLine();
 	bool *chk = new bool[x];
 
 	for (int i = 0; i < x; i++){
-		for (int j = 0; j < x; j++){
+		for (j = 0; j < x; j++){
 			if (max <= baseClass::getQty(j) && chk[j] == false){
-				max = j;
-				chk[j] = true;
-				cout << "(T__T)";
-				max = 0;
-
+				max = getQty(j);
+				maxpos = j;
 			}
 		}
+			chk[j] = true;
+			cout << "(T__T)";
+			max = 0;
+			j = 0;
+
 	}
-	return "test";
+	//return "test";
 }
 
-string display::getCostlist()
+void display::getCostlist()
 {
+	int j = 0;
 	int max = 0; // depeds from list (qty,cost,age) sort displaylistis
+	int maxpos = 0;
 	int x = baseClass::getSizeLine();
 	bool *chk = new bool[x];
 
 	for (int i = 0; i < x; i++){
-		for (int j = 0; j < x; j++){
-			if (max <= baseClass::getQty(j) && chk[j] == false){
-				max = j;
-				chk[j] = true;
-				cout << "(T__T)";
-				max = 0;
-
+		for (j = 0; j < x; j++){
+			if (max <= baseClass::getCost(j) && chk[j] == false){
+				max = getCost(j);
+				maxpos = j;
 			}
 		}
+
+		chk[j] = true;
+		cout << "(T__T)";
+		max = 0;
+		j = 0;
 	}
 }
-string display::getQTYlist()
+void display::getAgelist()
 {
-	int max = 0; // depeds from list (qty,cost,age) sort displaylistis
+	int j = 0;
+	int  maxy = 0; // depeds from list (qty,cost,age) sort displaylistis
+	int  maxm = 0;
+	int  maxd = 0;
+	int maxpos = 0;
 	int x = baseClass::getSizeLine();
 	bool *chk = new bool[x];
 
 	for (int i = 0; i < x; i++){
-		for (int j = 0; j < x; j++){
-			if (max <= baseClass::getQty(j) && chk[j] == false){
-				max = j;
-				chk[j] = true;
-				cout << "(T__T)";
-				max = 0;
+		for ( j = 0; j < x; j++){
+			if (maxy <= newDate[j].getYear() && maxm <= newDate[j].getMonth() && maxd <= newDate[j].getDay() && chk[j] == false){
+				maxy = newDate[j].getYear();
+				maxm = newDate[j].getMonth();
+				maxd <= newDate[j].getDay();
+				maxpos = j;
 
 			}
 		}
+		chk[j] = true;
+		cout << "(T__T)";
+		maxy = 0;
+		maxm = 0;
+		maxd = 0;	
 	}
 }
