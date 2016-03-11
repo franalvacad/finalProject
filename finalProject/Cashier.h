@@ -1,6 +1,7 @@
 #ifndef CASHIER_H
 #define CASHIER_H
 #include "baseClass.h"
+#include "Date.h"
 
 class Cashier : public baseClass
 {
@@ -10,7 +11,6 @@ private:
 	double	totalPrice, Total;
 
 public:
-
 	Cashier();
 
 	double totalPrice(double price)
