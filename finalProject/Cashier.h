@@ -12,7 +12,7 @@ private:
 public:
 
 	Cashier();
-
+	
 	double totalPrice(double price)
 	{
 		price = price*(1.0 + salesTaxRate);
@@ -38,12 +38,11 @@ public:
 //The code here is to add later
 cout << "Serendipity Book Sellers" << endl << endl;
 cout << "Date" << endl << endl;
-cout << "Qty   ISBN          Title                  Price      Total" << endl;
+cout << "Qty     ISBN          Title                  Price      Total" << endl;
 ______________________________________________________________________________
-
-
+// while loop here to process the books bought
 cout << endl;
 cout << "          Subtotal " << price << endl;
 cout << "          Tax      " << (price*salesTaxRate) << endl;
-cout << "                   " << price*(1.0 + salesTaxRate) << endl < endl;
+cout << "                   " << price*(1.0 + salesTaxRate) << endl << endl;
 cout << "Thank You for Shopping at Serendipity!"
