@@ -18,7 +18,7 @@ public:
 		price = price*(1.0 + salesTaxRate);
 	}
 
-	int subtract(BooksPurchased)
+	int subtract(booksPurchased)
 	{
 		booksPurchased = booksPurchased - 1;
 	}

@@ -9,10 +9,9 @@ int main()
 	int size = test.getSizeLine(), srch;
 	string results;
 
-	//cout << "term: ";
 
-	Date newDate;
-	cout << newDate.getComputerDate();
+
+	//cout << "term: ";
 
 	results = test.getTitle(4);
 
