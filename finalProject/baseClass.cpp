@@ -160,7 +160,7 @@ int baseClass::getSerial(int c)
 
 string baseClass::getDate(int c)
 {
-	return newDate[c].getDate();
+	return dateAdded[c].getDate();
 }
 
 int baseClass::getSizeLine()

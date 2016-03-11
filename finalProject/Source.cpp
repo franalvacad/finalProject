@@ -11,6 +11,9 @@ int main()
 
 	//cout << "term: ";
 
+	Date newDate;
+	cout << newDate.getComputerDate();
+
 	results = test.getTitle(4);
 
 	test2.getList();
