@@ -9,15 +9,15 @@ using namespace std;
 
 const int SIZE = 1000;
 
-class baseClass : public Date
+class baseClass
 {
 private:
 	string title[SIZE], publisher[SIZE], author[SIZE], isbn[SIZE], type[SIZE];
 	fstream serialFile, titleFile, authorFile, pubFile, isbnFile, msrpFile, costFile, qtyFile, typeFile; //make file variables
 	double cost[SIZE], msrp[SIZE];
 	int qty[SIZE], serial[SIZE], numOfLines = 0;
-	protected:
-	Date newDate[SIZE];
+protected:
+	Date dateAdded[SIZE];
 public:
 	baseClass();
 	~baseClass();

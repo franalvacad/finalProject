@@ -1,5 +1,6 @@
 // Date Class Implementation
 
+#define _CRT_SECURE_NO_WARNINGS
 #include "Date.h"
 #include <sstream>
 #include <iostream>
@@ -56,6 +57,13 @@ int Date::getYear() const
 string Date::getDate() const
 {
 	return to_string(day) + "-" + to_string(month) + "-" + to_string(year);
+}
+
+string Date::getComputerDate() const
+{
+	time_t now = time(0);
+	tm *tPtr = localtime(&now);
+	return to_string(tPtr->tm_mday) + "-" + to_string(tPtr->tm_mon) + "-" + to_string(tPtr->tm_year);
 }
 
 // Operator >> overloader for inserting date

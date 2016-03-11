@@ -9,6 +9,8 @@ int main()
 	int size = test.getSizeLine(), srch;
 	string results;
 
+
+
 	//cout << "term: ";
 
 	results = test.getTitle(4);
