@@ -1,5 +1,6 @@
 // Date Class Implementation
 
+#define _CRT_SECURE_NO_WARNINGS
 #include "Date.h"
 #include <sstream>
 #include <iostream>
