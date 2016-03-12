@@ -18,7 +18,7 @@ int main()
 
 	results = test.getTitle(4);
 
-	test2.getAgelist();
+	test2.getCostlist();
 
 	time_t c = time(NULL);
 	char *h = ctime(&c);

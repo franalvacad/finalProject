@@ -11,6 +11,10 @@ void display::getList() //Complete
 {
 	int size = baseClass::getSizeLine();
 
+	cout << "**********************************************************************************************************************************************************" << endl;
+	cout << "*                                                                  INVENTORY LIST REPORT                                                                 *" << endl;
+	cout << "**********************************************************************************************************************************************************" << endl << endl;
+
 	cout << setw(4) << "No." << setw(35) << left << "Title" << setw(35) << left << "Publisher" << setw(25) << left << "Author" << setw(15) 
 		<< left << "ISBN" << setw(8) << left << "Cost($) " << setw(8) << left << "MSRP($) " << setw(5) << left << "Qty" << setw(10) << left 
 		<< "Type" << setw(8) << left << "Date Added" << endl;
@@ -29,6 +33,10 @@ void display::getWholelist() //Complete
 	double totPrice = 0;
 	int size = baseClass::getSizeLine();
 	
+	cout << "*************************************************************************************************************************************************" << endl;
+	cout << "*                                                        INVENTORY WHOLESALE VALUE REPORT                                                       *" << endl;
+	cout << "*************************************************************************************************************************************************" << endl << endl;
+
 	cout << setw(4) << "No." << setw(35) << left << "Title" << setw(35) << left << "Publisher" << setw(25) << left << "Author" << setw(15)
 		<< left << "ISBN" << setw(10) << left << "Type" << setw(8) << left << "Cost($) " << setw(5) << left << "Qty" << setw(8) << left << "Total($) " << endl;
 	cout << "------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
@@ -51,6 +59,10 @@ void display::getRetaillist() //Complete
 {
 	double totPrice = 0;
 	int size = baseClass::getSizeLine();
+
+	cout << "*************************************************************************************************************************************************" << endl;
+	cout << "*                                                        INVENTORY RETAIL VALUE REPORT                                                          *" << endl;
+	cout << "*************************************************************************************************************************************************" << endl << endl;
 
 	cout << setw(4) << "No." << setw(35) << left << "Title" << setw(35) << left << "Publisher" << setw(25) << left << "Author" << setw(15)
 		<< left << "ISBN" << setw(10) << left << "Type" << setw(8) << left << "MSRP($) " << setw(5) << left << "Qty" << setw(8) << left << "Total($) " << endl;
@@ -81,6 +93,10 @@ void display::getQTYlist() //complete
 	{
 		chk[i] = 0;
 	}
+
+	cout << "*************************************************************************************************************************************************" << endl;
+	cout << "*                                                           LIST BY QUANTITY REPORT                                                             *" << endl;
+	cout << "*************************************************************************************************************************************************" << endl << endl;
 
 	cout << setw(4) << "No." << setw(35) << left << "Title" << setw(35) << left << "Publisher" << setw(25) << left << "Author" << setw(15)
 		<< left << "ISBN" << setw(8) << left << "Cost($) " << setw(8) << left << "MSRP($) " << setw(5) << left << "Qty" << setw(10) << left
@@ -114,6 +130,10 @@ void display::getCostlist() //complete
 		chk[i] = 0;
 	}
 
+	cout << "*************************************************************************************************************************************************" << endl;
+	cout << "*                                                              LIST BY COST REPORT                                                              *" << endl;
+	cout << "*************************************************************************************************************************************************" << endl << endl;
+
 	cout << setw(4) << "No." << setw(35) << left << "Title" << setw(35) << left << "Publisher" << setw(25) << left << "Author" << setw(15)
 		<< left << "ISBN" << setw(8) << left << "Cost($) " << setw(8) << left << "MSRP($) " << setw(5) << left << "Qty" << setw(10) << left
 		<< "Type" << endl;
@@ -137,7 +157,7 @@ void display::getCostlist() //complete
 
 void display::getAgelist()
 {
-	int  maxy = 0; // depeds from list (qty,cost,age) sort displaylistis
+	int  maxy = 0; 
 	int  maxm = 0;
 	int  maxd = 0;
 	int maxpos = 0;
