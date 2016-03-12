@@ -1,5 +1,4 @@
-#ifndef CASHIER_H
-#define CASHIER_H
+#pragma once
 #include "baseClass.h"
 #include "Date.h"
 
@@ -18,17 +17,17 @@ public:
 		price = price*(1.0 + salesTaxRate);
 	}
 
-	int subtract(booksPurchased)
+	int subtract(int booksPurchased)
 	{
 		booksPurchased = booksPurchased - 1;
 	}
 
-	double totalSale(double Sale, price)
+	double totalSale(double Sale, double price)
 	{
 		Sale = Sale + price;
 	}
 
-	double totalValue(double Total, Sale)
+	double totalValue(double Total, double Sale)
 	{
 		Total = Total - Sale;
 	}
@@ -48,5 +47,3 @@ cout << "          Tax      " << (price*salesTaxRate) << endl;
 cout << "                   " << price*(1.0 + salesTaxRate) << endl << endl;
 cout << "Thank You for Shopping at Serendipity!"
 */
-
-#endif

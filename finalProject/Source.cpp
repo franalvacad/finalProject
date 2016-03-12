@@ -1,5 +1,9 @@
 #include <iostream>
-#include "inventory.cpp"
+#include "baseClass.h"
+#include "Cashier.h"
+#include "Date.h"
+#include "displayClass.h"
+#include "inventory.h"
 #include <time.h>
 using namespace std;
 
@@ -18,7 +22,7 @@ int main()
 
 	results = test.getTitle(4);
 
-	test2.getAgelist();
+	test2.getCostlist();
 
 	time_t c = time(NULL);
 	char *h = ctime(&c);

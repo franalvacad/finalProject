@@ -15,7 +15,6 @@ bool baseClass::countFile(fstream &inFile)
 
 baseClass::baseClass()
 {
-	fstream serialFile, titleFile, authorFile, pubFile, isbnFile, msrpFile, costFile, qtyFile, typeFile, dateFile;
 	string holder;
 
 	serialFile.open("serial.txt"); //master file
@@ -80,6 +79,16 @@ baseClass::baseClass()
 
 baseClass::~baseClass()
 {
+	serialFile.close();
+	titleFile.close();
+	authorFile.close();
+	pubFile.close();
+	isbnFile.close();
+	msrpFile.close();
+	costFile.close();
+	qtyFile.close();
+	typeFile.close();
+	dateFile.close();
 }
 
 void baseClass::setTitle(string x, int c)
