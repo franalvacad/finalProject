@@ -12,11 +12,11 @@ int main()
 	//cout << "term: ";
 
 	Date newDate;
-	cout << newDate.getComputerDate();
+	//cout << newDate.getComputerDate();
 
 	results = test.getTitle(4);
 
-	test2.getList();
+	test2.getQTYlist();
 
 
 	system("pause>nul");

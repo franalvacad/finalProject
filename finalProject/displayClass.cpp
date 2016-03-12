@@ -11,8 +11,7 @@ display::display()
 void display::getList()
 {
 
-	int size = 25; 
-
+	int size = baseClass::getSizeLine();
 
 	cout << setw(4) << "No." << setw(35) << left << "Title" << setw(35) << left << "Publisher" << setw(25) << left << "Author" << setw(15) 
 		<< left << "ISBN" << setw(8) << left << "Cost ($)" << setw(8) << left << "MSRP ($)" << setw(5) << left << "Qty" << setw(10) << left << "Type" << endl;
@@ -69,16 +68,28 @@ void display::getQTYlist()
 	int maxpos = 0;
 	int x = baseClass::getSizeLine();
 	bool *chk = new bool[x];
+	for (int i = 0; i < x; i++){
+		chk[i] = 0;
+	}
+	int tempQTY = 0;
+	cout << setw(4) << "No." << setw(35) << left << "Title" << setw(35) << left << "Publisher" << setw(25) << left << "Author" << setw(15)
+		<< left << "ISBN" << setw(8) << left << "Cost ($)" << setw(8) << left << "MSRP ($)" << setw(5) << left << "Qty" << setw(10) << left << "Type" << endl;
+	cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl;
 
 	for (int i = 0; i < x; i++){
 		for (j = 0; j < x; j++){
-			if (max <= baseClass::getQty(j) && chk[j] == false){
+			tempQTY = baseClass::getQty(j);
+			if (max <= tempQTY && chk[j] == false){
 				max = getQty(j);
 				maxpos = j;
 			}
 		}
 			chk[j] = true;
-			cout << "(T__T)";
+			
+			cout << setw(4) << left << baseClass::getSerial(j) << setw(35) << left << baseClass::getTitle(j) << setw(35) << left << baseClass::getPublisher(j) << setw(25)
+				<< left << baseClass::getAuthor(j) << setw(15) << left << baseClass::getISBN(j) << setw(8) << left << baseClass::getCost(j) << setw(8) << left << baseClass::getMSRP(j)
+				<< setw(5) << left << baseClass::getQty(j) << setw(10) << left << baseClass::getType(j) << endl;
+			
 			max = 0;
 			j = 0;
 
