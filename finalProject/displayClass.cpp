@@ -11,10 +11,6 @@ void display::getList() //Complete
 {
 	int size = baseClass::getSizeLine();
 
-	cout << "**********************************************************************************************************************************************************" << endl;
-	cout << "*                                                                  INVENTORY LIST REPORT                                                                 *" << endl;
-	cout << "**********************************************************************************************************************************************************" << endl << endl;
-
 	cout << setw(4) << "No." << setw(35) << left << "Title" << setw(35) << left << "Publisher" << setw(25) << left << "Author" << setw(15) 
 		<< left << "ISBN" << setw(8) << left << "Cost($) " << setw(8) << left << "MSRP($) " << setw(5) << left << "Qty" << setw(10) << left 
 		<< "Type" << setw(8) << left << "Date Added" << endl;
@@ -33,10 +29,6 @@ void display::getWholelist() //Complete
 	double totPrice = 0;
 	int size = baseClass::getSizeLine();
 	
-	cout << "*************************************************************************************************************************************************" << endl;
-	cout << "*                                                        INVENTORY WHOLESALE VALUE REPORT                                                       *" << endl;
-	cout << "*************************************************************************************************************************************************" << endl << endl;
-
 	cout << setw(4) << "No." << setw(35) << left << "Title" << setw(35) << left << "Publisher" << setw(25) << left << "Author" << setw(15)
 		<< left << "ISBN" << setw(10) << left << "Type" << setw(8) << left << "Cost($) " << setw(5) << left << "Qty" << setw(8) << left << "Total($) " << endl;
 	cout << "------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
@@ -59,10 +51,6 @@ void display::getRetaillist() //Complete
 {
 	double totPrice = 0;
 	int size = baseClass::getSizeLine();
-
-	cout << "*************************************************************************************************************************************************" << endl;
-	cout << "*                                                        INVENTORY RETAIL VALUE REPORT                                                          *" << endl;
-	cout << "*************************************************************************************************************************************************" << endl << endl;
 
 	cout << setw(4) << "No." << setw(35) << left << "Title" << setw(35) << left << "Publisher" << setw(25) << left << "Author" << setw(15)
 		<< left << "ISBN" << setw(10) << left << "Type" << setw(8) << left << "MSRP($) " << setw(5) << left << "Qty" << setw(8) << left << "Total($) " << endl;
@@ -93,10 +81,6 @@ void display::getQTYlist() //complete
 	{
 		chk[i] = 0;
 	}
-
-	cout << "*************************************************************************************************************************************************" << endl;
-	cout << "*                                                           LIST BY QUANTITY REPORT                                                             *" << endl;
-	cout << "*************************************************************************************************************************************************" << endl << endl;
 
 	cout << setw(4) << "No." << setw(35) << left << "Title" << setw(35) << left << "Publisher" << setw(25) << left << "Author" << setw(15)
 		<< left << "ISBN" << setw(8) << left << "Cost($) " << setw(8) << left << "MSRP($) " << setw(5) << left << "Qty" << setw(10) << left
@@ -130,10 +114,6 @@ void display::getCostlist() //complete
 		chk[i] = 0;
 	}
 
-	cout << "*************************************************************************************************************************************************" << endl;
-	cout << "*                                                              LIST BY COST REPORT                                                              *" << endl;
-	cout << "*************************************************************************************************************************************************" << endl << endl;
-
 	cout << setw(4) << "No." << setw(35) << left << "Title" << setw(35) << left << "Publisher" << setw(25) << left << "Author" << setw(15)
 		<< left << "ISBN" << setw(8) << left << "Cost($) " << setw(8) << left << "MSRP($) " << setw(5) << left << "Qty" << setw(10) << left
 		<< "Type" << endl;
@@ -157,17 +137,19 @@ void display::getCostlist() //complete
 
 void display::getAgelist()
 {
-	int  maxy = 0; 
-	int  maxm = 0;
-	int  maxd = 0;
-	int maxpos = 0;
+	int  miny = 10000; // depeds from list (qty,cost,age) sort displaylistis
+	int  minm = 10000;
+	int  mind = 10000;
+	int minpos = 0;
 	int x = baseClass::getSizeLine();
 	int *chk = NULL;
 	chk = new int[25];
 	for (int i = 0; i < x; i++){
 		chk[i] = 0;
 	}
-
+	int tempy;
+	int tempm;
+	int tempd;
 	cout << setw(4) << "No." << setw(35) << left << "Title" << setw(35) << left << "Publisher" << setw(25) << left << "Author" << setw(15)
 		<< left << "ISBN" << setw(8) << left << "Cost($) " << setw(8) << left << "MSRP($) " << setw(5) << left << "Qty" << setw(10) << left
 		<< "Type" << endl;
@@ -175,20 +157,37 @@ void display::getAgelist()
 
 	for (int i = 0; i < x; i++){
 		for (int j = 0; j < x; j++){
-			if (maxy <= dateAdded[j].getYear() && maxm <= dateAdded[j].getMonth() && maxd <= dateAdded[j].getDay() && chk[j] == 0){
-				maxy = dateAdded[j].getYear();
-				maxm = dateAdded[j].getMonth();
-				maxd = dateAdded[j].getDay();
-				maxpos = j;
-
+			tempy = dateAdded[j].getYear();
+			tempm = dateAdded[j].getMonth();
+			tempd = dateAdded[j].getDay();
+			if (miny > tempy  && chk[j] == 0){
+				miny = dateAdded[j].getYear();
+				minm = dateAdded[j].getMonth();
+				mind = dateAdded[j].getDay();
+				minpos = j;
+			}else if(miny == tempy  && chk[j] == 0){
+				if (minm > tempm){
+					miny = dateAdded[j].getYear();
+					minm = dateAdded[j].getMonth();
+					mind = dateAdded[j].getDay();
+					minpos = j;
+				}
+				else if (minm == tempm){
+					if (mind >= tempd){
+						miny = dateAdded[j].getYear();
+						minm = dateAdded[j].getMonth();
+						mind = dateAdded[j].getDay();
+						minpos = j;
+					}
+				}
 			}
 		}
-		chk[maxpos] = 1;
-		cout << setw(4) << left << baseClass::getSerial(maxpos) << setw(35) << left << baseClass::getTitle(maxpos) << setw(35) << left << baseClass::getPublisher(maxpos) << setw(25)
-			<< left << baseClass::getAuthor(maxpos) << setw(15) << left << baseClass::getISBN(maxpos) << setw(8) << left << baseClass::getCost(maxpos) << setw(8) << left << baseClass::getMSRP(maxpos)
-			<< setw(5) << left << baseClass::getQty(maxpos) << setw(15) << left << baseClass::getType(maxpos) << baseClass::getDate(maxpos) << endl;
-		maxy = 0;
-		maxm = 0;
-		maxd = 0;
+		chk[minpos] = 1;
+		cout << setw(4) << left << baseClass::getSerial(minpos) << setw(35) << left << baseClass::getTitle(minpos) << setw(35) << left << baseClass::getPublisher(minpos) << setw(25)
+			<< left << baseClass::getAuthor(minpos) << setw(15) << left << baseClass::getISBN(minpos) << setw(8) << left << baseClass::getCost(minpos) << setw(8) << left << baseClass::getMSRP(minpos)
+			<< setw(5) << left << baseClass::getQty(minpos) << setw(15) << left << baseClass::getType(minpos) << baseClass::getDate(minpos) << endl;
+		miny = 10000;
+		minm = 10000;
+		mind = 10000;
 	}
 }
