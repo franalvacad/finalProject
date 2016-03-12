@@ -16,7 +16,8 @@ private:
 	fstream serialFile, titleFile, authorFile, pubFile, isbnFile, msrpFile, costFile, qtyFile, typeFile; //make file variables
 	double cost[SIZE], msrp[SIZE];
 	int qty[SIZE], serial[SIZE], numOfLines = 0;
-	Date newDate[SIZE];
+protected:
+	Date dateAdded[SIZE];
 public:
 	baseClass();
 	~baseClass();

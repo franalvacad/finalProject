@@ -1,5 +1,6 @@
 #include "baseClass.h"
 #include "iostream"
+#include "Date.h"
 #include "string"
 using namespace std;
 
@@ -14,8 +15,9 @@ public:
 
 //	accsessors afsdadg
 	void getList();
-	string getWholelist();
-	string getRetaillist();
-	string getQTYlist();
-	string getCostlist();
+	void getWholelist();
+	void getRetaillist();
+	void getQTYlist();
+	void getCostlist();
+	void getAgelist();
 };
