@@ -2,20 +2,18 @@
 #include "Date.h"
 #include <iomanip>
 using namespace std;
-//string and iostream were included already in the baseClass <---------
 
 display::display()
 {
 }
 
-void display::getList()
+void display::getList() //Complete
 {
-
 	int size = baseClass::getSizeLine();
 
 	cout << setw(4) << "No." << setw(35) << left << "Title" << setw(35) << left << "Publisher" << setw(25) << left << "Author" << setw(15) 
 		<< left << "ISBN" << setw(8) << left << "Cost ($)" << setw(8) << left << "MSRP ($)" << setw(5) << left << "Qty" << setw(10) << left << "Type" << endl;
-	cout << "---------------------------------------------------------------------------------------------------------------------------------------" << endl;
+	cout << "------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
 
 	for (int i = 0; i < size - 1; i++) 
 	{
@@ -26,41 +24,56 @@ void display::getList()
 }
 
 
-string display::getWholelist() //changed variables to match c++ grammar rules <---------
-{// this is not final function, we have to change it a lot
+void display::getWholelist() //Complete
+{
 	double totPrice = 0;
-	int size = 25; //testing purposes
+	int size = baseClass::getSizeLine();
 	
-	for (int i = 0; i < size - 1; i++) /* depends from base class (if size = 0 and then ++ : size ? size - 1) */
+	cout << setw(4) << "No." << setw(35) << left << "Title" << setw(35) << left << "Publisher" << setw(25) << left << "Author" << setw(15)
+		<< left << "ISBN" << setw(10) << left << "Type" << setw(8) << left << "Cost($) " << setw(5) << left << "Qty" << setw(8) << left << "Total($) " << endl;
+	cout << "------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
+
+	for (int i = 0; i < size - 1; i++) 
 	{
-		tempstr = to_string(baseClass::getSerial(i)) + " " + baseClass::getTitle(i) + " " + baseClass::getPublisher(i) + " " + baseClass::getAuthor(i) + " " +
-			" " + baseClass::getISBN(i)/*  + " " + to_string(baseClass::getCost())*/ + " " + to_string(baseClass::getMSRP(i)) + " " + to_string(baseClass::getQty(i)) + " " /*+ baseClass::getTyped()*/
-			+ '\n';
-		outstr += tempstr;
-		totPrice += baseClass::getMSRP(i);
-		outstr += "Total MSRP is: " + to_string(totPrice) + '\n';
+		double price = 0;
+		price = baseClass::getCost(i) * baseClass::getQty(i);
+		
+		cout << setw(4) << left << baseClass::getSerial(i) << setw(35) << left << baseClass::getTitle(i) << setw(35) << left << baseClass::getPublisher(i) << setw(25)
+			<< left << baseClass::getAuthor(i) << setw(15) << left << baseClass::getISBN(i) << setw(10) << left << baseClass::getType(i) << setw(8) << left << baseClass::getCost(i) << setw(5) << left << baseClass::getQty(i)
+			 << setw(8) << left << price << endl;
+		
+		totPrice += price;
+		
 	}
-	return outstr;
+		cout << endl << "Total Wholesale Value: $ " << totPrice << endl;
 }
 
 
-string display::getRetaillist()
-{// this is not final function, we have to change it a lot
+void display::getRetaillist() //Complete
+{
 	double totPrice = 0;
-	int size = 25; //testing purposes
+	int size = baseClass::getSizeLine();
 
-	for (int i = 0; i < size - 1; i++) /* depends from base class (if size = 0 and then ++ : size ? size - 1) */
+	cout << setw(4) << "No." << setw(35) << left << "Title" << setw(35) << left << "Publisher" << setw(25) << left << "Author" << setw(15)
+		<< left << "ISBN" << setw(10) << left << "Type" << setw(8) << left << "MSRP($) " << setw(5) << left << "Qty" << setw(8) << left << "Total($) " << endl;
+	cout << "------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
+
+	for (int i = 0; i < size - 1; i++)
 	{
-		tempstr = to_string(baseClass::getSerial(i)) + " " + baseClass::getTitle(i) + " " + baseClass::getPublisher(i) + " " + baseClass::getAuthor(i) + " " +
-			" " + baseClass::getISBN(i) + " " + to_string(baseClass::getCost(i))/* + " " + to_string(baseClass::getMSRP()) */ + " " + to_string(baseClass::getQty(i)) + " "/* + baseClass::getTyped()*/
-			+ '\n';
-		outstr += tempstr;
-		totPrice += baseClass::getCost(i);
-		outstr += "Total retail price is: " + to_string(totPrice) + '\n';
+		double price = 0;
+		price = baseClass::getMSRP(i) * baseClass::getQty(i);
+
+		cout << setw(4) << left << baseClass::getSerial(i) << setw(35) << left << baseClass::getTitle(i) << setw(35) << left << baseClass::getPublisher(i) << setw(25)
+			<< left << baseClass::getAuthor(i) << setw(15) << left << baseClass::getISBN(i) << setw(10) << left << baseClass::getType(i) << setw(8) << left << baseClass::getMSRP(i) << setw(5) << left << baseClass::getQty(i)
+			<< setw(8) << left << price << endl;
+
+		totPrice += price;
+
 	}
-	return outstr;
+	cout << endl << "Total Retail Value: $ " << totPrice << endl;
 }
 
+/*
 void display::getQTYlist()
 {
 	int j = 0;
@@ -146,3 +159,4 @@ void display::getAgelist()
 		maxd = 0;	
 	}
 }
+*/

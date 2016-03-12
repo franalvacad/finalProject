@@ -16,7 +16,7 @@ int main()
 
 	results = test.getTitle(4);
 
-	test2.getQTYlist();
+	test2.getRetaillist();
 
 
 	system("pause>nul");
