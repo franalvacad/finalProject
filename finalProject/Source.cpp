@@ -1,6 +1,6 @@
 #include <iostream>
 #include "inventory.cpp"
-#include <time.h>
+#include <time.h>s
 using namespace std;
 
 int main()
