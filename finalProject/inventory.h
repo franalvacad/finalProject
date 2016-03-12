@@ -2,8 +2,7 @@
 #include "displayClass.h"
 #include <time.h>
 
-class inventory :
-	public display
+class inventory :public display
 {
 public:
 	inventory();

@@ -148,9 +148,14 @@ void display::getAgelist()
 		chk[i] = 0;
 	}
 
-	for (int i = 0; i < x - 1; i++){
-		for (int j = 0; j < x - 1; j++){
-			if (maxy <= dateAdded[j].getYear() && maxm <= dateAdded[j].getMonth() && maxd <= dateAdded[j].getDay() && chk[j] == false){
+	cout << setw(4) << "No." << setw(35) << left << "Title" << setw(35) << left << "Publisher" << setw(25) << left << "Author" << setw(15)
+		<< left << "ISBN" << setw(8) << left << "Cost($) " << setw(8) << left << "MSRP($) " << setw(5) << left << "Qty" << setw(10) << left
+		<< "Type" << endl;
+	cout << "------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
+
+	for (int i = 0; i < x; i++){
+		for (int j = 0; j < x; j++){
+			if (maxy <= dateAdded[j].getYear() && maxm <= dateAdded[j].getMonth() && maxd <= dateAdded[j].getDay() && chk[j] == 0){
 				maxy = dateAdded[j].getYear();
 				maxm = dateAdded[j].getMonth();
 				maxd = dateAdded[j].getDay();
@@ -161,7 +166,7 @@ void display::getAgelist()
 		chk[maxpos] = 1;
 		cout << setw(4) << left << baseClass::getSerial(maxpos) << setw(35) << left << baseClass::getTitle(maxpos) << setw(35) << left << baseClass::getPublisher(maxpos) << setw(25)
 			<< left << baseClass::getAuthor(maxpos) << setw(15) << left << baseClass::getISBN(maxpos) << setw(8) << left << baseClass::getCost(maxpos) << setw(8) << left << baseClass::getMSRP(maxpos)
-			<< setw(5) << left << baseClass::getQty(maxpos) << setw(15) << left << baseClass::getType(maxpos) << baseClass::getDate(i) << endl;
+			<< setw(5) << left << baseClass::getQty(maxpos) << setw(15) << left << baseClass::getType(maxpos) << baseClass::getDate(maxpos) << endl;
 		maxy = 0;
 		maxm = 0;
 		maxd = 0;
