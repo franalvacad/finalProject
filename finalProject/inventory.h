@@ -10,5 +10,6 @@ public:
    
     string add();
     string modify();
+	int search(string);
 };
 

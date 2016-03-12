@@ -1,6 +1,6 @@
 #include <iostream>
-#include "inventory.cpp"
-#include <time.h>s
+#include "inventory.h"
+#include <time.h>
 using namespace std;
 
 int main()
@@ -18,10 +18,10 @@ int main()
 
 	results = test.getTitle(4);
 
-	test2.getAgelist();
-
 	time_t c = time(NULL);
 	char *h = ctime(&c);
+
+	test.search("serendipity");
 
 	cout << h;
 
