@@ -3,22 +3,40 @@
 using namespace std;
 
 
-inline inventory::inventory()
+inventory::inventory()
 {
 	//display::getList();
 }
 
 
-inline inventory::~inventory()
+inventory::~inventory()
 {
 }
 
-inline string inventory::add()
+string inventory::add()
 {
 	 return "caca";
 }
 
-inline string inventory::modify()
+string inventory::modify()
 {
 	 return "caca";
+}
+
+int inventory::search(string term)
+{
+	string hold;
+	for (int c = 0; c < baseClass::getSizeLine(); c++)
+	{
+		hold = baseClass::getTitle(c);
+		cout << hold;
+		
+		if (hold.find(term))
+			cout << "y";
+
+		cout << endl;
+	}
+
+	return 0;
+
 }
