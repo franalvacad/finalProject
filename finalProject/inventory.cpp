@@ -5,7 +5,7 @@ using namespace std;
 
 inline inventory::inventory()
 {
-	display::getList();
+	//display::getList();
 }
 
 
