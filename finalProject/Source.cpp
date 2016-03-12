@@ -21,6 +21,7 @@ int main()
 	time_t c = time(NULL);
 	char *h = ctime(&c);
 
+	cout << endl;
 	test.search("serendipity");
 
 	cout << h;
