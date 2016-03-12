@@ -54,7 +54,7 @@ int Date::getYear() const
 
 string Date::getDate() const
 {
-	return to_string(day) + "-" + to_string(month) + "-" + to_string(year);
+	return to_string(month) + "-" + to_string(day) + "-" + to_string(year);
 }
 
 string Date::getComputerDate() const
@@ -88,9 +88,9 @@ fstream& operator>>(fstream& in, Date& d)
 	for (int i = 0; i < 3; i++)
 	{
 		if (i == 0)
-			d.day = dateArray[i];
-		else if (i == 1)
 			d.month = dateArray[i];
+		else if (i == 1)
+			d.day = dateArray[i];
 		else
 			d.year = dateArray[i];
 	}

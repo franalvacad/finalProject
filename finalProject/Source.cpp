@@ -1,6 +1,7 @@
 #include <iostream>
 #include "inventory.cpp"
-#include <time.h>s
+#include "Date.h"
+#include <time.h>
 using namespace std;
 
 int main()
