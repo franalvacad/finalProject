@@ -1,5 +1,9 @@
 #include <iostream>
-#include "inventory.cpp"
+#include "baseClass.h"
+#include "Cashier.h"
+#include "Date.h"
+#include "displayClass.h"
+#include "inventory.h"
 #include <time.h>
 using namespace std;
 
