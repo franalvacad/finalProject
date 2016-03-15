@@ -15,6 +15,7 @@ public:
 
 //	accsessors afsdadg
 	void getList();
+	void getListCustom(int);
 	void getWholelist();
 	void getRetaillist();
 	void getQTYlist();

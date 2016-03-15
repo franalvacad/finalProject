@@ -99,6 +99,7 @@ baseClass::~baseClass()
 	dateFile.close();
 }
 
+//sets
 void baseClass::setTitle(string x, int c)
 {
 	title[c] = x;
@@ -137,6 +138,21 @@ void baseClass::setType(string x, int c)
 	type[c] = x;
 }
 
+void baseClass::fileMod(int x) //used for add() function. Essentially copies whatever is in array[x] to the end of file
+{
+	serialFile << getSerial(x);
+	titleFile << getTitle(x);
+	pubFile << getPublisher(x);
+	authorFile << getAuthor(x);
+	isbnFile << getISBN(x);
+	costFile << getCost(x);
+	msrpFile << getMSRP(x);
+	qtyFile << getQty(x);
+	typeFile << getType(x);
+
+}
+
+//gets
 string baseClass::getType(int c)
 {
 	return type[c];

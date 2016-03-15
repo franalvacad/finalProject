@@ -12,11 +12,10 @@ private:
 public:
 	Cashier();
 
-	double totalPrice();
+	void addToCart();
 
-	double subtotal();
+	int findBook(int serial);
 
-	double finalSale();
 };
 
 

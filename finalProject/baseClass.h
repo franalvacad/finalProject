@@ -33,6 +33,7 @@ public:
 	void setQty(int x, int c);
 	void setSerial(int x, int c);
 	void setType(string x, int c);
+	void fileMod(int x);
 
 	string getTitle(int c);
 	string getAuthor(int c);
