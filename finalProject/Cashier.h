@@ -9,10 +9,13 @@ class Cashier : public baseClass
 private:
 	const double salesTaxRate = 0.0825;
 
+
+
 public:
 	Cashier();
 
 	void addToCart();
+	void removeFromCart();
 
 	//int findBook(int serial);
 
