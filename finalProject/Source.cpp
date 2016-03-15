@@ -22,7 +22,7 @@ int main()
 	char *h = ctime(&c);
 
 	cout << endl;
-	test.search("serendipity");
+	string searchTerm;
 
 	cout << h;
 

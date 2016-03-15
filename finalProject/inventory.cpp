@@ -26,13 +26,17 @@ string inventory::modify()
 int inventory::search(string term)
 {
 	string hold;
+	bool found;
 	for (int c = 0; c < baseClass::getSizeLine(); c++)
 	{
 		hold = baseClass::getTitle(c);
 		cout << hold;
+		found = hold.find(term) != string::npos;
 		
-		if (hold.find(term))
+		if (found)
 			cout << "y";
+		else if (!found)
+			cout << "n";
 
 		cout << endl;
 	}
