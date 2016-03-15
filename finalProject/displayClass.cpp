@@ -6,6 +6,32 @@ using namespace std;
 display::display()
 {
 }
+int display::getMAuthorlength()
+{
+	int max = 0;
+	int size = baseClass::getSizeLine();
+	for (int i = 0; i < size; i++){
+		if (max < baseClass::getAuthor(i).length()){ max = baseClass::getAuthor(i).length(); }
+	}
+	return max;
+}
+int display::getMPublisherlength()
+{
+	int max = 0;
+	int size = baseClass::getSizeLine();
+	for (int i = 0; i < size; i++){
+		if (max < baseClass::getPublisher(i).length()){ max = baseClass::getPublisher(i).length(); }
+	}
+	return max;
+}
+int display::getMTitlelength(){
+	int max = 0;
+	int size = baseClass::getSizeLine();
+	for (int i = 0; i < size; i++){
+		if (max < baseClass::getTitle(i).length()){ max = baseClass::getTitle(i).length(); }
+	}
+	return max; }
+
 
 void display::getList() //Complete
 {
@@ -15,14 +41,14 @@ void display::getList() //Complete
 	cout << "*                                                                  INVENTORY LIST REPORT                                                                 *" << endl;
 	cout << "**********************************************************************************************************************************************************" << endl << endl;
 
-	cout << setw(4) << "No." << setw(35) << left << "Title" << setw(35) << left << "Publisher" << setw(25) << left << "Author" << setw(15)
+	cout << setw(/*display::gerMNumlenght() + 2*/ 9) << "No." << setw(display::getMTitlelength() + 2) << left << "Title" << setw(display::getMPublisherlength() + 2) << left << "Publisher" << setw(display::getMAuthorlength() + 2) << left << "Author" << setw(15)
 		<< left << "ISBN" << setw(8) << left << "Cost($) " << setw(8) << left << "MSRP($) " << setw(5) << left << "Qty" << setw(10) << left
 		<< "Type" << setw(8) << left << "Date Added" << endl;
 	cout << "----------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
 
 	for (int i = 0; i < size; i++)
 	{
-		cout << setw(4) << left << baseClass::getSerial(i) << setw(35) << left << baseClass::getTitle(i) << setw(35) << left << baseClass::getPublisher(i) << setw(25)
+		cout << setw(/*display::gerMNumlenght() + 2*/ 9) << left << baseClass::getSerial(i) << setw(display::getMTitlelength() + 2) << left << baseClass::getTitle(i) << setw(display::getMPublisherlength() + 2) << left << baseClass::getPublisher(i) << setw(display::getMAuthorlength() + 2)
 			<< left << baseClass::getAuthor(i) << setw(15) << left << baseClass::getISBN(i) << setw(8) << left << baseClass::getCost(i) << setw(8) << left << baseClass::getMSRP(i)
 			<< setw(5) << left << baseClass::getQty(i) << setw(10) << left << baseClass::getType(i) << setw(8) << left << baseClass::getDate(i) << endl;
 	}
