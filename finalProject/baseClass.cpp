@@ -16,7 +16,7 @@ bool baseClass::countFile(fstream &inFile)
 baseClass::baseClass()
 {
 	string holder;
-	try{
+	
 		serialFile.open("serial.txt"); //master file
 		titleFile.open("title.txt");
 		authorFile.open("author.txt");
@@ -37,8 +37,8 @@ baseClass::baseClass()
 		if (qtyFile.is_open() == false){ throw "Error, can't open the qty file"; }
 		if (typeFile.is_open() == false){ throw "Error, can't open the type file"; }
 		if (dateFile.is_open() == false){ throw "Error, can't open the date file"; }
-	}
-	catch (char *extstr){ cout << extstr; }
+	
+	
 	while (countFile(serialFile)) //counts the number of lines
 		numOfLines++;
 
