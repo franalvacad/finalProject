@@ -28,6 +28,13 @@ void display::getList() //Complete
 	}
 }
 
+void display::getListCustom(int i) //Complete
+{
+		cout << setw(4) << left << baseClass::getSerial(i) << setw(35) << left << baseClass::getTitle(i) << setw(35) << left << baseClass::getPublisher(i) << setw(25)
+			<< left << baseClass::getAuthor(i) << setw(15) << left << baseClass::getISBN(i) << setw(8) << left << baseClass::getCost(i) << setw(8) << left << baseClass::getMSRP(i)
+			<< setw(5) << left << baseClass::getQty(i) << setw(10) << left << baseClass::getType(i) << setw(8) << left << baseClass::getDate(i) << endl;
+}
+
 void display::getWholelist() //Complete
 {
 	double totPrice = 0;
