@@ -27,7 +27,15 @@ baseClass::baseClass()
 	qtyFile.open("qty.txt");
 	typeFile.open("type.txt");
 	dateFile.open("date.txt");
-
+	if (serialFile.open = false){ throw "Error, can't open file  "; }
+	if (serialFile.open = false){ throw "Error, can't open file  "; }
+	if (serialFile.open = false){ throw "Error, can't open file  "; }
+	if (serialFile.open = false){ throw "Error, can't open file  "; }
+	if (serialFile.open = false){ throw "Error, can't open file  "; }
+	if (serialFile.open = false){ throw "Error, can't open file  "; }
+	if (serialFile.open = false){ throw "Error, can't open file  "; }
+	if (serialFile.open = false){ throw "Error, can't open file  "; }
+	if (serialFile.open = false){ throw "Error, can't open file  "; }
 	while (countFile(serialFile)) //counts the number of lines
 		numOfLines++;
 
