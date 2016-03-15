@@ -15,8 +15,8 @@ public:
 
 //	accsessors afsdadg
 	void getList();
-	string getWholelist();
-	string getRetaillist();
+	void getWholelist();
+	void getRetaillist();
 	void getQTYlist();
 	void getCostlist();
 	void getAgelist();
