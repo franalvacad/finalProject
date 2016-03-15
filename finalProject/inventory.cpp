@@ -11,6 +11,8 @@ inventory::inventory()
 
 inventory::~inventory()
 {
+	for (int c = 0; c < baseClass::getSizeLine(); c++)
+		baseClass::fileMod(c);
 }
 
 void inventory::add()
@@ -49,7 +51,6 @@ void inventory::add()
 	baseClass::setQty(qtyHold, nowSize); 
 	baseClass::setType(typeHold, nowSize);
 
-	baseClass::fileMod(nowSize);
 }
 
 void inventory::modify(int x)
@@ -63,11 +64,7 @@ void inventory::del(int x)
 int inventory::search(string term)
 {
 	string hold;
-	bool found;
-	cout << setw(4) << "No." << setw(35) << left << "Title" << setw(35) << left << "Publisher" << setw(25) << left << "Author" << setw(15)
-		<< left << "ISBN" << setw(8) << left << "Cost($) " << setw(8) << left << "MSRP($) " << setw(5) << left << "Qty" << setw(10) << left
-		<< "Type" << setw(8) << left << "Date Added" << endl;
-	cout << "----------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
+	bool found, vty = true;
 
 	for (int c = 0; c < baseClass::getSizeLine(); c++)
 	{
@@ -77,9 +74,17 @@ int inventory::search(string term)
 		if (found)
 		{
 			display::getListCustom(c);
+			vty = false;
 		}
 	}
-
+	
+	if (!vty)
+	{
+		cout << "----------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
+		cout << setw(4) << "No." << setw(35) << left << "Title" << setw(35) << left << "Publisher" << setw(25) << left << "Author" << setw(15)
+			<< left << "ISBN" << setw(8) << left << "Cost($) " << setw(8) << left << "MSRP($) " << setw(5) << left << "Qty" << setw(10) << left
+			<< "Type" << setw(8) << left << "Date Added" << endl;
+	}
 	return 0;
 
 }

@@ -37,14 +37,7 @@ void inventTest()
 	cout << endl;
 	while (test)
 	{
-		cout << "(A)dd or (P)ick by Serial: ";
-
-		if (result == 'a' || result == 'A')
-		{
-			changes.add();
-			test = false;
-		}
-
+		cout << "Pick by Serial: ";
 		cin >> ser;
 	}
 	while (test)
@@ -90,8 +83,6 @@ int main()
 	char *h = ctime(&c);
 
 	cout << endl << endl;
-	test.search("serendipity");
-
 	inventTest();
 
 	cout << h;
