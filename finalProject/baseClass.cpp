@@ -16,18 +16,29 @@ bool baseClass::countFile(fstream &inFile)
 baseClass::baseClass()
 {
 	string holder;
-
-	serialFile.open("serial.txt"); //master file
-	titleFile.open("title.txt");
-	authorFile.open("author.txt");
-	pubFile.open("pub.txt");
-	isbnFile.open("isbn.txt");
-	msrpFile.open("msrp.txt");
-	costFile.open("cost.txt");
-	qtyFile.open("qty.txt");
-	typeFile.open("type.txt");
-	dateFile.open("date.txt");
-
+	try{
+		serialFile.open("serial.txt"); //master file
+		titleFile.open("title.txt");
+		authorFile.open("author.txt");
+		pubFile.open("pub.txt");
+		isbnFile.open("isbn.txt");
+		msrpFile.open("msrp.txt");
+		costFile.open("cost.txt");
+		qtyFile.open("qty.txt");
+		typeFile.open("type.txt");
+		dateFile.open("date.txt");
+		if (serialFile.is_open() == false){ throw "Error, can't open the serial file"; }
+		if (titleFile.is_open() == false){ throw "Error, can't open the title file"; }
+		if (authorFile.is_open() == false){ throw "Error, can't open the author file"; }
+		if (pubFile.is_open() == false){ throw "Error, can't open the publisher file"; }
+		if (isbnFile.is_open() == false){ throw "Error, can't open the isbn file"; }
+		if (msrpFile.is_open() == false){ throw "Error, can't open the msrp file"; }
+		if (costFile.is_open() == false){ throw "Error, can't open the cost file"; }
+		if (qtyFile.is_open() == false){ throw "Error, can't open the qty file"; }
+		if (typeFile.is_open() == false){ throw "Error, can't open the type file"; }
+		if (dateFile.is_open() == false){ throw "Error, can't open the date file"; }
+	}
+	catch (char *extstr){ cout << extstr; }
 	while (countFile(serialFile)) //counts the number of lines
 		numOfLines++;
 

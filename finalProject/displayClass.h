@@ -21,4 +21,7 @@ public:
 	void getQTYlist();
 	void getCostlist();
 	void getAgelist();
+	int getMAuthorlength();
+	int getMPublisherlength();
+	int getMTitlelength();
 };
