@@ -36,7 +36,7 @@
     <ClCompile Include="Date.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CashierScreen.cpp">
+    <ClCompile Include="Cart.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -56,7 +56,7 @@
     <ClInclude Include="Date.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CashierScreen.h">
+    <ClInclude Include="Cart.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

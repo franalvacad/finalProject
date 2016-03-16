@@ -7,7 +7,7 @@ Cashier::Cashier()
 {
 }
 
-void Cashier::addToCart()
+void Cashier::addToCart(Cart (&takeOut)[50])
 {
 	int serial, bookNum, bookQty;
 	char finish;
@@ -34,8 +34,8 @@ void Cashier::addToCart()
 			else
 			{
 				cout << "Adding " << bookQty << " books of " << getTitle(bookNum) << endl;
-				takeOut[i].itemCode = serial;
-				takeOut[i].qty = bookQty;
+				takeOut[i].setItemCode(serial);
+				takeOut[i].setQty(bookQty);
 			}
 
 		}
@@ -48,34 +48,30 @@ void Cashier::addToCart()
 	}
 }
 
-void Cashier::viewCart()
+void Cashier::viewCart(Cart(&takeOut)[50])
 {
 	Date todaysDate;
-
-	cout << takeOut[0].itemCode << endl;
-
-	cout << getTitle(takeOut[0].itemCode);
 
 	cout << "Date: " << todaysDate.getComputerDate() << endl;
 	cout << setw(11) << left << "Item Code" << setw(35) << left << "Title" << setw(15) << left << "ISBN" << setw(10) << left << "Price($)" << setw(8) << left << "Qty" << setw(8) << left << "Total($)" << endl;
 	cout << "-------------------------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
 
-
+	cout << getTitle(takeOut[0].getItemCode()) << endl;
 
 	int i = 0;
-	while (takeOut[i].itemCode != 0)
+	while (takeOut[i].getItemCode() != 0)
 	{
-		cout << setw(11) << left << takeOut[i].itemCode
-			<< setw(35) << left << getTitle(takeOut[i].itemCode)
-			<< setw(15) << left << getISBN(takeOut[i].itemCode)
-			<< setw(10) << left << getMSRP(takeOut[i].itemCode)
-			<< setw(8) << left << takeOut[i].qty
-			<< setw(8) << left << takeOut[i].qty * getMSRP(takeOut[i].itemCode) << endl;
+		cout << setw(11) << left << takeOut[i].getItemCode()
+			<< setw(35) << left << getTitle(takeOut[i].getItemCode())
+			<< setw(15) << left << getISBN(takeOut[i].getItemCode())
+			<< setw(10) << left << getMSRP(takeOut[i].getItemCode())
+			<< setw(8) << left << takeOut[i].getQty()
+			<< setw(8) << left << takeOut[i].getQty() * getMSRP(takeOut[i].getItemCode()) << endl;
 		i++;
 	}
 }
 
-void Cashier::removeFromCart()
+void Cashier::removeFromCart(Cart(&takeOut)[50])
 {
 	int serial, bookNum, bookQty;
 	char finish = 'N';

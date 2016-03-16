@@ -2,6 +2,7 @@
 #include "inventory.h"
 #include <time.h>
 #include "Cashier.h"
+#include "Cart.h"
 using namespace std;
 
 void inventTest()
@@ -82,10 +83,13 @@ int main()
 	//cout << "term: ";
 
 	Cashier cash;
+	Cart takeOut[50];
 
-	cash.addToCart();
+	cash.addToCart(takeOut);
 
-	cash.viewCart();
+	cout << takeOut[0].getItemCode();
+
+	cash.viewCart(takeOut);
 
 	system("pause"); 
 

@@ -3,28 +3,19 @@
 #include "baseClass.h"
 #include "Date.h"
 #include "inventory.h"
+#include "Cart.h"
 
 class Cashier : public baseClass
 {
 private:
 	const double salesTaxRate = 0.0825;
 
-	struct cart
-	{
-		int itemCode = 0;
-		int qty;
-	};
-
-	cart takeOut[50];
 public:
-
-
 	Cashier();
 
-	void addToCart();
-	void removeFromCart();
-	void viewCart();
-
+	void addToCart(Cart (&takeOut)[50]);
+	void removeFromCart(Cart(&takeOut)[50]);
+	void viewCart(Cart(&takeOut)[50]);
 
 	int findBook(int serial);
 
