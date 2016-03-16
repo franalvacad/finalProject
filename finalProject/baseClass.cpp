@@ -96,6 +96,8 @@ void baseClass::setType(string x, int c)
 void baseClass::fileMod(int x) //Essentially copies whatever is in array to the end of file. Var x is max value
 {
 	Date time;
+	mainData.close();
+	mainData.open("serial.txt", fstream::trunc);
 	mainData.clear();
 	mainData.seekg(0);
 	for (int c = 0; c < x; c++)
@@ -159,4 +161,7 @@ string baseClass::getDate(int c)
 int baseClass::getSizeLine()
 {
 	return 1 + numOfLines/10;
+}
+int baseClass::getNumLines(){
+	return numOfLines;
 }
