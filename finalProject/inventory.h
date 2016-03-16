@@ -18,6 +18,7 @@ public:
 	int getNumOfdeletedBooks();
 	int getArrOfdelBooks(int);
     void add();
+	int search2(int);
     void modify(int);
 	void del(int);
 	int search(string);
