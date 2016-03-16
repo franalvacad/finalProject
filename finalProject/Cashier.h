@@ -1,6 +1,5 @@
 #ifndef CASHIER_H
 #define CASHIER_H
-#include "baseClass.h"
 #include "Date.h"
 #include "inventory.h"
 #include "Cart.h"
@@ -12,9 +11,6 @@ private:
 
 public:
 	Cashier();
-	Cashier(Cart(&takeOut)[50]);
-
-	~Cashier();
 
 	void addToCart(Cart (&t)[50]);
 	void removeFromCart(Cart(&t)[50]);
