@@ -7,90 +7,54 @@
 #include <iostream>
 using namespace std;
 
+
 bool baseClass::countFile(fstream &inFile)
 {
 	string x;
-	return (bool)(inFile>>x);
+	return (bool)(getline(inFile, x));
 }
 
 baseClass::baseClass()
 {
 	string holder;
+	string temp;
+	mainData.open("serial.txt"); //master file
+	if (mainData.is_open() == false)
+		throw "Error, can't open the serial file";
 
-	serialFile.open("serial.txt"); //master file
-	titleFile.open("title.txt");
-	authorFile.open("author.txt");
-	pubFile.open("pub.txt");
-	isbnFile.open("isbn.txt");
-	msrpFile.open("msrp.txt");
-	costFile.open("cost.txt");
-	qtyFile.open("qty.txt");
-	typeFile.open("type.txt");
-	dateFile.open("date.txt");
-
-	while (countFile(serialFile)) //counts the number of lines
+	while (countFile(mainData)) //counts the number of lines
 		numOfLines++;
 
-	serialFile.clear();
-	serialFile.seekg(0);
-	titleFile.clear();
-	titleFile.seekg(0);
-	authorFile.clear();
-	authorFile.seekg(0);
-	pubFile.clear();
-	pubFile.seekg(0);
-	isbnFile.clear();
-	isbnFile.seekg(0);
-	msrpFile.clear();
-	msrpFile.seekg(0);
-	costFile.clear();
-	costFile.seekg(0);
-	qtyFile.clear();
-	qtyFile.seekg(0);
-	typeFile.clear();
-	typeFile.seekg(0);
-	dateFile.clear();
-	dateFile.seekg(0);
+	mainData.clear();
+	mainData.seekg(0);
 
-	for (int c = 0; c < numOfLines; c++)
-	{
-		serialFile >> this->serial[c];
-
-		getline(titleFile, this->title[c]);
-
-		getline(authorFile, this->author[c]);
-
-		getline(pubFile, this->publisher[c]);
-
-		getline(isbnFile, this->isbn[c]);
-
-		msrpFile >> this->msrp[c];
-
-		costFile >> this->cost[c];
-
-		qtyFile >> this->qty[c];
-
-		getline(typeFile, this->type[c]);
-
-		dateFile >> dateAdded[c];
+	mainData.clear();
+	for (int i = 0; i < numOfLines/10; i++){
+		getline(mainData, temp); 
+		serial[i] = stoi(temp);
+		getline(mainData, title[i]);
+		getline(mainData, publisher[i]);
+		getline(mainData, author[i]);
+		getline(mainData, isbn[i]);
+		getline(mainData, temp);
+		cost[i] = stod(temp);
+		getline(mainData, temp);
+		msrp[i] = stod(temp);
+		getline(mainData, temp);
+		qty[i] = stoi(temp);
+		getline(mainData, type[i]);
+		mainData >> dateAdded[i];
+		}
 	}
-}
+
 
 
 baseClass::~baseClass()
 {
-	serialFile.close();
-	titleFile.close();
-	authorFile.close();
-	pubFile.close();
-	isbnFile.close();
-	msrpFile.close();
-	costFile.close();
-	qtyFile.close();
-	typeFile.close();
-	dateFile.close();
+	mainData.close();
 }
 
+//sets
 void baseClass::setTitle(string x, int c)
 {
 	title[c] = x;
@@ -129,6 +93,26 @@ void baseClass::setType(string x, int c)
 	type[c] = x;
 }
 
+void baseClass::fileMod(int x) //Essentially copies whatever is in array to the end of file. Var x is max value
+{
+	Date time;
+	mainData.clear();
+	mainData.seekg(0);
+	for (int c = 0; c < x; c++)
+	{	
+		mainData << getSerial(c) << endl
+			<< getTitle(c) << endl
+			<< getPublisher(c) << endl
+			<< getAuthor(c) << endl
+			<< getISBN(c) << endl
+			<< getCost(c) << endl
+			<< getMSRP(c) << endl
+			<< getQty(c) << endl
+			<< getType(c) << endl
+			<< getDate(c) << endl;
+	}
+}
+//gets
 string baseClass::getType(int c)
 {
 	return type[c];
@@ -174,5 +158,5 @@ string baseClass::getDate(int c)
 
 int baseClass::getSizeLine()
 {
-	return numOfLines;
+	return 1 + numOfLines/10;
 }

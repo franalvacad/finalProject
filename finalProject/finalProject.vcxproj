@@ -79,6 +79,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="baseClass.cpp" />
+    <ClCompile Include="Cart.cpp" />
     <ClCompile Include="Cashier.cpp" />
     <ClCompile Include="Date.cpp" />
     <ClCompile Include="displayClass.cpp" />
@@ -87,22 +88,17 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="baseClass.h" />
+    <ClInclude Include="Cart.h" />
     <ClInclude Include="Cashier.h" />
     <ClInclude Include="Date.h" />
     <ClInclude Include="displayClass.h" />
     <ClInclude Include="inventory.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="author.txt" />
-    <Text Include="cost.txt" />
-    <Text Include="date.txt" />
-    <Text Include="isbn.txt" />
-    <Text Include="msrp.txt" />
-    <Text Include="pub.txt" />
-    <Text Include="qty.txt" />
+    <None Include="ClassDiagram.cd" />
+  </ItemGroup>
+  <ItemGroup>
     <Text Include="serial.txt" />
-    <Text Include="title.txt" />
-    <Text Include="type.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

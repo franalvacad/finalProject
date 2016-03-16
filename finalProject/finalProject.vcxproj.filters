@@ -36,6 +36,9 @@
     <ClCompile Include="Date.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Cart.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="baseClass.h">
@@ -53,17 +56,16 @@
     <ClInclude Include="Date.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Cart.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="author.txt" />
-    <Text Include="cost.txt" />
-    <Text Include="isbn.txt" />
-    <Text Include="msrp.txt" />
-    <Text Include="pub.txt" />
-    <Text Include="qty.txt" />
-    <Text Include="serial.txt" />
-    <Text Include="title.txt" />
-    <Text Include="type.txt" />
-    <Text Include="date.txt" />
+    <None Include="ClassDiagram.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="serial.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>
