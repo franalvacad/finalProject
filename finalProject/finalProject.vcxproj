@@ -93,6 +93,7 @@
     <ClInclude Include="Date.h" />
     <ClInclude Include="displayClass.h" />
     <ClInclude Include="inventory.h" />
+    <ClInclude Include="template.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
