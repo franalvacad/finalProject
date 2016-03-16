@@ -95,10 +95,10 @@
     <ClInclude Include="inventory.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="serial.txt" />
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram.cd" />
+    <Text Include="serial.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -109,7 +109,7 @@ void baseClass::fileMod(int x) //Essentially copies whatever is in array to the 
 			<< getMSRP(c) << endl
 			<< getQty(c) << endl
 			<< getType(c) << endl
-			<< time.getComputerDate() << endl;
+			<< getDate(c) << endl;
 	}
 }
 //gets
