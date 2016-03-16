@@ -4,7 +4,7 @@
 
 class inventory :public display
 {
-	string titleHold, publisherHold, authorHold, isbnHold, typeHold;
+	string titleHold, publisherHold, authorHold, isbnHold, typeHold, dateHold;
 	double costHold, msrpHold;
 	int qtyHold, serialHold;
 	int NumOfdeletedBooks;
