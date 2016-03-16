@@ -1,5 +1,4 @@
 // Date Class Implementation
-
 #include "Date.h"
 #include <sstream>
 #include <iostream>
@@ -55,7 +54,14 @@ int Date::getYear() const
 
 string Date::getDate() const
 {
-	return to_string(day) + "-" + to_string(month) + "-" + to_string(year);
+	return to_string(month) + "-" + to_string(day) + "-" + to_string(year);
+}
+
+string Date::getComputerDate() const
+{
+	time_t now = time(0);
+	tm *tPtr = localtime(&now);
+	return to_string(tPtr->tm_mday) + "-" + to_string(tPtr->tm_mon) + "-" + to_string(tPtr->tm_year);
 }
 
 // Operator >> overloader for inserting date
@@ -82,9 +88,9 @@ fstream& operator>>(fstream& in, Date& d)
 	for (int i = 0; i < 3; i++)
 	{
 		if (i == 0)
-			d.day = dateArray[i];
-		else if (i == 1)
 			d.month = dateArray[i];
+		else if (i == 1)
+			d.day = dateArray[i];
 		else
 			d.year = dateArray[i];
 	}
