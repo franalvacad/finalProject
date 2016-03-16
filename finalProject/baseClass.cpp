@@ -44,7 +44,7 @@ baseClass::baseClass()
 		getline(mainData, temp);
 		qty[i] = stoi(temp);
 		getline(mainData, type[i]);
-		getline(mainData, date[i]);
+		mainData >> dateAdded[i];
 		}
 	}
 
