@@ -11,8 +11,7 @@ inventory::inventory()
 
 inventory::~inventory()
 {
-	for (int c = 0; c < baseClass::getSizeLine(); c++)
-		baseClass::fileMod(c);
+	baseClass::fileMod();
 }
 
 void inventory::add()

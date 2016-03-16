@@ -1,25 +1,237 @@
 1000001
+The Catcher in the Rye
+Little, Brown and Company
+J. D. Salinger
+9788970120676
+19.95
+8.18
+12
+Paperback
+
 1000002
+To Kill a Mockingbird
+HarperCollins Publishers
+Harper Lee
+9780061120084
+16.99
+8.92
+13
+Paperback
+
 1000003
+To Kill a Mockingbird
+HarperCollins Publishers
+Harper Lee
+9781435132412
+25.00
+15.85
+12
+Hardcover
+
 1000004
+Fahrenheit 451
+Simon & Schuster
+Ray Bradbury
+9781451673319
+8.43
+3.05
+13
+Paperback
+
 1000005
+The Very Hungry Caterpillar
+Philomel Books
+Eric Carle
+9780399226908
+3.40
+1.22
+12
+Paperback
+
 1000006
+The Hunger Games
+Scholastic, Inc.
+Suzanne Collins
+9780439023528
+10.99
+6.70
+13
+Paperback
+
 1000007
+Catching Fire
+Scholastic, Inc.
+Suzanne Collins
+9780545586177
+12.99
+7.92
+13
+Paperback
+
 1000008
+Mockingjay
+Scholastic, Inc.
+Suzanne Collins
+9780545663267
+12.99
+7.92
+6
+Paperback
+
 1000009
+Divergent
+HarperCollins Publishers
+Veronica Roth
+9780062024022
+17.99
+14.34
+7
+Hardcover
+
 1000010
+Insurgent
+HarperCollins Publishers
+Veronica Roth
+9780062024046
+17.99
+11.28
+89
+Hardcover
+
 1000011
+Allegiant
+HarperCollins Publishers
+Veronica Roth
+9780062024060
+19.99
+11.76
+0
+Hardcover
+
 1000012
+The Fault in Our Stars
+Penguin Young Readers Group
+John Green
+9780142424179
+12.99
+7.92
+5
+Paperback
+
 1000013
+Looking for Alaska
+Penguin Young Readers Group
+John Green
+9780142402511
+9.99
+8.99
+4
+Paperback
+
 1000014
+The Maze Runner
+Random House Children's Books
+James Dashner
+9780385737951
+9.99
+6.49
+3
+Paperback
+
 1000015
+The Scorch Trials
+Random House Children's Books
+James Dashner
+9780385738767
+9.99
+8.20
+2
+Paperback
+
 1000016
+The Death Cure
+Random House Children's Books
+James Dashner
+9780385738767
+9.99
+7
+Paperback
+
 1000017
+The Kill Order
+HarperCollins Publishers
+James Dashner
+9780385738781
+9.99
+8.40
+8
+Paperback
+
 1000018
+The Kill Order
+HarperCollins Publishers
+James Dashner
+9780385742894
+18.99
+8.40
+9
+Hardcover
+
 1000019
+The Kill Order
+HarperCollins Publishers
+James Dashner
+9780385742887
+19.99
+14.58
+0
+Hardcover
+
 1000020
+Allegiant
+HarperCollins Publishers
+Veronica Roth
+9780062024060
+17.99
+11.76
+3
+Hardcover
+
 1000021
+Insurgent
+HarperCollins Publishers
+Veronica Roth
+9780062024046
+17.99
+11.28
+5
+Hardcover
+
 1000022
-1000023
+Divergent
+HarperCollins Publishers
+Veronica Roth
+9780062024022
+15.95
+14.34
+8
+Paperback
+
 1000024
-1000025
+Fifty Shades of Grey
+Knopf Doubleday Publishing Group
+E L James
+9780345803481
+15.95
+9.85
+9
+Paperback
+
+
+
+
+
+
+
+
+

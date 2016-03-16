@@ -17,7 +17,7 @@ public:
 	void addToCart();
 	void removeFromCart();
 
-	//int findBook(int serial);
+	int findBook(int serial);
 
 };
 

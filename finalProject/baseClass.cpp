@@ -17,51 +17,11 @@ baseClass::baseClass()
 {
 	string holder;
 	
-		serialFile.open("serial.txt"); //master file
-		titleFile.open("title.txt");
-		authorFile.open("author.txt");
-		pubFile.open("pub.txt");
-		isbnFile.open("isbn.txt");
-		msrpFile.open("msrp.txt");
-		costFile.open("cost.txt");
-		qtyFile.open("qty.txt");
-		typeFile.open("type.txt");
-		dateFile.open("date.txt");
-		if (serialFile.is_open() == false){ throw "Error, can't open the serial file"; }
-		if (titleFile.is_open() == false){ throw "Error, can't open the title file"; }
-		if (authorFile.is_open() == false){ throw "Error, can't open the author file"; }
-		if (pubFile.is_open() == false){ throw "Error, can't open the publisher file"; }
-		if (isbnFile.is_open() == false){ throw "Error, can't open the isbn file"; }
-		if (msrpFile.is_open() == false){ throw "Error, can't open the msrp file"; }
-		if (costFile.is_open() == false){ throw "Error, can't open the cost file"; }
-		if (qtyFile.is_open() == false){ throw "Error, can't open the qty file"; }
-		if (typeFile.is_open() == false){ throw "Error, can't open the type file"; }
-		if (dateFile.is_open() == false){ throw "Error, can't open the date file"; }
+		mainData.open("serial.txt"); //master file
+		if (mainData.is_open() == false){ throw "Error, can't open the serial file"; }
 	
-	
-	while (countFile(serialFile)) //counts the number of lines
-		numOfLines++;
-
-	serialFile.clear();
-	serialFile.seekg(0);
-	titleFile.clear();
-	titleFile.seekg(0);
-	authorFile.clear();
-	authorFile.seekg(0);
-	pubFile.clear();
-	pubFile.seekg(0);
-	isbnFile.clear();
-	isbnFile.seekg(0);
-	msrpFile.clear();
-	msrpFile.seekg(0);
-	costFile.clear();
-	costFile.seekg(0);
-	qtyFile.clear();
-	qtyFile.seekg(0);
-	typeFile.clear();
-	typeFile.seekg(0);
-	dateFile.clear();
-	dateFile.seekg(0);
+	mainData.clear();
+	mainData.seekg(0);
 
 	for (int c = 0; c < numOfLines; c++)
 	{
@@ -141,18 +101,45 @@ void baseClass::setType(string x, int c)
 	type[c] = x;
 }
 
-void baseClass::fileMod(int x) //used for add() function. Essentially copies whatever is in array[x] to the end of file
+void baseClass::fileMod() //Essentially copies whatever is in array[x] to the end of file
 {
-	serialFile << getSerial(x);
-	titleFile << getTitle(x);
-	pubFile << getPublisher(x);
-	authorFile << getAuthor(x);
-	isbnFile << getISBN(x);
-	costFile << getCost(x);
-	msrpFile << getMSRP(x);
-	qtyFile << getQty(x);
-	typeFile << getType(x);
+	serialFile.clear();
+	serialFile.seekg(0);
+	titleFile.clear();
+	titleFile.seekg(0);
+	authorFile.clear();
+	authorFile.seekg(0);
+	pubFile.clear();
+	pubFile.seekg(0);
+	isbnFile.clear();
+	isbnFile.seekg(0);
+	msrpFile.clear();
+	msrpFile.seekg(0);
+	costFile.clear();
+	costFile.seekg(0);
+	qtyFile.clear();
+	qtyFile.seekg(0);
+	typeFile.clear();
+	typeFile.seekg(0);
+	dateFile.clear();
+	dateFile.seekg(0);
 
+	for (int c = 0; c < SIZE; c++)
+	{
+		if (getSerial(c) == '\0')
+			break;
+		
+		serialFile << getSerial(c);
+		titleFile << getTitle(c);
+		pubFile << getPublisher(c);
+		authorFile << getAuthor(c);
+		isbnFile << getISBN(c);
+		costFile << getCost(c);
+		msrpFile << getMSRP(c);
+		qtyFile << getQty(c);
+		typeFile << getType(c);
+		
+	}
 }
 
 //gets

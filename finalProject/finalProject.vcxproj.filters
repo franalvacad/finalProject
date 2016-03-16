@@ -61,34 +61,10 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="author.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="cost.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
     <Text Include="date.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="isbn.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="msrp.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="pub.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="qty.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
     <Text Include="serial.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="title.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="type.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>
