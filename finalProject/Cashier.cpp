@@ -6,6 +6,7 @@
 Cashier::Cashier()
 {
 }
+Cashier::~Cashier(){}
 
 void Cashier::addToCart(Cart (&takeOut)[50])
 {
