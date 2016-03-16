@@ -1,6 +1,7 @@
 #include <iostream>
 #include "inventory.h"
 #include <time.h>
+#include "Cashier.h"
 using namespace std;
 
 void inventTest()
@@ -10,6 +11,7 @@ void inventTest()
 	string term;
 	char result;
 	bool test = 0;
+
 
 	while (!test)
 	{
@@ -79,8 +81,13 @@ int main()
 
 	//cout << "term: ";
 
-	Date newDate;
-	//cout << newDate.getComputerDate();
+	Cashier cash;
+
+	cash.addToCart();
+
+	cash.viewCart();
+
+	system("pause"); 
 
 	results = test.getTitle(4);
 
