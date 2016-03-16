@@ -7,6 +7,8 @@
 #include <iostream>
 using namespace std;
 
+baseClass::baseClass(){}
+
 bool baseClass::countFile(fstream &inFile)
 {
 	string x;
@@ -28,27 +30,21 @@ baseClass::baseClass()
 	mainData.seekg(0);
 
 	cout << numOfLines << endl;
-	for (int i = 0; i < numOfLines; i += 10)
-	{
-		bookNum++;
-		cout << bookNum << endl;
-	}
-	bookNum++;
-	for (int c = 0; c < bookNum; c++)
-	{
-		mainData >> serial[c];
-		getline(mainData, title[c]);
-		getline(mainData, publisher[c]);
-		getline(mainData, author[c]);
-		mainData >> isbn[c];
-		mainData >> cost[c];
-		mainData >> msrp[c];
-		mainData >> qty[c];
-		mainData >> type[c];
-		mainData >> date[c];
 
+	for (int i = 0; i < numOfLines/10; i + 10){
+			mainData >> serial[i];
+			getline(mainData, title[i]);
+			getline(mainData, publisher[i]);
+			getline(mainData, author[i]);
+			mainData >> isbn[i];
+			mainData >> cost[i];
+			mainData >> msrp[i];
+			mainData >> qty[i];
+			mainData >> type[i];
+			mainData >> date[i];
+		}
 	}
-}
+
 
 
 baseClass::~baseClass()

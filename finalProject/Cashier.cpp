@@ -2,7 +2,7 @@
 #include "Cashier.h"
 #include <string>
 #include <iomanip>
-
+#include "Cart.h"
 Cashier::Cashier()
 {
 }

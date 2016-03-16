@@ -15,7 +15,8 @@ private:
 	string title[SIZE], publisher[SIZE], author[SIZE], isbn[SIZE], type[SIZE], date[SIZE];
 	fstream mainData; //make file variables
 	double cost[SIZE], msrp[SIZE];
-	int qty[SIZE], serial[SIZE], numOfLines = 0, bookNum = 0;
+	int qty[SIZE], serial[SIZE],  bookNum = 0;
+	double numOfLines = 0;
 protected:
 	Date dateAdded[SIZE];
 public:
