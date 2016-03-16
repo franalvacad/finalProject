@@ -60,7 +60,23 @@ void inventory::modify(int x)
 void inventory::del(int x)
 {
 }
+void inventory::shift(){
+	for (int j = 0; j < inventory::getNumOfdeletedBooks(); j++){
+		for (int i = inventory::getArrOfdelBooks(j); i < 1000; i++){
+			baseClass::setTitle(baseClass::getTitle(i + 1), i);
+			baseClass::setPublisher(baseClass::getPublisher(i + 1), i);
+			baseClass::setAuthor(baseClass::getAuthor(i + 1), i);
+			baseClass::setISBN(baseClass::getISBN(i + 1), i);
+			baseClass::setCost(baseClass::getCost(i + 1), i);
+			baseClass::setMSRP(baseClass::getMSRP(i + 1), i);
+			baseClass::setQty(baseClass::getQty(i + 1), i);
+			baseClass::setSerial(baseClass::getSerial(i + 1), i);
+			baseClass::setType(baseClass::getType(i + 1), i);
+		}
+	}
 
+
+}
 int inventory::search(string term)
 {
 	string hold;
@@ -88,3 +104,7 @@ int inventory::search(string term)
 	return 0;
 
 }
+void inventory::setNumOfdeletedBooks(int n){ NumOfdeletedBooks = n; }
+void inventory::setArrOfdelBooks(int i, int el){ ArrOfdelBooks[i] = el; }
+int inventory::getNumOfdeletedBooks(){ return NumOfdeletedBooks; }
+int inventory::getArrOfdelBooks(int i){ return ArrOfdelBooks[i]; }
