@@ -4,8 +4,35 @@
 #include <time.h>
 using namespace std;
 
-void inventTest()
+void cashMod()
 {
+	Cashier alpha;
+	int inp = 0;
+	cout << "***********************************************************************************************************" << endl;
+	cout << "*                                            CASHIER MODULE                                               *" << endl;
+	cout << "***********************************************************************************************************" << endl << endl;
+
+	cout << "Enter Item Code: ";
+	cin >> inp;
+
+	int i = alpha.findBook(inp);
+	int qty = 0;
+
+	//cout system date over here
+	cout << setw(9) << left << "Item Code" << setw(35) << left << "Title" << setw(15) << left << "ISBN" << setw(8)
+		<< left << "MSRP($)" << setw(8) << left << "Qty" << setw(8) << left << "Total($)" << endl;
+	cout << "------------------------------------------------------------------------------------------------------------------------------" << endl;
+	alpha.getListCustom(i);
+	cin >> qty;
+
+}
+
+void invMod()
+{
+	cout << "***********************************************************************************************************" << endl;
+	cout << "*                                     INVENTORY DATABASE MODULE                                           *" << endl;
+	cout << "***********************************************************************************************************" << endl << endl;
+
 	inventory changes;
 	int ser;
 	string term;
@@ -43,40 +70,9 @@ void inventTest()
 
 	cout << endl;
 
-		
+
 
 }
-
-void cashMod()
-{
-	Cashier alpha;
-	int inp = 0;
-	cout << "***********************************************************************************************************" << endl;
-	cout << "*                                            CASHIER MODULE                                               *" << endl;
-	cout << "***********************************************************************************************************" << endl << endl;
-
-	cout << "Enter Item Code: ";
-	cin >> inp;
-
-	int i = alpha.findBook(inp);
-	int qty = 0;
-
-	//cout system date over here
-	cout << setw(9) << left << "Item Code" << setw(35) << left << "Title" << setw(15) << left << "ISBN" << setw(8)
-		<< left << "MSRP($)" << setw(8) << left << "Qty" << setw(8) << left << "Total($)" << endl;
-	cout << "------------------------------------------------------------------------------------------------------------------------------" << endl;
-	alpha.getListCustom(i);
-	cin >> qty;
-
-}
-
-void invMod()
-{
-	cout << "***********************************************************************************************************" << endl;
-	cout << "*                                     INVENTORY DATABASE MODULE                                           *" << endl;
-	cout << "***********************************************************************************************************" << endl << endl;
-}
-
 
 void repMod()
 {
@@ -115,7 +111,8 @@ void repMod()
 	//return to main
 	else cout << "Invalid Input." << endl;
 
-	cout << "-----------------------------------------------------------------------------------------------------------" << endl;
+	system("pause>nul");
+	system("cls");
 	choice = 0;
 	type = 0;
 }
