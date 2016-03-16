@@ -7,7 +7,6 @@
 #include <iostream>
 using namespace std;
 
-baseClass::baseClass(){}
 
 bool baseClass::countFile(fstream &inFile)
 {
@@ -18,7 +17,7 @@ bool baseClass::countFile(fstream &inFile)
 baseClass::baseClass()
 {
 	string holder;
-
+	string temps;
 	mainData.open("serial.txt"); //master file
 	if (mainData.is_open() == false)
 		throw "Error, can't open the serial file";
@@ -30,9 +29,10 @@ baseClass::baseClass()
 	mainData.seekg(0);
 
 	cout << numOfLines << endl;
-
+	mainData.clear();
 	for (int i = 0; i < numOfLines/10; i + 10){
-			mainData >> serial[i];
+		getline(mainData, temps); 
+		serial[i] = stoi(temps);
 			getline(mainData, title[i]);
 			getline(mainData, publisher[i]);
 			getline(mainData, author[i]);
