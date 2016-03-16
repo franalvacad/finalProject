@@ -10,56 +10,50 @@ using namespace std;
 bool baseClass::countFile(fstream &inFile)
 {
 	string x;
-	return (bool)(inFile>>x);
+	return (bool)(getline(inFile, x));
 }
 
 baseClass::baseClass()
 {
 	string holder;
-	
-		mainData.open("serial.txt"); //master file
-		if (mainData.is_open() == false){ throw "Error, can't open the serial file"; }
-	
+
+	mainData.open("serial.txt"); //master file
+	if (mainData.is_open() == false)
+		throw "Error, can't open the serial file";
+
+	while (countFile(mainData)) //counts the number of lines
+		numOfLines++;
+
 	mainData.clear();
 	mainData.seekg(0);
 
-	for (int c = 0; c < numOfLines; c++)
+	cout << numOfLines << endl;
+	for (int i = 0; i < numOfLines; i += 10)
 	{
-		serialFile >> this->serial[c];
+		bookNum++;
+		cout << bookNum << endl;
+	}
+	bookNum++;
+	for (int c = 0; c < bookNum; c++)
+	{
+		mainData >> serial[c];
+		getline(mainData, title[c]);
+		getline(mainData, publisher[c]);
+		getline(mainData, author[c]);
+		mainData >> isbn[c];
+		mainData >> cost[c];
+		mainData >> msrp[c];
+		mainData >> qty[c];
+		mainData >> type[c];
+		mainData >> date[c];
 
-		getline(titleFile, this->title[c]);
-
-		getline(authorFile, this->author[c]);
-
-		getline(pubFile, this->publisher[c]);
-
-		getline(isbnFile, this->isbn[c]);
-
-		msrpFile >> this->msrp[c];
-
-		costFile >> this->cost[c];
-
-		qtyFile >> this->qty[c];
-
-		getline(typeFile, this->type[c]);
-
-		dateFile >> dateAdded[c];
 	}
 }
 
 
 baseClass::~baseClass()
 {
-	serialFile.close();
-	titleFile.close();
-	authorFile.close();
-	pubFile.close();
-	isbnFile.close();
-	msrpFile.close();
-	costFile.close();
-	qtyFile.close();
-	typeFile.close();
-	dateFile.close();
+	mainData.close();
 }
 
 //sets
@@ -103,41 +97,14 @@ void baseClass::setType(string x, int c)
 
 void baseClass::fileMod() //Essentially copies whatever is in array[x] to the end of file
 {
-	serialFile.clear();
-	serialFile.seekg(0);
-	titleFile.clear();
-	titleFile.seekg(0);
-	authorFile.clear();
-	authorFile.seekg(0);
-	pubFile.clear();
-	pubFile.seekg(0);
-	isbnFile.clear();
-	isbnFile.seekg(0);
-	msrpFile.clear();
-	msrpFile.seekg(0);
-	costFile.clear();
-	costFile.seekg(0);
-	qtyFile.clear();
-	qtyFile.seekg(0);
-	typeFile.clear();
-	typeFile.seekg(0);
-	dateFile.clear();
-	dateFile.seekg(0);
+	mainData.clear();
+	mainData.seekg(0);
 
 	for (int c = 0; c < SIZE; c++)
 	{
 		if (getSerial(c) == '\0')
 			break;
 		
-		serialFile << getSerial(c);
-		titleFile << getTitle(c);
-		pubFile << getPublisher(c);
-		authorFile << getAuthor(c);
-		isbnFile << getISBN(c);
-		costFile << getCost(c);
-		msrpFile << getMSRP(c);
-		qtyFile << getQty(c);
-		typeFile << getType(c);
 		
 	}
 }
@@ -188,5 +155,5 @@ string baseClass::getDate(int c)
 
 int baseClass::getSizeLine()
 {
-	return numOfLines;
+	return bookNum;
 }

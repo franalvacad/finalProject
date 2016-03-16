@@ -95,7 +95,6 @@
     <ClInclude Include="inventory.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="date.txt" />
     <Text Include="serial.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
