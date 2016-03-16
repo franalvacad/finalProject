@@ -3,80 +3,82 @@
 #include <time.h>
 using namespace std;
 
-void inventTest()
-{
-	inventory changes;
-	int ser;
-	string term;
-	char res;
-	bool test = 0;
-
-	while (!test)
-	{
-		cout << "(A)dd, (M)odify, (D)elete: ";
-		cin >> res;
-		if (islower(res))
-			res = toupper(res);
-
-		switch (res)
-		{
-		default:
-			cout << "Try again please!" << endl;
-			break;
-		case 'A':
-			test = true;
-			changes.add();
-			break;
-		case 'M' || 'D':
-			test = true;
-			cout << "Please enter a search term: ";
-			getline(cin, term);
-			changes.search(term);
-
-			cout << endl;
-
-			cout << "Enter ayy";
-			break;
-		}
-	}
-
-	cout << endl;
-
-		
-
-}
+//void inventTest()
+//{
+//	inventory changes;
+////	int ser;
+//	string term;
+//	char res;
+//	bool test = 0;
+//
+//	while (!test)
+//	{
+//		cout << "(A)dd, (M)odify, (D)elete: ";
+//		cin >> res;
+//		if (islower(res))
+//			res = toupper(res);
+//
+//		switch (res)
+//		{
+//		default:
+//			cout << "Try again please!" << endl;
+//			break;
+//		case 'A':
+//			test = true;
+//			changes.add();
+//			break;
+//		case 'M' || 'D':
+//			test = true;
+//			cout << "Please enter a search term: ";
+//			getline(cin, term);
+//			changes.search(term);
+//
+//			cout << endl;
+//
+//			cout << "Enter ayy";
+//			break;
+//		}
+//	}
+//
+//	cout << endl;
+//
+//		
+//
+//}
 
 
 int main()
 {
 	baseClass test;
 
-//	try{
-//		inventory test;
-//		//display test2;
-//		int size = test.getSizeLine(), srch;
-//		string results;
-//
-//		//cout << "term: ";
-//
-//		Date newDate;
-//		//cout << newDate.getComputerDate();
-//
-//		results = test.getTitle(4);
-//
-////		test.getList();
-//
-//		time_t c = time(NULL);
-//		char *h = ctime(&c);
-//
-//		cout << endl << endl;
-//		test.search("serendipity");
-//
-//		inventTest();
-//
+	try{
+		inventory test;
+		////display test2;
+		//int size = test.getSizeLine(), srch;
+		//string results;
+
+		////cout << "term: ";
+
+		//Date newDate;
+		////cout << newDate.getComputerDate();
+
+		//results = test.getTitle(4);
+
+		test.getList();
+
+		//time_t c = time(NULL);
+		//char *h = ctime(&c);
+
+		//cout << endl << endl;
+		//test.search("serendipity");
+
+		//inventTest();
+		
+
+
 //		cout << h;
-//	}
-//	catch (char *extstr){ cout << extstr; }
+	}
+	catch (char *extstr){ cout << extstr; }
 	system("pause>nul");
 	return 0;
 }

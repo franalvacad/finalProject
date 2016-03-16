@@ -58,6 +58,24 @@ void inventory::modify(int x)
 
 void inventory::del(int x)
 {
+	baseClass::setTitle("", x);
+	baseClass::setPublisher("", x);
+	baseClass::setAuthor("", x);
+	baseClass::setISBN("", x);
+	baseClass::setCost(0, x);
+	baseClass::setMSRP(0, x);
+	baseClass::setQty(0, x);
+	baseClass::setSerial(0, x);
+	baseClass::setType("", x);
+	inventory::setNumOfdeletedBooks(1);                           // use in the cashiere module
+	for (int i = 0; i < inventory::getNumOfdeletedBooks(); i++){  //
+		inventory::setArrOfdelBooks(0, x);                        //
+	}								                              //
+	inventory::shift();                                           //
+	for (int i = 0; i < inventory::getNumOfdeletedBooks(); i++){  //
+		inventory::setArrOfdelBooks(i, 0);                        //
+	}                                                             //
+	inventory::setNumOfdeletedBooks(0);                           //
 }
 void inventory::shift(){
 	for (int j = 0; j < inventory::getNumOfdeletedBooks(); j++){
@@ -95,7 +113,7 @@ int inventory::search(string term)
 	
 	if (!vty)
 	{
-		cout << "----------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
+		cout << "----------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;// what is it (Andrei)?
 		cout << setw(4) << "No." << setw(35) << left << "Title" << setw(35) << left << "Publisher" << setw(25) << left << "Author" << setw(15)
 			<< left << "ISBN" << setw(8) << left << "Cost($) " << setw(8) << left << "MSRP($) " << setw(5) << left << "Qty" << setw(10) << left
 			<< "Type" << setw(8) << left << "Date Added" << endl;
