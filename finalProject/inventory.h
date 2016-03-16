@@ -9,6 +9,7 @@ class inventory :public display
 	int qtyHold, serialHold;
 	int NumOfdeletedBooks;
 	int ArrOfdelBooks[1000];
+	int max;
 public:
 	inventory();
     ~inventory();

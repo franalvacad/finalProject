@@ -22,7 +22,7 @@ void cashMod()
 	cout << setw(9) << left << "Item Code" << setw(35) << left << "Title" << setw(15) << left << "ISBN" << setw(8)
 		<< left << "MSRP($)" << setw(8) << left << "Qty" << setw(8) << left << "Total($)" << endl;
 	cout << "------------------------------------------------------------------------------------------------------------------------------" << endl;
-	alpha.getListCustom(i);
+	alpha.getShortListCustom(i);
 	cin >> qty;
 
 }
@@ -57,7 +57,7 @@ void invMod()
 			break;
 		case 'M' || 'D':
 			test = true;
-			cout << "Please enter a search term: ";
+			cout << "Search for title of book: ";
 			getline(cin, term);
 			changes.search(term);
 
@@ -69,9 +69,6 @@ void invMod()
 	}
 
 	cout << endl;
-
-
-
 }
 
 void repMod()

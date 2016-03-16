@@ -61,9 +61,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="date.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
     <Text Include="serial.txt">
       <Filter>Resource Files</Filter>
     </Text>

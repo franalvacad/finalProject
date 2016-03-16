@@ -10,23 +10,20 @@ inventory::inventory()
 
 inventory::~inventory()
 {
-	baseClass::fileMod();
+	baseClass::fileMod(max - 1);
 }
 
 void inventory::add()
 {
-	int nowSize = baseClass::getSizeLine() + 1;
+	max = baseClass::getSizeLine() + 1;
 
-	cout << "Serial: ";
-	cin >> serialHold;
-	cout << endl << "Title: ";
+	serialHold = max;
 	cin.ignore();
+	cout << endl << "Title: ";
 	getline(cin, titleHold);
 	cout << endl << "Publisher: ";
-	cin.ignore();
 	getline(cin, publisherHold);
 	cout << endl << "Author: ";
-	cin.ignore();
 	getline(cin, authorHold);
 	cout << endl << "ISBN: ";
 	cin >> isbnHold;
@@ -39,15 +36,15 @@ void inventory::add()
 	cout << endl << "Hardcover or Paperback: ";
 	cin >> typeHold;
 	
-	baseClass::setSerial(serialHold, nowSize);
-	baseClass::setTitle(titleHold, nowSize); 
-	baseClass::setPublisher(publisherHold, nowSize); 
-	baseClass::setAuthor(authorHold, nowSize); 
-	baseClass::setISBN(isbnHold, nowSize); 
-	baseClass::setCost(costHold, nowSize); 
-	baseClass::setMSRP(msrpHold, nowSize);
-	baseClass::setQty(qtyHold, nowSize); 
-	baseClass::setType(typeHold, nowSize);
+	baseClass::setSerial(serialHold, max - 1);
+	baseClass::setTitle(titleHold, max - 1);
+	baseClass::setPublisher(publisherHold, max - 1);
+	baseClass::setAuthor(authorHold, max - 1);
+	baseClass::setISBN(isbnHold, max - 1);
+	baseClass::setCost(costHold, max - 1);
+	baseClass::setMSRP(msrpHold, max - 1);
+	baseClass::setQty(qtyHold, max - 1);
+	baseClass::setType(typeHold, max - 1);
 }
 
 void inventory::modify(int x)

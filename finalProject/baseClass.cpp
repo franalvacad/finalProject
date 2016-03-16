@@ -93,20 +93,25 @@ void baseClass::setType(string x, int c)
 	type[c] = x;
 }
 
-void baseClass::fileMod() //Essentially copies whatever is in array[x] to the end of file
+void baseClass::fileMod(int x) //Essentially copies whatever is in array to the end of file. Var x is max value
 {
+	Date time;
 	mainData.clear();
 	mainData.seekg(0);
-
-	for (int c = 0; c < SIZE; c++)
-	{
-		if (getSerial(c) == '\0')
-			break;
-		
-		
+	for (int c = 0; c < x; c++)
+	{	
+		mainData << getSerial(c) << endl
+			<< getTitle(c) << endl
+			<< getPublisher(c) << endl
+			<< getAuthor(c) << endl
+			<< getISBN(c) << endl
+			<< getCost(c) << endl
+			<< getMSRP(c) << endl
+			<< getQty(c) << endl
+			<< getType(c) << endl
+			<< time.getComputerDate() << endl;
 	}
 }
-
 //gets
 string baseClass::getType(int c)
 {
@@ -153,5 +158,5 @@ string baseClass::getDate(int c)
 
 int baseClass::getSizeLine()
 {
-	return numOfLines/10;
+	return 1 + numOfLines/10;
 }
