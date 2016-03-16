@@ -15,7 +15,7 @@ inventory::~inventory()
 
 string inventory::add()
 {
-	 return "caca";
+	 return "chjhjaca";
 }
 
 string inventory::modify()
