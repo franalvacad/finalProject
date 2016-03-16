@@ -12,10 +12,11 @@ private:
 
 public:
 	Cashier();
+	Cashier(Cart(&takeOut)[50]);
 
-	void addToCart(Cart (&takeOut)[50]);
-	void removeFromCart(Cart(&takeOut)[50]);
-	void viewCart(Cart(&takeOut)[50]);
+	void addToCart(Cart (&t)[50]);
+	void removeFromCart(Cart(&t)[50]);
+	void viewCart(Cart(&t)[50]);
 
 	int findBook(int serial);
 

@@ -1,6 +1,8 @@
 #include <iostream>
 #include "inventory.h"
+#include "Cashier.h"
 #include <time.h>
+
 using namespace std;
 
 //void inventTest()
@@ -47,8 +49,19 @@ using namespace std;
 //}
 
 
+
 int main()
 {
+	Cashier cashRegister;
+	Cart takeOut[50];
+
+	cashRegister.addToCart(takeOut);
+	cashRegister.viewCart(takeOut);
+	system("pause");
+	cashRegister.removeFromCart(takeOut);
+
+
+
 	baseClass test;
 
 	try{
