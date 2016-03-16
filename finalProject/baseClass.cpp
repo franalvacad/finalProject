@@ -17,7 +17,7 @@ bool baseClass::countFile(fstream &inFile)
 baseClass::baseClass()
 {
 	string holder;
-	string temps;
+	string temp;
 	mainData.open("serial.txt"); //master file
 	if (mainData.is_open() == false)
 		throw "Error, can't open the serial file";
@@ -30,18 +30,21 @@ baseClass::baseClass()
 
 	cout << numOfLines << endl;
 	mainData.clear();
-	for (int i = 0; i < numOfLines/10; i + 10){
-		getline(mainData, temps); 
-		serial[i] = stoi(temps);
-			getline(mainData, title[i]);
-			getline(mainData, publisher[i]);
-			getline(mainData, author[i]);
-			mainData >> isbn[i];
-			mainData >> cost[i];
-			mainData >> msrp[i];
-			mainData >> qty[i];
-			mainData >> type[i];
-			mainData >> date[i];
+	for (int i = 0; i < numOfLines/10; i++){
+		getline(mainData, temp); 
+		serial[i] = stoi(temp);
+		getline(mainData, title[i]);
+		getline(mainData, publisher[i]);
+		getline(mainData, author[i]);
+		getline(mainData, isbn[i]);
+		getline(mainData, temp);
+		cost[i] = stod(temp);
+		getline(mainData, temp);
+		msrp[i] = stod(temp);
+		getline(mainData, temp);
+		qty[i] = stoi(temp);
+		getline(mainData, type[i]);
+		getline(mainData, date[i]);
 		}
 	}
 
@@ -151,5 +154,5 @@ string baseClass::getDate(int c)
 
 int baseClass::getSizeLine()
 {
-	return bookNum;
+	return numOfLines/10;
 }

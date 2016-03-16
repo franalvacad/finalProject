@@ -42,7 +42,7 @@ void display::getList() //Complete
 	cout << "*                                                                  INVENTORY LIST REPORT                                                                 *" << endl;
 	cout << "**********************************************************************************************************************************************************" << endl << endl;
 
-	cout << setw(/*display::gerMNumlenght() + 2*/ 9) << "No." << setw(display::getMTitlelength() + 2) << left << "Title" << setw(display::getMPublisherlength() + 2) << left << "Publisher" << setw(display::getMAuthorlength() + 2) << left << "Author" << setw(15)
+	cout << setw(/*display::gerMNumlenght() + 2*/ 9) << left << "No." << setw(display::getMTitlelength() + 2) << left << "Title" << setw(display::getMPublisherlength() + 2) << left << "Publisher" << setw(display::getMAuthorlength() + 2) << left << "Author" << setw(15)
 		<< left << "ISBN" << setw(8) << left << "Cost($) " << setw(8) << left << "MSRP($) " << setw(5) << left << "Qty" << setw(10) << left
 		<< "Type" << setw(8) << left << "Date Added" << endl;
 	cout << "----------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
