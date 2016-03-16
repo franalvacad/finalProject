@@ -13,18 +13,26 @@ using namespace std;
 //	cout << "*                                            CASHIER MODULE                                               *" << endl;
 //	cout << "***********************************************************************************************************" << endl << endl;
 //
-//	cout << "Enter Item Code: ";
-//	cin >> inp;
-//
-//	int i = alpha.findBook(inp);
-//	int qty = 0;
-//
-//	//cout system date over here
-//	cout << setw(9) << left << "Item Code" << setw(35) << left << "Title" << setw(15) << left << "ISBN" << setw(8)
-//		<< left << "MSRP($)" << setw(8) << left << "Qty" << setw(8) << left << "Total($)" << endl;
-//	cout << "------------------------------------------------------------------------------------------------------------------------------" << endl;
-//	alpha.getShortListCustom(i);
-//	cin >> qty;
+//cash.addToCart(takeOut);
+//cash.viewCart(takeOut);
+//cash.removeFromCart(takeOut);
+//cash.viewCart(takeOut);
+
+/*
+cout << "Enter Item Code: ";
+cin >> inp;
+
+int i = cash.findBook(inp);
+int qty = 0;
+
+//cout system date over here
+cout << setw(9) << left << "Item Code" << setw(35) << left << "Title" << setw(15) << left << "ISBN" << setw(8)
+<< left << "MSRP($)" << setw(8) << left << "Qty" << setw(8) << left << "Total($)" << endl;
+cout << "------------------------------------------------------------------------------------------------------------------------------" << endl;
+cash.getListCustom(i);
+cin >> qty;
+
+*/
 //
 //}
 //
