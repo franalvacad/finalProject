@@ -7,6 +7,7 @@ using namespace std;
 display::display()
 {
 }
+display::~display(){}
 int display::getMAuthorlength()
 {
 	int max = 0;
@@ -248,4 +249,9 @@ void display::getAgelist()
 		minm = 10000;
 		mind = 10000;
 	}
+}
+
+void display::getShortListCustom(int i) //Complete
+{
+	cout << setw(4) << left << baseClass::getSerial(i) << setw(35) << left << baseClass::getTitle(i) << setw(15) << left << baseClass::getISBN(i) << setw(8) << left << baseClass::getMSRP(i) << endl;
 }

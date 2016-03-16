@@ -28,7 +28,6 @@ baseClass::baseClass()
 	mainData.clear();
 	mainData.seekg(0);
 
-	cout << numOfLines << endl;
 	mainData.clear();
 	for (int i = 0; i < numOfLines/10; i++){
 		getline(mainData, temp); 

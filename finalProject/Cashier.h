@@ -5,7 +5,7 @@
 #include "inventory.h"
 #include "Cart.h"
 
-class Cashier : public baseClass
+class Cashier : public inventory
 {
 private:
 	const double salesTaxRate = 0.0825;
@@ -13,6 +13,8 @@ private:
 public:
 	Cashier();
 	Cashier(Cart(&takeOut)[50]);
+
+	~Cashier();
 
 	void addToCart(Cart (&t)[50]);
 	void removeFromCart(Cart(&t)[50]);

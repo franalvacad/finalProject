@@ -34,6 +34,7 @@ int findBook1(T bookArr, int s)
 Cashier::Cashier()
 {
 }
+Cashier::~Cashier(){}
 
 void Cashier::addToCart(Cart (&t)[50])
 {

@@ -1,3 +1,4 @@
+#pragma once
 #include "baseClass.h"
 #include "iostream"
 #include "Date.h"
@@ -12,10 +13,12 @@ private:
 	
 public:
 	display();
+	~display();
 
 //	accsessors afsdadg
 	void getList();
 	void getListCustom(int);
+	void getShortListCustom(int);
 	void getWholelist();
 	void getRetaillist();
 	void getQTYlist();
