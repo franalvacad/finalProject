@@ -27,7 +27,6 @@ baseClass::baseClass()
 	mainData.clear();
 	mainData.seekg(0);
 
-	cout << numOfLines << endl;
 	for (int i = 0; i < numOfLines; i += 10)
 	{
 		bookNum++;
@@ -37,6 +36,7 @@ baseClass::baseClass()
 	for (int c = 0; c < bookNum; c++)
 	{
 		mainData >> serial[c];
+		cout << serial[c] << endl;
 		getline(mainData, title[c]);
 		getline(mainData, publisher[c]);
 		getline(mainData, author[c]);
