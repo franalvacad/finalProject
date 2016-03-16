@@ -12,10 +12,10 @@ const int SIZE = 1000;
 class baseClass
 {
 private:
-	string title[SIZE], publisher[SIZE], author[SIZE], isbn[SIZE], type[SIZE];
-	fstream serialFile, titleFile, authorFile, pubFile, isbnFile, msrpFile, costFile, qtyFile, typeFile, dateFile; //make file variables
+	string title[SIZE], publisher[SIZE], author[SIZE], isbn[SIZE], type[SIZE], date[SIZE];
+	fstream mainData; //make file variables
 	double cost[SIZE], msrp[SIZE];
-	int qty[SIZE], serial[SIZE], numOfLines = 0;
+	int qty[SIZE], serial[SIZE], numOfLines = 0, bookNum = 0;
 protected:
 	Date dateAdded[SIZE];
 public:
@@ -33,7 +33,7 @@ public:
 	void setQty(int x, int c);
 	void setSerial(int x, int c);
 	void setType(string x, int c);
-	void fileMod(int x);
+	void fileMod();
 
 	string getTitle(int c);
 	string getAuthor(int c);

@@ -1,8 +1,6 @@
 #include <iostream>
 #include "inventory.h"
 #include <time.h>
-#include "Cashier.h"
-#include "Cart.h"
 using namespace std;
 
 void inventTest()
@@ -10,103 +8,75 @@ void inventTest()
 	inventory changes;
 	int ser;
 	string term;
-	char result;
+	char res;
 	bool test = 0;
-
 
 	while (!test)
 	{
-		cout << "(S)earch or (L)ist items? ";
-		cin >> result;
+		cout << "(A)dd, (M)odify, (D)elete: ";
+		cin >> res;
+		if (islower(res))
+			res = toupper(res);
 
-		if (result == 's' || result == 'S')
+		switch (res)
 		{
-			cout << endl << "Enter your search term: ";
-			cin.ignore();
+		default:
+			cout << "Try again please!" << endl;
+			break;
+		case 'A':
+			test = true;
+			changes.add();
+			break;
+		case 'M' || 'D':
+			test = true;
+			cout << "Please enter a search term: ";
 			getline(cin, term);
 			changes.search(term);
-			test = true;
-		}
 
-		else if (result == 'l' || result == 'L')
-		{
-			changes.getList();
-			test = true;
-		}
-			
-		else cout << "Try again please!" << endl;
+			cout << endl;
 
+			cout << "Enter ayy";
+			break;
+		}
 	}
+
 	cout << endl;
-	while (test)
-	{
-		cout << "(A)dd or (P)ick by Serial: ";
 
-		if (result == 'a' || result == 'A')
-		{
-			changes.add();
-			test = false;
-		}
-
-		cin >> ser;
-	}
-	while (test)
-	{
-		cout << "(M)odify/(D)elete: ";
-		cin >> result;
-		if (result == 'm' || result == 'M')
-		{
-			changes.modify(ser);
-			test = false;
-		}
-		else if (result == 'd' || result == 'D')
-		{
-			changes.del(ser);
-			test = false;
-		}
-		else cout << "Try again please!" << endl;
-
-	}
-
+		
 
 }
 
 
 int main()
 {
+	baseClass test;
 
-	inventory test;
-	display test2;
-	int size = test.getSizeLine(), srch;
-	string results;
-
-	//cout << "term: ";
-
-	Cashier cash;
-	Cart takeOut[50];
-
-	cash.addToCart(takeOut);
-
-	cout << takeOut[0].getItemCode();
-
-	cash.viewCart(takeOut);
-
-	system("pause"); 
-
-	results = test.getTitle(4);
-
-	test2.getList();
-
-	time_t c = time(NULL);
-	char *h = ctime(&c);
-
-	cout << endl << endl;
-	test.search("serendipity");
-
-	inventTest();
-
-	cout << h;
-
+//	try{
+//		inventory test;
+//		//display test2;
+//		int size = test.getSizeLine(), srch;
+//		string results;
+//
+//		//cout << "term: ";
+//
+//		Date newDate;
+//		//cout << newDate.getComputerDate();
+//
+//		results = test.getTitle(4);
+//
+////		test.getList();
+//
+//		time_t c = time(NULL);
+//		char *h = ctime(&c);
+//
+//		cout << endl << endl;
+//		test.search("serendipity");
+//
+//		inventTest();
+//
+//		cout << h;
+//	}
+//	catch (char *extstr){ cout << extstr; }
 	system("pause>nul");
 	return 0;
 }

@@ -10,96 +10,50 @@ using namespace std;
 bool baseClass::countFile(fstream &inFile)
 {
 	string x;
-	return (bool)(inFile>>x);
+	return (bool)(getline(inFile, x));
 }
 
 baseClass::baseClass()
 {
 	string holder;
-	try{
-		serialFile.open("serial.txt"); //master file
-		titleFile.open("title.txt");
-		authorFile.open("author.txt");
-		pubFile.open("pub.txt");
-		isbnFile.open("isbn.txt");
-		msrpFile.open("msrp.txt");
-		costFile.open("cost.txt");
-		qtyFile.open("qty.txt");
-		typeFile.open("type.txt");
-		dateFile.open("date.txt");
-		if (serialFile.is_open() == false){ throw "Error, can't open the serial file"; }
-		if (titleFile.is_open() == false){ throw "Error, can't open the title file"; }
-		if (authorFile.is_open() == false){ throw "Error, can't open the author file"; }
-		if (pubFile.is_open() == false){ throw "Error, can't open the publisher file"; }
-		if (isbnFile.is_open() == false){ throw "Error, can't open the isbn file"; }
-		if (msrpFile.is_open() == false){ throw "Error, can't open the msrp file"; }
-		if (costFile.is_open() == false){ throw "Error, can't open the cost file"; }
-		if (qtyFile.is_open() == false){ throw "Error, can't open the qty file"; }
-		if (typeFile.is_open() == false){ throw "Error, can't open the type file"; }
-		if (dateFile.is_open() == false){ throw "Error, can't open the date file"; }
-	}
-	catch (char *extstr){ cout << extstr; }
-	while (countFile(serialFile)) //counts the number of lines
+
+	mainData.open("serial.txt"); //master file
+	if (mainData.is_open() == false)
+		throw "Error, can't open the serial file";
+
+	while (countFile(mainData)) //counts the number of lines
 		numOfLines++;
 
-	serialFile.clear();
-	serialFile.seekg(0);
-	titleFile.clear();
-	titleFile.seekg(0);
-	authorFile.clear();
-	authorFile.seekg(0);
-	pubFile.clear();
-	pubFile.seekg(0);
-	isbnFile.clear();
-	isbnFile.seekg(0);
-	msrpFile.clear();
-	msrpFile.seekg(0);
-	costFile.clear();
-	costFile.seekg(0);
-	qtyFile.clear();
-	qtyFile.seekg(0);
-	typeFile.clear();
-	typeFile.seekg(0);
-	dateFile.clear();
-	dateFile.seekg(0);
+	mainData.clear();
+	mainData.seekg(0);
 
-	for (int c = 0; c < numOfLines; c++)
+	cout << numOfLines << endl;
+	for (int i = 0; i < numOfLines; i += 10)
 	{
-		serialFile >> this->serial[c];
+		bookNum++;
+		cout << bookNum << endl;
+	}
+	bookNum++;
+	for (int c = 0; c < bookNum; c++)
+	{
+		mainData >> serial[c];
+		getline(mainData, title[c]);
+		getline(mainData, publisher[c]);
+		getline(mainData, author[c]);
+		mainData >> isbn[c];
+		mainData >> cost[c];
+		mainData >> msrp[c];
+		mainData >> qty[c];
+		mainData >> type[c];
+		mainData >> date[c];
 
-		getline(titleFile, this->title[c]);
-
-		getline(authorFile, this->author[c]);
-
-		getline(pubFile, this->publisher[c]);
-
-		getline(isbnFile, this->isbn[c]);
-
-		msrpFile >> this->msrp[c];
-
-		costFile >> this->cost[c];
-
-		qtyFile >> this->qty[c];
-
-		getline(typeFile, this->type[c]);
-
-		dateFile >> dateAdded[c];
 	}
 }
 
 
 baseClass::~baseClass()
 {
-	serialFile.close();
-	titleFile.close();
-	authorFile.close();
-	pubFile.close();
-	isbnFile.close();
-	msrpFile.close();
-	costFile.close();
-	qtyFile.close();
-	typeFile.close();
-	dateFile.close();
+	mainData.close();
 }
 
 //sets
@@ -141,18 +95,18 @@ void baseClass::setType(string x, int c)
 	type[c] = x;
 }
 
-void baseClass::fileMod(int x) //used for add() function. Essentially copies whatever is in array[x] to the end of file
+void baseClass::fileMod() //Essentially copies whatever is in array[x] to the end of file
 {
-	serialFile << getSerial(x);
-	titleFile << getTitle(x);
-	pubFile << getPublisher(x);
-	authorFile << getAuthor(x);
-	isbnFile << getISBN(x);
-	costFile << getCost(x);
-	msrpFile << getMSRP(x);
-	qtyFile << getQty(x);
-	typeFile << getType(x);
+	mainData.clear();
+	mainData.seekg(0);
 
+	for (int c = 0; c < SIZE; c++)
+	{
+		if (getSerial(c) == '\0')
+			break;
+		
+		
+	}
 }
 
 //gets
@@ -201,5 +155,5 @@ string baseClass::getDate(int c)
 
 int baseClass::getSizeLine()
 {
-	return numOfLines;
+	return bookNum;
 }
