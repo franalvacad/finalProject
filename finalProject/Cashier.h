@@ -11,6 +11,7 @@ private:
 
 public:
 	Cashier();
+	~Cashier();
 
 	void addToCart(Cart (&t)[50]);
 	void removeFromCart(Cart(&t)[50]);

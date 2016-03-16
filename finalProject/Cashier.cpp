@@ -4,6 +4,7 @@
 #include <iomanip>
 #include "Cart.h"
 
+/*
 template <class T>
 int findBook1(T bookArr, int s)
 {
@@ -30,11 +31,13 @@ int findBook1(T bookArr, int s)
 
 	return position;
 }
-
+*/
 Cashier::Cashier()
 {
 }
-Cashier::~Cashier(){}
+Cashier::~Cashier()
+{
+}
 
 void Cashier::addToCart(Cart (&t)[50])
 {
@@ -113,14 +116,14 @@ void Cashier::removeFromCart(Cart(&t)[50])
 		
 		cout << "What book do you wish to remove from the cart? (Item Code): " << endl;
 		cin >> serial;
-
+		/*
 		if (findBook1(t, serial) == -1)
 			cout << "Not found" << endl;
 		else
 			cout << "Found" << endl;
 
 		system("pause");
-
+		*/
 	} while (finish != 'Y');
 
 
