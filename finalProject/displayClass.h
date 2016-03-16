@@ -20,4 +20,9 @@ public:
 	void getQTYlist();
 	void getCostlist();
 	void getAgelist();
+	int getLongestTitle();
+	int getLongestPublisher();
+	int getLongestAuthor();
+	int getLongestCost();
+	int getLongestQTY();
 };
