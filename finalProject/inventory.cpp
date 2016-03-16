@@ -10,44 +10,46 @@ inventory::inventory()
 
 inventory::~inventory()
 {
-	baseClass::fileMod();
+	baseClass::fileMod(max - 1);
 }
 
 void inventory::add()
 {
-	int nowSize = baseClass::getSizeLine() + 1;
+	int c = 0;
+	max = baseClass::getSizeLine() + 1;
+	while (c == 0){
+		serialHold = max;
+		cin.ignore();
+		cout << endl << "Title: ";
+		getline(cin, titleHold);
+		cout << endl << "Publisher: ";
+		getline(cin, publisherHold);
+		cout << endl << "Author: ";
+		getline(cin, authorHold);
+		cout << endl << "ISBN: ";
+		cin >> isbnHold;
+		cout << endl << "Cost: ";
+		cin >> costHold;
+		cout << endl << "MSRP: ";
+		cin >> msrpHold;
+		cout << endl << "Quantity: ";
+		cin >> qtyHold;
+		cout << endl << "Hardcover or Paperback: ";
+		cin >> typeHold;
+		cout << "If you want to change anythingpress 0 or 1 otherwise.\n";//change later
+			cin >> c;
+			if (c == 0){ cout << "You can rewrite your input now\n"; }
+	}
 
-	cout << "Serial: ";
-	cin >> serialHold;
-	cout << endl << "Title: ";
-	cin.ignore();
-	getline(cin, titleHold);
-	cout << endl << "Publisher: ";
-	cin.ignore();
-	getline(cin, publisherHold);
-	cout << endl << "Author: ";
-	cin.ignore();
-	getline(cin, authorHold);
-	cout << endl << "ISBN: ";
-	cin >> isbnHold;
-	cout << endl << "Cost: ";
-	cin >> costHold;
-	cout << endl << "MSRP: ";
-	cin >> msrpHold;
-	cout << endl << "Quantity: ";
-	cin >> qtyHold;
-	cout << endl << "Hardcover or Paperback: ";
-	cin >> typeHold;
-	
-	baseClass::setSerial(serialHold, nowSize);
-	baseClass::setTitle(titleHold, nowSize); 
-	baseClass::setPublisher(publisherHold, nowSize); 
-	baseClass::setAuthor(authorHold, nowSize); 
-	baseClass::setISBN(isbnHold, nowSize); 
-	baseClass::setCost(costHold, nowSize); 
-	baseClass::setMSRP(msrpHold, nowSize);
-	baseClass::setQty(qtyHold, nowSize); 
-	baseClass::setType(typeHold, nowSize);
+	baseClass::setSerial(serialHold, max - 1);
+	baseClass::setTitle(titleHold, max - 1);
+	baseClass::setPublisher(publisherHold, max - 1);
+	baseClass::setAuthor(authorHold, max - 1);
+	baseClass::setISBN(isbnHold, max - 1);
+	baseClass::setCost(costHold, max - 1);
+	baseClass::setMSRP(msrpHold, max - 1);
+	baseClass::setQty(qtyHold, max - 1);
+	baseClass::setType(typeHold, max - 1);
 }
 
 void inventory::modify(int x)
@@ -73,7 +75,8 @@ void inventory::del(int x)
 	for (int i = 0; i < inventory::getNumOfdeletedBooks(); i++){  //
 		inventory::setArrOfdelBooks(i, 0);                        //
 	}                                                             //
-	inventory::setNumOfdeletedBooks(0);                           //
+	inventory::setNumOfdeletedBooks(0);  
+	
 }
 void inventory::shift(){
 	for (int j = 0; j < inventory::getNumOfdeletedBooks(); j++){
@@ -92,33 +95,58 @@ void inventory::shift(){
 
 
 }
-int inventory::search(string term)
+int inventory::search2(int s)
 {
-	string hold;
-	bool found, vty = true;
+	int first = 0,						// First array element
+		last = getSizeLine() - 1,			// Last array element
+		middle,							// Midpoint of search
+		position = -1;					// Position of search value
+	bool found = false;					// Flag
 
-	for (int c = 0; c < baseClass::getSizeLine(); c++)
+	while (!found && first <= last)
 	{
-		hold = baseClass::getTitle(c);
-		found = hold.find(term) != string::npos;
-		
-		if (found)
+		middle = (first + last) / 2;	// Calculate midpoint
+		if (getSerial(middle) == s)		// If value is found at mid
 		{
-			display::getListCustom(c);
-			vty = false;
+			found = true;
+			position = middle;
 		}
-	}
-	
-	if (!vty)
-	{
-		cout << "----------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;// what is it (Andrei)?
-		cout << setw(4) << "No." << setw(35) << left << "Title" << setw(35) << left << "Publisher" << setw(25) << left << "Author" << setw(15)
-			<< left << "ISBN" << setw(8) << left << "Cost($) " << setw(8) << left << "MSRP($) " << setw(5) << left << "Qty" << setw(10) << left
-			<< "Type" << setw(8) << left << "Date Added" << endl;
-	}
-	return 0;
+		else if (getSerial(middle) > s)	// If value is in lower half
+			last = middle - 1;
+		else
+			first = middle + 1;			// If value is in upper half
 
+	}
+
+	return position;
 }
+//int inventory::search(string term)
+//{
+//	string hold;
+//	bool found, vty = true;
+//
+//	for (int c = 0; c < baseClass::getSizeLine(); c++)
+//	{
+//		hold = baseClass::getTitle(c);
+//		found = hold.find(term) != string::npos;
+//		
+//		if (found)
+//		{
+//			display::getListCustom(c);
+//			vty = false;
+//		}
+//	}
+//	
+//	if (!vty)
+//	{
+//		cout << "----------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;// what is it (Andrei)?
+//		cout << setw(4) << "No." << setw(35) << left << "Title" << setw(35) << left << "Publisher" << setw(25) << left << "Author" << setw(15)
+//			<< left << "ISBN" << setw(8) << left << "Cost($) " << setw(8) << left << "MSRP($) " << setw(5) << left << "Qty" << setw(10) << left
+//			<< "Type" << setw(8) << left << "Date Added" << endl;
+//	}
+//	return 0;
+//
+//}
 void inventory::setNumOfdeletedBooks(int n){ NumOfdeletedBooks = n; }
 void inventory::setArrOfdelBooks(int i, int el){ ArrOfdelBooks[i] = el; }
 int inventory::getNumOfdeletedBooks(){ return NumOfdeletedBooks; }

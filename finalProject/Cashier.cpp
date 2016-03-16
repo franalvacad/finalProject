@@ -7,6 +7,7 @@
 Cashier::Cashier()
 {
 }
+
 Cashier::~Cashier()
 {
 }
@@ -139,7 +140,6 @@ void Cashier::removeFromCart(Cart (&t)[50])
 
 
 }
-
 
 int Cashier::findBook(int s)
 {

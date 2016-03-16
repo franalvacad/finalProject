@@ -64,14 +64,11 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="date.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
+    <None Include="ClassDiagram.cd" />
+  </ItemGroup>
+  <ItemGroup>
     <Text Include="serial.txt">
       <Filter>Resource Files</Filter>
     </Text>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>
