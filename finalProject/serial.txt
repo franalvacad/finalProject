@@ -1,4 +1,4 @@
-1000001
+1
 The Catcher in the Rye
 Little, Brown and Company
 J. D. Salinger
@@ -7,8 +7,8 @@ J. D. Salinger
 8.18
 12
 Paperback
-
-1000002
+4 19 2014
+2
 To Kill a Mockingbird
 HarperCollins Publishers
 Harper Lee
@@ -17,8 +17,8 @@ Harper Lee
 8.92
 13
 Paperback
-
-1000003
+3 12 2014
+3
 To Kill a Mockingbird
 HarperCollins Publishers
 Harper Lee
@@ -27,8 +27,8 @@ Harper Lee
 15.85
 12
 Hardcover
-
-1000004
+3 12 2014
+4
 Fahrenheit 451
 Simon & Schuster
 Ray Bradbury
@@ -37,8 +37,8 @@ Ray Bradbury
 3.05
 13
 Paperback
-
-1000005
+3 28 2014
+5
 The Very Hungry Caterpillar
 Philomel Books
 Eric Carle
@@ -47,8 +47,8 @@ Eric Carle
 1.22
 12
 Paperback
-
-1000006
+3 29 2014
+6
 The Hunger Games
 Scholastic, Inc.
 Suzanne Collins
@@ -57,8 +57,8 @@ Suzanne Collins
 6.70
 13
 Paperback
-
-1000007
+2 15 2014
+7
 Catching Fire
 Scholastic, Inc.
 Suzanne Collins
@@ -67,8 +67,8 @@ Suzanne Collins
 7.92
 13
 Paperback
-
-1000008
+5 7 2014
+8
 Mockingjay
 Scholastic, Inc.
 Suzanne Collins
@@ -77,8 +77,8 @@ Suzanne Collins
 7.92
 6
 Paperback
-
-1000009
+5 10 2014
+9
 Divergent
 HarperCollins Publishers
 Veronica Roth
@@ -87,8 +87,8 @@ Veronica Roth
 14.34
 7
 Hardcover
-
-1000010
+5 10 2014
+10
 Insurgent
 HarperCollins Publishers
 Veronica Roth
@@ -97,8 +97,8 @@ Veronica Roth
 11.28
 89
 Hardcover
-
-1000011
+5 12 2014
+11
 Allegiant
 HarperCollins Publishers
 Veronica Roth
@@ -107,8 +107,8 @@ Veronica Roth
 11.76
 0
 Hardcover
-
-1000012
+8 1 2014
+12
 The Fault in Our Stars
 Penguin Young Readers Group
 John Green
@@ -117,8 +117,8 @@ John Green
 7.92
 5
 Paperback
-
-1000013
+8 4 2014
+13
 Looking for Alaska
 Penguin Young Readers Group
 John Green
@@ -127,8 +127,8 @@ John Green
 8.99
 4
 Paperback
-
-1000014
+10 8 2014
+14
 The Maze Runner
 Random House Children's Books
 James Dashner
@@ -137,8 +137,8 @@ James Dashner
 6.49
 3
 Paperback
-
-1000015
+10 15 2014
+15
 The Scorch Trials
 Random House Children's Books
 James Dashner
@@ -147,17 +147,18 @@ James Dashner
 8.20
 2
 Paperback
-
-1000016
+3 17 2015
+16
 The Death Cure
 Random House Children's Books
 James Dashner
 9780385738767
 9.99
+8.20
 7
 Paperback
-
-1000017
+3 17 2015
+17
 The Kill Order
 HarperCollins Publishers
 James Dashner
@@ -166,8 +167,8 @@ James Dashner
 8.40
 8
 Paperback
-
-1000018
+3 19 2015
+18
 The Kill Order
 HarperCollins Publishers
 James Dashner
@@ -176,8 +177,8 @@ James Dashner
 8.40
 9
 Hardcover
-
-1000019
+4 20 2015
+19
 The Kill Order
 HarperCollins Publishers
 James Dashner
@@ -186,8 +187,8 @@ James Dashner
 14.58
 0
 Hardcover
-
-1000020
+4 29 2015
+20
 Allegiant
 HarperCollins Publishers
 Veronica Roth
@@ -196,8 +197,8 @@ Veronica Roth
 11.76
 3
 Hardcover
-
-1000021
+5 20 2015
+21
 Insurgent
 HarperCollins Publishers
 Veronica Roth
@@ -206,8 +207,8 @@ Veronica Roth
 11.28
 5
 Hardcover
-
-1000022
+5 21 2015
+22
 Divergent
 HarperCollins Publishers
 Veronica Roth
@@ -216,8 +217,8 @@ Veronica Roth
 14.34
 8
 Paperback
-
-1000024
+6 5 2015
+24
 Fifty Shades of Grey
 Knopf Doubleday Publishing Group
 E L James
@@ -226,12 +227,4 @@ E L James
 9.85
 9
 Paperback
-
-
-
-
-
-
-
-
-
+6 7 2015
