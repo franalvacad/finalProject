@@ -7,6 +7,7 @@ using namespace std;
 display::display()
 {
 }
+display::~display(){}
 int display::getMAuthorlength()
 {
 	int max = 0;
@@ -42,7 +43,7 @@ void display::getList() //Complete
 	cout << "*                                                                  INVENTORY LIST REPORT                                                                 *" << endl;
 	cout << "**********************************************************************************************************************************************************" << endl << endl;
 
-	cout << setw(/*display::gerMNumlenght() + 2*/ 9) << "No." << setw(display::getMTitlelength() + 2) << left << "Title" << setw(display::getMPublisherlength() + 2) << left << "Publisher" << setw(display::getMAuthorlength() + 2) << left << "Author" << setw(15)
+	cout << setw(/*display::gerMNumlenght() + 2*/ 9) << left << "No." << setw(display::getMTitlelength() + 2) << left << "Title" << setw(display::getMPublisherlength() + 2) << left << "Publisher" << setw(display::getMAuthorlength() + 2) << left << "Author" << setw(15)
 		<< left << "ISBN" << setw(8) << left << "Cost($) " << setw(8) << left << "MSRP($) " << setw(5) << left << "Qty" << setw(10) << left
 		<< "Type" << setw(8) << left << "Date Added" << endl;
 	cout << "----------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
@@ -248,4 +249,9 @@ void display::getAgelist()
 		minm = 10000;
 		mind = 10000;
 	}
+}
+
+void display::getShortListCustom(int i) //Complete
+{
+	cout << setw(4) << left << baseClass::getSerial(i) << setw(35) << left << baseClass::getTitle(i) << setw(15) << left << baseClass::getISBN(i) << setw(8) << left << baseClass::getMSRP(i) << endl;
 }

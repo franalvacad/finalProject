@@ -12,7 +12,7 @@ const int SIZE = 1000;
 class baseClass
 {
 private:
-	string title[SIZE], publisher[SIZE], author[SIZE], isbn[SIZE], type[SIZE], date[SIZE];
+	string title[SIZE], publisher[SIZE], author[SIZE], isbn[SIZE], type[SIZE];
 	fstream mainData; //make file variables
 	double cost[SIZE], msrp[SIZE];
 	int qty[SIZE], serial[SIZE],  bookNum = 0;
