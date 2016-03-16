@@ -3,48 +3,48 @@
 #include <time.h>
 using namespace std;
 
-//void inventTest()
-//{
-//	inventory changes;
-////	int ser;
-//	string term;
-//	char res;
-//	bool test = 0;
-//
-//	while (!test)
-//	{
-//		cout << "(A)dd, (M)odify, (D)elete: ";
-//		cin >> res;
-//		if (islower(res))
-//			res = toupper(res);
-//
-//		switch (res)
-//		{
-//		default:
-//			cout << "Try again please!" << endl;
-//			break;
-//		case 'A':
-//			test = true;
-//			changes.add();
-//			break;
-//		case 'M' || 'D':
-//			test = true;
-//			cout << "Please enter a search term: ";
-//			getline(cin, term);
-//			changes.search(term);
-//
-//			cout << endl;
-//
-//			cout << "Enter ayy";
-//			break;
-//		}
-//	}
-//
-//	cout << endl;
-//
-//		
-//
-//}
+void inventTest()
+{
+	inventory changes;
+	int ser;
+	string term;
+	char res;
+	bool test = 0;
+
+	while (!test)
+	{
+		cout << "(A)dd, (M)odify, (D)elete: ";
+		cin >> res;
+		if (islower(res))
+			res = toupper(res);
+
+		switch (res)
+		{
+		default:
+			cout << "Try again please!" << endl;
+			break;
+		case 'A':
+			test = true;
+			changes.add();
+			break;
+		case 'M' || 'D':
+			test = true;
+			cout << "Please enter a search term: ";
+			getline(cin, term);
+			changes.search(term);
+
+			cout << endl;
+
+			cout << "Enter ayy";
+			break;
+		}
+	}
+
+	cout << endl;
+
+		
+
+}
 
 
 int main()
@@ -64,7 +64,7 @@ int main()
 
 		//results = test.getTitle(4);
 
-		test.getList();
+		inventTest();
 
 		//time_t c = time(NULL);
 		//char *h = ctime(&c);

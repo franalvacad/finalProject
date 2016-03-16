@@ -49,7 +49,6 @@ void inventory::add()
 	baseClass::setMSRP(msrpHold, nowSize);
 	baseClass::setQty(qtyHold, nowSize); 
 	baseClass::setType(typeHold, nowSize);
-
 }
 
 void inventory::modify(int x)
