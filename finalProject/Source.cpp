@@ -53,7 +53,8 @@ void inventTest()
 
 int main()
 {
-	Cashier alpha;
+	Cashier cash;
+	Cart takeOut[50];
 	int choice = 0, type = 0;
 
 	try{
@@ -75,25 +76,32 @@ int main()
 
 			if (choice == 1)
 			{
+				system("cls");
 				int inp = 0;
 				cout << "***********************************************************************************************************" << endl;
 				cout << "*                                            CASHIER MODULE                                               *" << endl;
 				cout << "***********************************************************************************************************" << endl << endl;
 
+				cash.addToCart(takeOut);
+				cash.viewCart(takeOut);
+				cash.removeFromCart(takeOut);
+				cash.viewCart(takeOut);
+
+				/*
 				cout << "Enter Item Code: ";
 				cin >> inp;
 
-				int i = alpha.findBook(inp);
+				int i = cash.findBook(inp);
 				int qty = 0;
 
 				//cout system date over here
 				cout << setw(9) << left << "Item Code" << setw(35) << left << "Title" << setw(15) << left << "ISBN" << setw(8)
 					<< left << "MSRP($)" << setw(8) << left << "Qty" << setw(8) << left << "Total($)" << endl;
 				cout << "------------------------------------------------------------------------------------------------------------------------------" << endl;
-				alpha.getListCustom(i);
+				cash.getListCustom(i);
 				cin >> qty;
 
-
+				*/
 			}
 			else if (choice == 2)
 			{
@@ -121,17 +129,17 @@ int main()
 				cin >> type;
 
 				if (type == 1)
-					alpha.getList();
+					cash.getList();
 				else if (type == 2)
-					alpha.getWholelist();
+					cash.getWholelist();
 				else if (type == 3)
-					alpha.getRetaillist();
+					cash.getRetaillist();
 				else if (type == 4)
-					alpha.getQTYlist();
+					cash.getQTYlist();
 				else if (type == 5)
-					alpha.getCostlist();
+					cash.getCostlist();
 				else if (type == 6)
-					alpha.getAgelist();
+					cash.getAgelist();
 				else if (type == 9);
 				//return to main
 				else cout << "Invalid Input." << endl;
