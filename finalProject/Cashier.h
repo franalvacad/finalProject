@@ -3,6 +3,7 @@
 #include "Date.h"
 #include "inventory.h"
 #include "Cart.h"
+#include "template.h"
 
 class Cashier : public inventory
 {
@@ -14,10 +15,11 @@ public:
 	~Cashier();
 
 	void addToCart(Cart (&t)[50]);
-	void removeFromCart(Cart(&t)[50]);
-	void viewCart(Cart(&t)[50]);
+	void removeFromCart(Cart (&t)[50]);
+	void viewCart(Cart (&t)[50]);
 
-	int findBook(int serial);
+	int findBook(int);
+	int searchCart(const Cart(&t)[50], int);
 
 };
 

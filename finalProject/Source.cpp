@@ -46,16 +46,13 @@ void invMod()
 		if (islower(res))
 			res = toupper(res);
 
-		switch (res)
+		if (res == 'A')
 		{
-		default:
-			cout << "Try again please!" << endl;
-			break;
-		case 'A':
 			test = true;
 			changes.add();
-			break;
-		case 'M' || 'D':
+		}
+		else if (res == 'M' || res == 'D')
+		{
 			test = true;
 			cout << "Search for title of book: ";
 			getline(cin, term);
@@ -66,6 +63,8 @@ void invMod()
 			cout << "Enter ayy";
 			break;
 		}
+
+		else cout << "Try again please!" << endl;
 	}
 
 	cout << endl;
