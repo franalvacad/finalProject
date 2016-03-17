@@ -7,7 +7,7 @@ private:
 	// Structure for list
 	struct ListNode
 	{
-		int value[2];
+		int value[2];			// holds item code and qty for each item in cart
 		struct ListNode *next;
 	};
 
@@ -17,16 +17,14 @@ public:
 	Cart() { head = nullptr; }
 	~Cart();
 
-	void addItem(int, int);
-	void removeItem(int);
-	void displayList() const;
-	int countCart() const;
-	void addQty(int, int);
-	void removeQty(int, int);
-	int getSerial(int) const;
-	int getQty(int) const;
-
-	bool itemExist(int) const;
+	void addItem(int, int);			// Add item to cart
+	void removeItem(int);			// Remove item from cart
+	void addQty(int, int);			// Add quantity to existing item in cart
+	void removeQty(int, int);		// Remove quantity to existing item in cart
+	int getSerial(int) const;		// Return serial based on items position in list
+	int getQty(int) const;			// Return quantity of item in cart
+	int countCart() const;			// Count number of items in cart
+	bool itemExist(int) const;		// Check if an item exists in cart
 };
 
 #endif

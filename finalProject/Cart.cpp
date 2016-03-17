@@ -32,8 +32,8 @@ void Cart::addItem(int s, int qty)
 
 	// Allocate a new node and store num there
 	newNode = new ListNode;
-	newNode->value[0] = s;
-	newNode->value[1] = qty;
+	newNode->value[0] = s;		// Item code
+	newNode->value[1] = qty;	// Item quantity
 	newNode->next = nullptr;
 
 	// If there are no nodes in the list
@@ -52,45 +52,6 @@ void Cart::addItem(int s, int qty)
 		// Insert newNode as the last node
 		nodePtr->next = newNode;
 	}
-}
-
-void Cart::displayList() const
-{
-
-	ListNode *nodePtr;	// To move through the list
-
-	// Position nodePtr at the head of the list
-	nodePtr = head;
-
-	// While nodePtr points to a node, traverse the list
-	while (nodePtr)
-	{
-		// Display the value in this node
-		cout << nodePtr->value[0] << endl;
-		cout << nodePtr->value[1] << endl;
-
-		nodePtr = nodePtr->next;
-
-	}
-	
-}
-
-int Cart::countCart() const
-{
-	ListNode *nodePtr;	// To move through the list
-
-	// Position nodePtr at the head of the list
-	nodePtr = head;
-
-	int counter = 0;
-
-	// While nodePtr points to a node, traverse the list
-	while (nodePtr)
-	{
-		counter++;
-		nodePtr = nodePtr->next;
-	}
-	return counter;
 }
 
 void Cart::removeItem(int s)
@@ -205,16 +166,31 @@ int Cart::getQty(int s) const
 	{
 		// If node's serial is equal to input serial
 		if (nodePtr->value[0] == s)
-		{
 			return nodePtr->value[1];
-		}
-
 
 		nodePtr = nodePtr->next;
 	}
 
 	// If serial isn't found
 	return -1;
+}
+
+int Cart::countCart() const
+{
+	ListNode *nodePtr;	// To move through the list
+
+	// Position nodePtr at the head of the list
+	nodePtr = head;
+
+	int counter = 0;
+
+	// While nodePtr points to a node, traverse the list
+	while (nodePtr)
+	{
+		counter++;
+		nodePtr = nodePtr->next;
+	}
+	return counter;
 }
 
 bool Cart::itemExist(int s) const

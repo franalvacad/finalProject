@@ -75,10 +75,10 @@ void inventory::add() //Used to add new book to inventory
 
 void inventory::modify(char y, int x) //Used to make changes to book in inventory
 {
-	string name = "";
-	int number = 0;
-	int d, m, ya;
+	string strInput = "";
+	int intInput = 0;
 	double price = 0;
+	bool valid = false;
 
 	//Switch statemnet allow accesses to users choice of field to modify
 	switch (y)
@@ -89,47 +89,152 @@ void inventory::modify(char y, int x) //Used to make changes to book in inventor
 	case 'T':
 		cout << "Enter the new title: "; //Program ignores first field (item code) which is permanent
 		cin.ignore();
-		getline(cin, name);
-		baseClass::setTitle(name, x - 1);
+		getline(cin, strInput);
+		baseClass::setTitle(strInput, x - 1);
 		break;
 	case 'P':
 		cout << "Enter the new publisher: ";
 		cin.ignore();
-		getline(cin, name);
-		baseClass::setPublisher(name, x - 1);
+		getline(cin, strInput);
+		baseClass::setPublisher(strInput, x - 1);
 		break;
 	case 'A':
 		cout << "Enter the new author: ";
 		cin.ignore();
-		getline(cin, name);
-		baseClass::setAuthor(name, x - 1);
+		getline(cin, strInput);
+		baseClass::setAuthor(strInput, x - 1);
 		break;
 	case 'I':
-		cout << "Enter the new ISBN: ";
-		cin.ignore();
-		getline(cin, name);
-		baseClass::setISBN(name, x - 1);
+
+		do {
+			valid = false;
+
+			cout << "Enter the new ISBN: ";
+			cin.ignore();
+			getline(cin, strInput);
+
+			// Validate user input
+			if (cin.fail())
+			{
+				cin.clear();
+				cin.ignore(500, '\n');
+				cout << "\n\t**Invalid input.**\n" << endl;
+			}
+			else if (strInput.length() != 13)
+				cout << "\n\t**Please enter a valid 13 digit ISBN**\n";
+			else
+				valid = true;
+
+		} while (!valid);
+
+		baseClass::setISBN(strInput, x - 1);
 		break;
 	case 'C':
-		cout << "Enter the new cost: ";
-		cin >> price;
+
+		do {
+			valid = false;
+
+			cout << "Enter the new cost: ";
+			cin >> price;
+
+			// Validate user input
+			if (cin.fail())
+			{
+				cin.clear();
+				cin.ignore(500, '\n');
+				cout << "\n\t**Invalid input.**\n" << endl;
+			}
+			else if (price <= 0)
+				cout << "\n\t**Please enter a valid price**\n";
+			else
+				valid = true;
+
+		} while (!valid);
+
 		baseClass::setCost(price, x - 1);
 		break;
 	case 'M':
-		cout << "Enter the new MSRP: ";
-		cin >> price;
+
+		do {
+			valid = false;
+
+			cout << "Enter the new MSRP: ";
+			cin >> price;
+
+			// Validate user input
+			if (cin.fail())
+			{
+				cin.clear();
+				cin.ignore(500, '\n');
+				cout << "\n\t**Invalid input.**\n" << endl;
+			}
+			else if (price <= 0)
+				cout << "\n\t**Please enter a valid price**\n";
+			else
+				valid = true;
+
+		} while (!valid);
+
 		baseClass::setMSRP(price, x - 1);
 		break;
 	case 'Q':
-		cout << "Enter the new quantity: ";
-		cin >> number;
-		baseClass::setQty(number, x - 1);
+
+		do {
+			valid = false;
+
+			cout << "Enter the new quantity: ";
+			cin >> intInput;
+
+			// Validate user input
+			if (cin.fail())
+			{
+				cin.clear();
+				cin.ignore(500, '\n');
+				cout << "\n\t**Invalid input.**\n" << endl;
+			}
+			else if (price <= 0)
+				cout << "\n\t**Please enter a valid quantity**\n";
+			else
+				valid = true;
+
+		} while (!valid);
+
+		baseClass::setQty(intInput, x - 1);
 		break;
 	case 'E':
-		cout << "Enter the new type: ";
-		cin.ignore();
-		getline(cin, name);
-		baseClass::setType(name, x - 1);
+			
+		do {
+			valid = false;
+
+			cout << "Enter the new type: (1-2)\n"
+				<< "1. Paperback\n"
+				<< "2. Hardcover\n";
+
+			cin.ignore();
+			cin >> intInput;
+
+			// Validate user input
+			if (cin.fail())
+			{
+				cin.clear();
+				cin.ignore(500, '\n');
+				cout << "\n\t**Invalid input.**\n" << endl;
+			}
+			else if (intInput == 1 || intInput == 2)
+			{ 
+				if (intInput == 1)
+					strInput = "Paperback";
+				else
+					strInput = "Hardcover";
+
+				valid = true;
+			}
+			else
+				cout << "\n\t**Please enter a valid quantity**\n";
+
+
+		} while (!valid);
+		baseClass::setType(strInput, x - 1);
 		break;
 	}
 }
@@ -174,7 +279,7 @@ void inventory::shift() //Removes empty spaces in the array after item has been 
 		}
 	}
 }
-int inventory::search2(int s) //Searches through serial numbers and returns position in array
+int inventory::search2(int s) //Searches through serial intInputs and returns position in array
 {
 	int first = 0,						// First array element
 		last = getSizeLine() - 1,		// Last array element
