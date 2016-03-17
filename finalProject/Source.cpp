@@ -116,46 +116,47 @@ void repMod()
 
 int main()
 {
-	int choice;
-	
-	try 
-	{
-		do
-		{
-			//Menu displayed for user to make a choice
-	
-			cout << "***********************************************************************************************************" << endl;
-			cout << "*                                          SERENDIPITY BOOKSELLERS                                        *" << endl;
-			cout << "***********************************************************************************************************" << endl << endl;
-			cout << "No. CHOICE" << endl;
-			cout << "----------------------------" << endl;
-			cout << " 1: Cashier Module" << endl;
-			cout << " 2: Inventory Database Module" << endl;
-			cout << " 3: Report Module" << endl;
-			cout << " 9: Exit" << endl << endl;
-			cout << "Input choice number: ";
-			cin >> choice;
-			if (choice == 1)
-			{
-				system("cls");
-				cashMod();
-			}
-			else if (choice == 2)
-			{
-				system("cls");
-				invMod();
-			}
-			else if (choice == 3)
-			{
-				system("cls");
-				repMod();
-			}
-			
-		} while (choice != 9); //loop to make sure program does not terminate unless user exits
+	inventory test;
+	//int choice;
+	//
+	//try 
+	//{
+	//	do
+	//	{
+	//		//Menu displayed for user to make a choice
+	//
+	//		cout << "***********************************************************************************************************" << endl;
+	//		cout << "*                                          SERENDIPITY BOOKSELLERS                                        *" << endl;
+	//		cout << "***********************************************************************************************************" << endl << endl;
+	//		cout << "No. CHOICE" << endl;
+	//		cout << "----------------------------" << endl;
+	//		cout << " 1: Cashier Module" << endl;
+	//		cout << " 2: Inventory Database Module" << endl;
+	//		cout << " 3: Report Module" << endl;
+	//		cout << " 9: Exit" << endl << endl;
+	//		cout << "Input choice number: ";
+	//		cin >> choice;
+	//		if (choice == 1)
+	//		{
+	//			system("cls");
+	//			cashMod();
+	//		}
+	//		else if (choice == 2)
+	//		{
+	//			system("cls");
+	//			invMod();
+	//		}
+	//		else if (choice == 3)
+	//		{
+	//			system("cls");
+	//			repMod();
+	//		}
+	//		
+	//	} while (choice != 9); //loop to make sure program does not terminate unless user exits
 
-	}
-	catch (char *extstr){ cout << extstr; }
-	
+	//}
+	//catch (char *extstr){ cout << extstr; }
+	//
 	system("pause>nul");
 	return 0;
 }
