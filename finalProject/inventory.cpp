@@ -10,7 +10,6 @@ inventory::inventory()
 
 inventory::~inventory()
 {
-	baseClass::fileMod(max - 1);
 }
 
 void inventory::add()
@@ -27,16 +26,22 @@ void inventory::add()
 		cout << endl << "Author: ";
 		getline(cin, authorHold);
 		cout << endl << "ISBN: ";
+		cin.ignore();
 		cin >> isbnHold;
 		cout << endl << "Cost: ";
+		cin.ignore();
 		cin >> costHold;
 		cout << endl << "MSRP: ";
+		cin.ignore();
 		cin >> msrpHold;
 		cout << endl << "Quantity: ";
+		cin.ignore();
 		cin >> qtyHold;
 		cout << endl << "Hardcover or Paperback: ";
+		cin.ignore();
 		cin >> typeHold;
 		cout << "If you want to change anythingpress 0 or 1 otherwise.\n";//change later
+		cin.ignore();
 			cin >> c;
 			if (c == 0){ cout << "You can rewrite your input now\n"; }
 	}
@@ -50,6 +55,8 @@ void inventory::add()
 	baseClass::setMSRP(msrpHold, max - 1);
 	baseClass::setQty(qtyHold, max - 1);
 	baseClass::setType(typeHold, max - 1);
+	baseClass::fileClear();
+	baseClass::fileMod(max + 1);
 }
 
 void inventory::modify(int x)

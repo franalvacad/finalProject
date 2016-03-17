@@ -112,10 +112,11 @@ int main()
 {
 	//inventory test;
 	int choice;
+	bool menu = 0;
 	
 	try 
 	{
-		do
+		while (!menu)
 		{
 			//Menu displayed for user to make a choice
 	
@@ -145,8 +146,10 @@ int main()
 				system("cls");
 				repMod();
 			}
+			else if (choice == 9)
+				menu = true;
 			
-		} while (choice != 9); //loop to make sure program does not terminate unless user exits
+		} //loop to make sure program does not terminate unless user exits
 
 	}
 	catch (char *extstr){ cout << extstr; }
