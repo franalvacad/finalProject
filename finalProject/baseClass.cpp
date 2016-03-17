@@ -94,7 +94,6 @@ void baseClass::setSerial(int x, int c)
 {
 	serial[c] = x;
 }
-
 void baseClass::setType(string x, int c)
 {
 	type[c] = x;
