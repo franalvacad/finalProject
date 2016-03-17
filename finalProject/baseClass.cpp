@@ -16,7 +16,6 @@ bool baseClass::countFile(fstream &inFile)
 
 baseClass::baseClass()
 {
-	string tempd, d, y, x;
 	string holder;
 	string temp;
 	mainData.open("serial.txt"); //master file
@@ -29,9 +28,27 @@ baseClass::baseClass()
 	mainData.clear();
 	mainData.seekg(0);
 
-	//mainData.clear();
-	for (int i = 0; i < numOfLines / 10; i++){
-		getline(mainData, temp);
+	mainData.clear();
+
+	/*
+	string line;
+	stringstream iss;
+
+	// Insert line into iss
+	getline(mainData, line);
+	iss << line;
+
+	// Extract iss for date into array
+	while (iss >> )
+	{
+		dateArray[x++] = dayPart;
+	}
+
+
+	// uncomment
+	/*
+	for (int i = 0; i < numOfLines/10-1; i++){
+		getline(mainData, temp); 
 		serial[i] = stoi(temp);
 		getline(mainData, title[i]);
 		getline(mainData, publisher[i]);
@@ -44,14 +61,10 @@ baseClass::baseClass()
 		getline(mainData, temp);
 		qty[i] = stoi(temp);
 		getline(mainData, type[i]);
-		getline(mainData, temp);
-		tempd = temp.substr(temp.find("-") + 1, temp.length());
-		d = temp.substr(0, temp.find("-"));
-		y = tempd.substr(0, temp.find("-") + 1);
-		x = tempd.substr(tempd.find("-") + 1, tempd.length());
-		dateAdded[i] = { stoi(d), stoi(y), stoi(x) };
+		mainData >> dateAdded[i];
+		}
+		*/
 	}
-}
 
 
 
@@ -103,20 +116,15 @@ void baseClass::fileMod(int x) //Essentially copies whatever is in array to the 
 {
 	//Date time;
 	mainData.close();
-	ofstream test;
-	test.open("serial.txt");
-	test.close();
-	mainData.open("serial.txt", ios::out | ios::ate);
-	if (mainData.fail())
-	{
-		cout << "fail";
-		system("pause");
-	}
+	mainData.open("serial.txt",ofstream::out | ofstream::trunc);
+	mainData.close();
+	mainData.open("serial.txt", ofstream::out | ofstream::trunc);
 	//mainData << " ";
 	//mainData.clear();
 	//mainData.seekg(0);
 	for (int c = 0; c < x; c++)
-	{
+	{	
+		mainData.open("serial.txt", ofstream::out | ofstream::app);
 		mainData << getSerial(c) << endl
 			<< getTitle(c) << endl
 			<< getPublisher(c) << endl
@@ -127,6 +135,7 @@ void baseClass::fileMod(int x) //Essentially copies whatever is in array to the 
 			<< getQty(c) << endl
 			<< getType(c) << endl
 			<< getDate(c) << endl;
+		mainData.close();
 	}
 }
 //gets
@@ -142,4 +151,41 @@ string baseClass::getTitle(int c)
 string baseClass::getPublisher(int c)
 {
 	return publisher[c];
+}
+string baseClass::getAuthor(int c)
+{
+	return author[c];
+}
+string baseClass::getISBN(int c)
+{
+	return isbn[c];
+}
+double baseClass::getCost(int c)
+{
+	return cost[c];
+}
+double baseClass::getMSRP(int c)
+{
+	return msrp[c];
+}
+int baseClass::getQty(int c)
+{
+	return qty[c];
+}
+int baseClass::getSerial(int c)
+{
+	return serial[c];
+}
+
+string baseClass::getDate(int c)
+{
+	return dateAdded[c].getDate();
+}
+
+int baseClass::getSizeLine()
+{
+	return numOfLines/10;
+}
+int baseClass::getNumLines(){
+	return numOfLines;
 }
