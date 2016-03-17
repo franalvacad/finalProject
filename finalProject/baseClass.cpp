@@ -114,7 +114,7 @@ void baseClass::fileMod(int x) //Essentially copies whatever is in array to the 
 	//mainData.clear();
 	//mainData.seekg(0);
 	mainData.open("serial.txt", ofstream::out | ofstream::app);
-	for (int c = 0; c < x; c++)
+	for (int c = 0; c < x-1; c++)
 	{	
 		mainData << getSerial(c) << endl
 			<< getTitle(c) << endl
