@@ -16,6 +16,7 @@ bool baseClass::countFile(fstream &inFile)
 
 baseClass::baseClass()
 {
+	string tempd,d,y;
 	string holder;
 	string temp;
 	mainData.open("serial.txt"); //master file
@@ -43,7 +44,9 @@ baseClass::baseClass()
 		getline(mainData, temp);
 		qty[i] = stoi(temp);
 		getline(mainData, type[i]);
-		mainData >> dateAdded[i];
+		getline(mainData, temp);
+		tempd = temp.substr(temp.find("-") + 1, temp.length());
+		dateAdded[i] = { stoi(temp.substr(0, temp.find("-"))), stoi(tempd.substr(0, temp.find("-") + 1)), stoi(tempd.substr(tempd.find("-") + 1, tempd.length())) };
 		}
 	}
 
