@@ -88,7 +88,7 @@ void invMod()
 
 			while (!modBool)
 			{
-				cout << "Change: (T)itle, (P)ublisher, (A)uthor, (I)SBN, (C)ost, (M)SRP, (Q)ty, typ(E),e(X)it: ";
+				cout << "Change: (T)itle, (P)ublisher, (A)uthor, (I)SBN, (C)ost, (M)SRP, (Q)ty, typ(E), e(X)it: ";
 				cin >> modPic;
 				if (islower(modPic))
 					modPic = toupper(modPic);

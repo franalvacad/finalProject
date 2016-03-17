@@ -1,5 +1,6 @@
 #pragma once
 #include "displayClass.h"
+#include "Date.h"
 #include <time.h>
 
 class inventory :public display
@@ -14,6 +15,7 @@ public:
 	inventory();
     ~inventory();
 	void setNumOfdeletedBooks(int);
+	void setDate(int);
 	void setArrOfdelBooks(int,int);
 	int getNumOfdeletedBooks();
 	int getArrOfdelBooks(int);

@@ -11,6 +11,17 @@ inventory::inventory()
 inventory::~inventory()
 {
 }
+void inventory::setDate(int i)
+{
+	Date todaysDate;
+	string temp, tempd, d, y, x;
+	temp = todaysDate.getComputerDate();
+	tempd = temp.substr(temp.find("-") + 1, temp.length());
+	d = temp.substr(0, temp.find("-"));
+	y = tempd.substr(0, temp.find("-") + 1);
+	x = tempd.substr(tempd.find("-") + 1, tempd.length());
+	dateAdded[i] = { stoi(d), stoi(y), stoi(x) };
+}
 
 void inventory::add()
 {
@@ -55,6 +66,7 @@ void inventory::add()
 	baseClass::setMSRP(msrpHold, max - 1);
 	baseClass::setQty(qtyHold, max - 1);
 	baseClass::setType(typeHold, max - 1);
+	inventory::setDate(max - 1);
 	baseClass::fileClear();
 	baseClass::fileMod(max + 1);
 }
@@ -63,6 +75,7 @@ void inventory::modify(char y, int x)
 {
 	string name = "";
 	int number = 0;
+	int d, m, ya;
 	double price = 0;
 
 	switch (y)
