@@ -97,9 +97,10 @@ void baseClass::fileMod(int x) //Essentially copies whatever is in array to the 
 {
 	Date time;
 	mainData.close();
-	mainData.open("serial.txt", fstream::trunc);
-	mainData.clear();
-	mainData.seekg(0);
+	mainData.open("serial.txt",ofstream::out | ofstream::trunc);
+	//mainData << " ";
+	//mainData.clear();
+	//mainData.seekg(0);
 	for (int c = 0; c < x; c++)
 	{	
 		mainData << getSerial(c) << endl
@@ -160,7 +161,7 @@ string baseClass::getDate(int c)
 
 int baseClass::getSizeLine()
 {
-	return 1 + numOfLines/10;
+	return numOfLines/10;
 }
 int baseClass::getNumLines(){
 	return numOfLines;

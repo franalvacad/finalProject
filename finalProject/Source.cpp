@@ -57,7 +57,7 @@ void invMod()
 			cout << "Search for isbn of book: ";
 			cin >> term;
 
-			changes.search2(term);
+			changes.del(changes.search2(term));
 
 			cout << endl;
 
