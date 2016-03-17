@@ -114,7 +114,7 @@ void baseClass::setType(string x, int c)
 
 void baseClass::fileMod(int x) //Essentially copies whatever is in array to the end of file. Var x is max value
 {
-	Date time;
+	//Date time;
 	mainData.close();
 	mainData.open("serial.txt",ofstream::out | ofstream::trunc);
 	mainData.close();
