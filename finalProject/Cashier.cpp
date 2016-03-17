@@ -14,11 +14,10 @@ void Cashier::addToCart(Cart &t)
 
 	do
 	{
-
 		do {
 			valid = false;
 
-			cout << "\nWhat book would you like to add? (Item Code): " << endl;
+			cout << "\nInsert Item Code for Book: ";
 			cin >> serial;
 
 			// Validate user input
@@ -57,7 +56,7 @@ void Cashier::addToCart(Cart &t)
 				valid = false;
 
 				cout << "We have " << remQty << " books of \"" << getTitle(serial) << "\"\n" << endl;
-				cout << "How many books would you like to add to the cart?: " << endl;
+				cout << "Insert Quantity Purchased: ";
 				cin >> bookQty;
 
 				// Validate user input
@@ -89,7 +88,10 @@ void Cashier::addToCart(Cart &t)
 		do {
 			valid = false;
 
-			cout << "Would you like to finish adding to the cart? (Y/N)" << endl;
+			cout << endl << endl;
+			cout << "	To Checkout Insert(Y)" << endl;
+			cout << "	To Continue Sale Insert(N)" << endl;
+			cout << "	Choice: ";
 			cin >> choice;
 
 			// Validate user input

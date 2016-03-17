@@ -27,6 +27,11 @@ void inventory::setDate(int i) //Used to add current date from the machine
 
 void inventory::add() //Used to add new book to inventory
 {
+	system("cls");
+	cout << "********************************************************************" << endl;
+	cout << "*                INVENTORY DATABASE ADD NEW BOOK                   *" << endl;
+	cout << "********************************************************************" << endl << endl;
+	
 	int c = 0;
 	max = baseClass::getSizeLine() + 1;
 	while (c == 0){
@@ -204,6 +209,11 @@ int inventory::search(string term) //Searches through book titles and returns po
 	string hold;
 	bool found, vty = true;
 
+	cout << setw(4) << "No." << setw(35) << left << "Title" << setw(35) << left << "Publisher" << setw(25) << left << "Author" << setw(15)
+		<< left << "ISBN" << setw(8) << left << "Cost($) " << setw(8) << left << "MSRP($) " << setw(5) << left << "Qty" << setw(10) << left
+		<< "Type" << setw(8) << left << "Date Added" << endl;
+	cout << "----------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
+
 	for (int c = 0; c < baseClass::getSizeLine(); c++)
 	{
 		hold = baseClass::getTitle(c);
@@ -211,20 +221,12 @@ int inventory::search(string term) //Searches through book titles and returns po
 		
 		if (found)
 		{
+			
 			display::getListCustom(c);
-			vty = false;
 		}
 	}
 	
-	if (!vty)
-	{
-		cout << "----------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;// what is it (Andrei)?
-		cout << setw(4) << "No." << setw(35) << left << "Title" << setw(35) << left << "Publisher" << setw(25) << left << "Author" << setw(15)
-			<< left << "ISBN" << setw(8) << left << "Cost($) " << setw(8) << left << "MSRP($) " << setw(5) << left << "Qty" << setw(10) << left
-			<< "Type" << setw(8) << left << "Date Added" << endl;
-	}
 	return 0;
-
 }
 
 //Mutators

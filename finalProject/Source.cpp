@@ -14,20 +14,17 @@ void cashMod()
 	cout << "*                          CASHIER MODULE                          *" << endl;
 	cout << "********************************************************************" << endl << endl;
 
-
-
 	alpha.addToCart(takeOut);
 	alpha.viewCart(takeOut);
 	alpha.removeFromCart(takeOut);
 	alpha.finishCheckout(takeOut);
-
 }
 
 void invMod()
 {
-	cout << "***********************************************************************************************************" << endl;
-	cout << "*                                     INVENTORY DATABASE MODULE                                           *" << endl;
-	cout << "***********************************************************************************************************" << endl << endl;
+	cout << "********************************************************************" << endl;
+	cout << "*                  INVENTORY DATABASE MODULE                       *" << endl;
+	cout << "********************************************************************" << endl << endl;
 
 	inventory changes;
 	string query;
@@ -38,13 +35,13 @@ void invMod()
 
 	while (!test)
 	{
-		cout << "Inventory" << endl;
-		cout << "------------------------------" << endl;
-		cout << " A: Add" << endl;
-		cout << " M: Modify" << endl;
-		cout << " D: Delete" << endl;
-		cout << " 9: RETURN" << endl << endl;
-		cout << "Input choice: ";
+		cout << "		Code   Inventory Options" << endl;
+		cout << "		------------------------------" << endl;
+		cout << "		 A:     Add Book" << endl;
+		cout << "		 M:     Modify Book" << endl;
+		cout << "		 D:     Delete Book" << endl;
+		cout << "		 9:     RETURN" << endl << endl;
+		cout << "		 Input Option Code: ";
 		cin >> res;
 		if (islower(res))
 			res = toupper(res);
@@ -56,6 +53,11 @@ void invMod()
 		}
 		else if (res == 'D')
 		{
+			system("cls");
+			cout << "********************************************************************" << endl;
+			cout << "*                 INVENTORY DATABASE DELETE BOOK                   *" << endl;
+			cout << "********************************************************************" << endl << endl;
+			
 			test = true;
 			cout << "Search for title: ";
 			cin.ignore();
@@ -75,6 +77,11 @@ void invMod()
 
 		else if (res == 'M')
 		{
+			system("cls");
+			cout << "********************************************************************" << endl;
+			cout << "*                 INVENTORY DATABASE MODIFY BOOK                   *" << endl;
+			cout << "********************************************************************" << endl << endl;
+
 			test = true;
 			cout << "Search for title: ";
 			cin.ignore();
@@ -122,20 +129,20 @@ void repMod()
 	display alpha;
 	int choice = 0, type = 0;
 
-	cout << "***********************************************************************************************************" << endl;
-	cout << "*                                           REPORT MODULE                                                 *" << endl;
-	cout << "***********************************************************************************************************" << endl << endl;
+	cout << "********************************************************************" << endl;
+	cout << "*                          REPORT MODULE                           *" << endl;
+	cout << "********************************************************************" << endl << endl;
 
-	cout << "No. Report Name" << endl;
-	cout << "------------------------------" << endl;
-	cout << " 1: Inventory List" << endl;
-	cout << " 2: Inventory Wholesale Value" << endl;
-	cout << " 3: Inventory Retail Value" << endl;
-	cout << " 4: List by Quantity" << endl;
-	cout << " 5: List by Cost" << endl;
-	cout << " 6: List by Age" << endl;
-	cout << " 9: RETURN" << endl << endl;
-	cout << "Input choice: ";
+	cout << "		No. Report Name" << endl;
+	cout << "		------------------------------" << endl;
+	cout << "		1: Inventory List" << endl;
+	cout << "		2: Inventory Wholesale Value" << endl;
+	cout << "		3: Inventory Retail Value" << endl;
+	cout << "		4: List by Quantity" << endl;
+	cout << "		5: List by Cost" << endl;
+	cout << "		6: List by Age" << endl;
+	cout << "		9: RETURN" << endl << endl;
+	cout << "		Input choice: ";
 
 
 	cin >> type;
