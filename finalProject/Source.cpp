@@ -78,8 +78,8 @@ void invMod()
 			cin >> term;
 
 			cout << endl;
-
-			cout << "Change: (T)itle, (P)ublisher, (A)uthor, ";
+			changes.modify(term - 1);
+			//cout << "Change: (T)itle, (P)ublisher, (A)uthor, ";
 
 			cout << endl;
 

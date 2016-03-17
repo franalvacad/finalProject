@@ -28,7 +28,7 @@ void inventory::add()
 		getline(cin, authorHold);
 		cout << endl << "ISBN: ";
 		cin.ignore();
-		cin >> isbnHold;
+		getline(cin, isbnHold);
 		cout << endl << "Cost: ";
 		cin.ignore();
 		cin >> costHold;
@@ -71,7 +71,7 @@ void inventory::modify(int x)
 	getline(cin, authorHold);
 	cout << endl << "ISBN: ";
 	cin.ignore();
-	cin >> isbnHold;
+	getline(cin, isbnHold);
 	cout << endl << "Cost: ";
 	cin.ignore();
 	cin >> costHold;
@@ -84,9 +84,9 @@ void inventory::modify(int x)
 	cout << endl << "Hardcover or Paperback: ";
 	cin.ignore();
 	cin >> typeHold;
-	cout << "If you want to change anythingpress 0 or 1 if you don't.\n";//change later
-	cin.ignore();
-	baseClass::setSerial(serialHold, x);
+	//cout << "If you want to change anythingpress 0 or 1 if you don't.\n";//change later
+	//cin.ignore();
+	//baseClass::setSerial(serialHold, x);
 	baseClass::setTitle(titleHold, x);
 	baseClass::setPublisher(publisherHold, x);
 	baseClass::setAuthor(authorHold, x);
@@ -96,7 +96,7 @@ void inventory::modify(int x)
 	baseClass::setQty(qtyHold, x);
 	baseClass::setType(typeHold, x);
 	baseClass::fileClear();
-	baseClass::fileMod(x);
+	baseClass::fileMod(baseClass::getSizeLine() + 1);
 }
 
 void inventory::del(int x)
