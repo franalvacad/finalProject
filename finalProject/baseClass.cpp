@@ -29,7 +29,7 @@ baseClass::baseClass()
 	mainData.seekg(0);
 
 	mainData.clear();
-	for (int i = 0; i < numOfLines/10; i++){
+	for (int i = 0; i < numOfLines/10-1; i++){
 		getline(mainData, temp); 
 		serial[i] = stoi(temp);
 		getline(mainData, title[i]);
