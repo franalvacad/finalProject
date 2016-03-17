@@ -16,7 +16,6 @@ bool baseClass::countFile(fstream &inFile)
 
 baseClass::baseClass()
 {
-	string tempd,d,y,x;
 	string holder;
 	string temp;
 	mainData.open("serial.txt"); //master file
@@ -29,8 +28,8 @@ baseClass::baseClass()
 	mainData.clear();
 	mainData.seekg(0);
 
-	//mainData.clear();
-	for (int i = 0; i < numOfLines/10; i++){
+	mainData.clear();
+	for (int i = 0; i < numOfLines/10-1; i++){
 		getline(mainData, temp); 
 		serial[i] = stoi(temp);
 		getline(mainData, title[i]);
@@ -44,12 +43,7 @@ baseClass::baseClass()
 		getline(mainData, temp);
 		qty[i] = stoi(temp);
 		getline(mainData, type[i]);
-		getline(mainData, temp);
-		tempd = temp.substr(temp.find("-") + 1, temp.length());
-		d = temp.substr(0, temp.find("-"));
-		y = tempd.substr(0, temp.find("-") + 1);
-		x = tempd.substr(tempd.find("-") + 1, tempd.length());
-		dateAdded[i] = { stoi(d), stoi(y), stoi(x) };
+		mainData >> dateAdded[i];
 		}
 	}
 
@@ -103,30 +97,26 @@ void baseClass::fileMod(int x) //Essentially copies whatever is in array to the 
 {
 	//Date time;
 	mainData.close();
-	ofstream test;
-	test.open("serial.txt");
-	test.close();
-	mainData.open("serial.txt",ios::out | ios::ate);
-	if (mainData.fail())
-	{
-		cout << "fail";
-		system("pause");
-	}
+	mainData.open("serial.txt",ofstream::out | ofstream::trunc);
+	mainData.close();
+	mainData.open("serial.txt", ofstream::out | ofstream::trunc);
 	//mainData << " ";
 	//mainData.clear();
 	//mainData.seekg(0);
 	for (int c = 0; c < x; c++)
 	{	
-		mainData << getSerial(c) << endl;
-		mainData << getTitle(c) << endl;
-		mainData << getPublisher(c) << endl;
-		mainData << getAuthor(c) << endl;
-		mainData << getISBN(c) << endl;
-		mainData << getCost(c) << endl;
-		mainData << getMSRP(c) << endl;
-		mainData << getQty(c) << endl;
-		mainData << getType(c) << endl;
-		mainData << getDate(c) << endl;
+		mainData.open("serial.txt", ofstream::out | ofstream::app);
+		mainData << getSerial(c) << endl
+			<< getTitle(c) << endl
+			<< getPublisher(c) << endl
+			<< getAuthor(c) << endl
+			<< getISBN(c) << endl
+			<< getCost(c) << endl
+			<< getMSRP(c) << endl
+			<< getQty(c) << endl
+			<< getType(c) << endl
+			<< getDate(c) << endl;
+		mainData.close();
 	}
 }
 //gets

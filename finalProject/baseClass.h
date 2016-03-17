@@ -48,7 +48,6 @@ public:
 	string getDate(int c);
 	int getSizeLine();
 	int getNumLines();
-
 };
 
 #endif

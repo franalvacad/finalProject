@@ -77,7 +77,7 @@ void Cashier::viewCart(Cart &t)
 	int i = 0;
 
 	int itemCount = t.countCart();
-	cout << itemCount << endl;
+
 	while (i < itemCount)
 	{
 		cout << setw(11) << left << t.getSerial(i)
@@ -143,6 +143,17 @@ void Cashier::removeFromCart(Cart &t)
 
 }
 
+void Cashier::finishCheckout(Cart &t)
+{
+	viewCart(t);
+	cout << "\n\n\n" << endl;
+	cout << "Subtotal" << subtotal(t) << "\n"
+		<< "Tax\n"
+		<< "Total\n"
+		<< endl;
+
+}
+
 int Cashier::findBook(int s)
 {
 	int first = 0,						// First array element
@@ -169,23 +180,17 @@ int Cashier::findBook(int s)
 	return position;
 }
 
-/*
-int Cashier::searchCart(const Cart (&t)[50], int s)
+double Cashier::subtotal(Cart &t) 
 {
-	int index = 0;			// Used as a subscript to search array
-	int position = -1;		// To record position of search value
-	bool found = false;		// Flag to indicate if the value was found
+	int items, subTotal;
+	items = t.countCart();
 
-	while (index < 50 && !found)
+
+	int i = 0;
+	while (i < items)
 	{
-		if (t[index].getItemCode() == s) // If value is found
-		{
-			found = true;				// Set the flag
-			position = index;			// Record the value's subscript
-		}
-		index++;						// Go to the next element
+		subTotal =+ getQty(t.getSerial(i)) * getMSRP(t.getSerial(i)) ;
+		i++;
 	}
-
-	return position;
+	return subTotal;
 }
-*/
