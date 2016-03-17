@@ -29,6 +29,24 @@ baseClass::baseClass()
 	mainData.seekg(0);
 
 	mainData.clear();
+
+	/*
+	string line;
+	stringstream iss;
+
+	// Insert line into iss
+	getline(mainData, line);
+	iss << line;
+
+	// Extract iss for date into array
+	while (iss >> )
+	{
+		dateArray[x++] = dayPart;
+	}
+
+
+	// uncomment
+	/*
 	for (int i = 0; i < numOfLines/10-1; i++){
 		getline(mainData, temp); 
 		serial[i] = stoi(temp);
@@ -45,6 +63,7 @@ baseClass::baseClass()
 		getline(mainData, type[i]);
 		mainData >> dateAdded[i];
 		}
+		*/
 	}
 
 
