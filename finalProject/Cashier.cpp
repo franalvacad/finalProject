@@ -147,10 +147,30 @@ void Cashier::finishCheckout(Cart &t)
 {
 	viewCart(t);
 	cout << "\n\n\n" << endl;
-	cout << "Subtotal" << subtotal(t) << "\n"
-		<< "Tax\n"
-		<< "Total\n"
+	cout << "Subtotal $" << subtotal(t) << "\n"
+		<< "Tax $" << tax(subtotal(t)) << "\n"
+		<< "Total $" << total(subtotal(t), tax(subtotal(t))) << "\n"
 		<< endl;
+
+	// Change inventory
+
+	int items;
+	items = t.countCart();
+
+	int i = 0;
+	// Iterate through entire cart
+	while (i < items)
+	{
+		// Check if	item's qty in cart is equal to that in inventory
+		if (t.getQty(t.getSerial(i)) == getQty(t.getSerial(i)))
+			cout << "equal";
+		
+		else  // If not equal then decrement qty in inventory
+		{
+			cout << "no";
+		}
+		i++;
+	}
 
 }
 
@@ -183,14 +203,25 @@ int Cashier::findBook(int s)
 double Cashier::subtotal(Cart &t) 
 {
 	int items, subTotal;
+	subTotal = 0;
 	items = t.countCart();
 
 
 	int i = 0;
 	while (i < items)
-	{
-		subTotal =+ getQty(t.getSerial(i)) * getMSRP(t.getSerial(i)) ;
+	{  
+		subTotal += getQty(t.getSerial(i)) * getMSRP(t.getSerial(i)) ;
 		i++;
 	}
 	return subTotal;
+}
+
+double Cashier::tax(double sub)
+{
+	return salesTaxRate * sub;
+}
+
+double Cashier::total(double sub, double tax)
+{
+	return sub + tax;
 }
