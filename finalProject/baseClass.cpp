@@ -98,11 +98,14 @@ void baseClass::fileMod(int x) //Essentially copies whatever is in array to the 
 	Date time;
 	mainData.close();
 	mainData.open("serial.txt",ofstream::out | ofstream::trunc);
+	mainData.close();
+	mainData.open("serial.txt", ofstream::out | ofstream::trunc);
 	//mainData << " ";
 	//mainData.clear();
 	//mainData.seekg(0);
 	for (int c = 0; c < x; c++)
 	{	
+		mainData.open("serial.txt", ofstream::out | ofstream::app);
 		mainData << getSerial(c) << endl
 			<< getTitle(c) << endl
 			<< getPublisher(c) << endl
@@ -113,6 +116,7 @@ void baseClass::fileMod(int x) //Essentially copies whatever is in array to the 
 			<< getQty(c) << endl
 			<< getType(c) << endl
 			<< getDate(c) << endl;
+		mainData.close();
 	}
 }
 //gets
