@@ -17,8 +17,8 @@ public:
 	void finishCheckout(Cart &t);
 
 	double subtotal(Cart &t);
-	double tax(Cart &t);
-	double total(Cart &t);
+	double tax(double);
+	double total(double, double);
 
 	int findBook(int);
 };

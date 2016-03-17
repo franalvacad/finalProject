@@ -17,7 +17,7 @@ void cashMod()
 
 	alpha.addToCart(takeOut);
 	alpha.viewCart(takeOut);
-	//alpha.finishCheckout(takeOut);
+	alpha.finishCheckout(takeOut);
 
 }
 
