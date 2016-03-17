@@ -116,6 +116,7 @@ void repMod()
 
 int main()
 {
+	//inventory test;
 	int choice;
 	
 	try 
