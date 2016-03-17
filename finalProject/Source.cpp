@@ -28,6 +28,7 @@ void invMod()
 	cout << "***********************************************************************************************************" << endl << endl;
 
 	inventory changes;
+	string query;
 	int ser;
 	int term;
 	char res;
@@ -45,17 +46,43 @@ void invMod()
 			test = true;
 			changes.add();
 		}
-		else if (res == 'M' || res == 'D')
+		else if (res == 'D')
 		{
 			test = true;
-			cout << "Search for isbn of book: ";
+			cout << "Search for title: ";
+			cin.ignore();
+			getline(cin, query);
+			cout << endl;
+			changes.search(query);
+
+			cout << "Pick a serial: ";
 			cin >> term;
 
 			changes.del(changes.search2(term));
 
 			cout << endl;
 
-			cout << "Enter ayy";
+			break;
+		}
+
+		else if (res == 'M')
+		{
+			test = true;
+			cout << "Search for title: ";
+			cin.ignore();
+			getline(cin, query);
+			cout << endl;
+			changes.search(query);
+
+			cout << "Pick a serial: ";
+			cin >> term;
+
+			cout << endl;
+
+			cout << "Change: (T)itle, (P)ublisher, (A)uthor, ";
+
+			cout << endl;
+
 			break;
 		}
 
