@@ -40,7 +40,7 @@ void inventory::add()
 		cout << endl << "Hardcover or Paperback: ";
 		cin.ignore();
 		cin >> typeHold;
-		cout << "If you want to change anythingpress 0 or 1 otherwise.\n";//change later
+		cout << "Press 1 to confirm changes. Else, press 0.\n";//change later
 		cin.ignore();
 			cin >> c;
 			if (c == 0){ cout << "You can rewrite your input now\n"; }
