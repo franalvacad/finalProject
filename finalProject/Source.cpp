@@ -112,11 +112,11 @@ int main()
 {
 	//inventory test;
 	int choice;
-	bool menu = 0;
+	bool menu = false;
 	
 	try 
 	{
-		while (!menu)
+		while (menu == false)
 		{
 			//Menu displayed for user to make a choice
 	
@@ -140,6 +140,7 @@ int main()
 			else if (choice == 2)
 			{
 				system("cls");
+				//if (menu == true)
 				menu = true;
 				invMod();
 			}
