@@ -21,7 +21,7 @@ public:
 	int search2(int);
     void modify(int);
 	void del(int);
-	int search(string);
+	//int search(string);
 	void shift();
 };
 
