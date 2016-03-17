@@ -1,6 +1,6 @@
+// Base Class Implementation
 #ifndef BASECLASS_H
 #define BASECLASS_H
-
 #include "Date.h"
 #include <string>
 #include <fstream>
@@ -25,6 +25,7 @@ public:
 
 	bool countFile(fstream&);
 
+	//Mutators
 	void setTitle(string x, int c);
 	void setPublisher(string x, int c);
 	void setAuthor(string x, int c);
@@ -34,8 +35,11 @@ public:
 	void setQty(int x, int c);
 	void setSerial(int x, int c);
 	void setType(string x, int c);
+	
 	void fileClear();
 	void fileMod(int x);
+	
+	//Accessors
 	string getTitle(int c);
 	string getAuthor(int c);
 	string getISBN(int c);
@@ -49,5 +53,4 @@ public:
 	int getSizeLine();
 	int getNumLines();
 };
-
 #endif

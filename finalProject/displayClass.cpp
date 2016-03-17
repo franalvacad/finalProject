@@ -1,14 +1,21 @@
+// Display Class Implementation
 #include"displayClass.h"
 #include "Date.h"
 #include <iostream>
 #include <iomanip>
 using namespace std;
 
+//Default Constructor
 display::display()
 {
 }
-display::~display(){}
-int display::getMAuthorlength()
+
+//Default Destructor
+display::~display()
+{
+}
+
+int display::getMAuthorlength() //Gets length of longest Author name for display purposes
 {
 	int max = 0;
 	int size = baseClass::getSizeLine();
@@ -17,7 +24,7 @@ int display::getMAuthorlength()
 	}
 	return max;
 }
-int display::getMPublisherlength()
+int display::getMPublisherlength() //Gets length of longest Publisher name for display purposes
 {
 	int max = 0;
 	int size = baseClass::getSizeLine();
@@ -26,45 +33,55 @@ int display::getMPublisherlength()
 	}
 	return max;
 }
-int display::getMTitlelength(){
+int display::getMTitlelength() //Gets length of longest Book Title for display purposes
+{
 	int max = 0;
 	int size = baseClass::getSizeLine();
 	for (int i = 0; i < size; i++){
 		if (max < baseClass::getTitle(i).length()){ max = baseClass::getTitle(i).length(); }
 	}
-	return max; }
+	return max; 
+}
 
 
-void display::getList() //Complete
+void display::getList() //Displays all books and there information in table form
 {
+	system("cls");
+	
 	int size = baseClass::getSizeLine();
 
-	cout << "**********************************************************************************************************************************************************" << endl;
-	cout << "*                                                                  INVENTORY LIST REPORT                                                                 *" << endl;
-	cout << "**********************************************************************************************************************************************************" << endl << endl;
+	cout << "****************************************************************************************************************************************************" << endl;
+	cout << "*                                                               INVENTORY LIST REPORT                                                              *" << endl;
+	cout << "****************************************************************************************************************************************************" << endl << endl;
 
-	cout << setw(/*display::gerMNumlenght() + 2*/ 9) << left << "No." << setw(display::getMTitlelength() + 2) << left << "Title" << setw(display::getMPublisherlength() + 2) << left << "Publisher" << setw(display::getMAuthorlength() + 2) << left << "Author" << setw(15)
+	cout << setw(10) << left << "Item Code" << setw(display::getMTitlelength() + 2) << left << "Title" << setw(display::getMPublisherlength() + 2) << left << "Publisher" << setw(display::getMAuthorlength() + 2) << left << "Author" << setw(15)
 		<< left << "ISBN" << setw(8) << left << "Cost($) " << setw(8) << left << "MSRP($) " << setw(5) << left << "Qty" << setw(10) << left
 		<< "Type" << setw(8) << left << "Date Added" << endl;
-	cout << "----------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
+	cout << "----------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
 
 	for (int i = 0; i < size; i++)
 	{
-		cout << setw(/*display::gerMNumlenght() + 2*/ 9) << left << baseClass::getSerial(i) << setw(display::getMTitlelength() + 2) << left << baseClass::getTitle(i) << setw(display::getMPublisherlength() + 2) << left << baseClass::getPublisher(i) << setw(display::getMAuthorlength() + 2)
+		cout << setprecision(2) << fixed;
+		cout << setw(7) << right << baseClass::getSerial(i) << "   " << setw(display::getMTitlelength() + 2) << left << baseClass::getTitle(i) << setw(display::getMPublisherlength() + 2) << left << baseClass::getPublisher(i) << setw(display::getMAuthorlength() + 2)
 			<< left << baseClass::getAuthor(i) << setw(15) << left << baseClass::getISBN(i) << setw(8) << left << baseClass::getCost(i) << setw(8) << left << baseClass::getMSRP(i)
 			<< setw(5) << left << baseClass::getQty(i) << setw(10) << left << baseClass::getType(i) << setw(8) << left << baseClass::getDate(i) << endl;
 	}
+
+	cout << endl << "Press ENTER to continue..." << endl;
 }
 
-void display::getListCustom(int i) //Complete
+void display::getListCustom(int i) //Displays selective book information for inventory module
 {
-		cout << setw(4) << left << baseClass::getSerial(i) << setw(35) << left << baseClass::getTitle(i) << setw(35) << left << baseClass::getPublisher(i) << setw(25)
+	cout << setprecision(2) << fixed;
+	cout << setw(4) << left << baseClass::getSerial(i) << setw(display::getMTitlelength() + 2) << left << baseClass::getTitle(i) << setw(35) << left << baseClass::getPublisher(i) << setw(25)
 			<< left << baseClass::getAuthor(i) << setw(15) << left << baseClass::getISBN(i) << setw(8) << left << baseClass::getCost(i) << setw(8) << left << baseClass::getMSRP(i)
 			<< setw(5) << left << baseClass::getQty(i) << setw(10) << left << baseClass::getType(i) << setw(8) << left << baseClass::getDate(i) << endl;
 }
 
-void display::getWholelist() //Complete
+void display::getWholelist() //Displays all books and product of there quantity and cost under the total
 {
+	system("cls");
+	
 	double totPrice = 0;
 	int size = baseClass::getSizeLine();
 
@@ -72,7 +89,7 @@ void display::getWholelist() //Complete
 	cout << "*                                                        INVENTORY WHOLESALE VALUE REPORT                                                       *" << endl;
 	cout << "*************************************************************************************************************************************************" << endl << endl;
 
-	cout << setw(4) << "No." << setw(35) << left << "Title" << setw(35) << left << "Publisher" << setw(25) << left << "Author" << setw(15)
+	cout << setw(10) << left << "Item Code" << setw(display::getMTitlelength() + 2) << left << "Title" << setw(display::getMPublisherlength() + 2) << left << "Publisher" << setw(25) << left << "Author" << setw(15)
 		<< left << "ISBN" << setw(10) << left << "Type" << setw(8) << left << "Cost($) " << setw(5) << left << "Qty" << setw(8) << left << "Total($) " << endl;
 	cout << "------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
 
@@ -81,17 +98,21 @@ void display::getWholelist() //Complete
 		double price = 0;
 		price = baseClass::getCost(i) * baseClass::getQty(i);
 
-		cout << setw(4) << left << baseClass::getSerial(i) << setw(35) << left << baseClass::getTitle(i) << setw(35) << left << baseClass::getPublisher(i) << setw(25)
+		cout << setprecision(2) << fixed;
+		cout << setw(7) << right << baseClass::getSerial(i) << "   " << setw(display::getMTitlelength() + 2) << left << baseClass::getTitle(i) << setw(display::getMPublisherlength() + 2) << left << baseClass::getPublisher(i) << setw(25)
 			<< left << baseClass::getAuthor(i) << setw(15) << left << baseClass::getISBN(i) << setw(10) << left << baseClass::getType(i) << setw(8) << left << baseClass::getCost(i) << setw(5) << left << baseClass::getQty(i)
 			<< setw(8) << left << price << endl;
 
 		totPrice += price;
 	}
 	cout << endl << "Total Wholesale Value: $ " << totPrice << endl;
+	cout << endl << "Press ENTER to continue..." << endl;
 }
 
-void display::getRetaillist() //Complete
+void display::getRetaillist() //Displays all books and product of there quantity and retail price under the total
 {
+	system("cls");
+	
 	double totPrice = 0;
 	int size = baseClass::getSizeLine();
 
@@ -99,7 +120,7 @@ void display::getRetaillist() //Complete
 	cout << "*                                                        INVENTORY RETAIL VALUE REPORT                                                          *" << endl;
 	cout << "*************************************************************************************************************************************************" << endl << endl;
 
-	cout << setw(4) << "No." << setw(35) << left << "Title" << setw(35) << left << "Publisher" << setw(25) << left << "Author" << setw(15)
+	cout << setw(10) << left << "Item Code" << setw(display::getMTitlelength() + 2) << left << "Title" << setw(display::getMPublisherlength() + 2) << left << "Publisher" << setw(25) << left << "Author" << setw(15)
 		<< left << "ISBN" << setw(10) << left << "Type" << setw(8) << left << "MSRP($) " << setw(5) << left << "Qty" << setw(8) << left << "Total($) " << endl;
 	cout << "------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
 
@@ -108,17 +129,21 @@ void display::getRetaillist() //Complete
 		double price = 0;
 		price = baseClass::getMSRP(i) * baseClass::getQty(i);
 
-		cout << setw(4) << left << baseClass::getSerial(i) << setw(35) << left << baseClass::getTitle(i) << setw(35) << left << baseClass::getPublisher(i) << setw(25)
+		cout << setprecision(2) << fixed;
+		cout << setw(7) << right << baseClass::getSerial(i) << "   " << setw(display::getMTitlelength() + 2) << left << baseClass::getTitle(i) << setw(display::getMPublisherlength() + 2) << left << baseClass::getPublisher(i) << setw(25)
 			<< left << baseClass::getAuthor(i) << setw(15) << left << baseClass::getISBN(i) << setw(10) << left << baseClass::getType(i) << setw(8) << left << baseClass::getMSRP(i) << setw(5) << left << baseClass::getQty(i)
 			<< setw(8) << left << price << endl;
 
 		totPrice += price;
 	}
 	cout << endl << "Total Retail Value: $ " << totPrice << endl;
+	cout << endl << "Press ENTER to continue..." << endl;
 }
 
-void display::getQTYlist() //complete
+void display::getQTYlist() //Displays all books sorted by quantity
 {
+	system("cls");
+	
 	int max = 0;
 	int maxpos = 0;
 	int x = baseClass::getSizeLine();
@@ -133,7 +158,7 @@ void display::getQTYlist() //complete
 	cout << "*                                                           LIST BY QUANTITY REPORT                                                             *" << endl;
 	cout << "*************************************************************************************************************************************************" << endl << endl;
 
-	cout << setw(4) << "No." << setw(35) << left << "Title" << setw(35) << left << "Publisher" << setw(25) << left << "Author" << setw(15)
+	cout << setw(10) << left << "Item Code" << setw(display::getMTitlelength() + 2) << left << "Title" << setw(display::getMPublisherlength() + 2) << left << "Publisher" << setw(25) << left << "Author" << setw(15)
 		<< left << "ISBN" << setw(8) << left << "Cost($) " << setw(8) << left << "MSRP($) " << setw(5) << left << "Qty" << setw(10) << left
 		<< "Type" << endl;
 	cout << "------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
@@ -146,16 +171,20 @@ void display::getQTYlist() //complete
 			}
 		}
 		chk[maxpos] = 1;
-		cout << setw(4) << left << baseClass::getSerial(maxpos) << setw(35) << left << baseClass::getTitle(maxpos) << setw(35) << left << baseClass::getPublisher(maxpos) << setw(25)
+		cout << setprecision(2) << fixed;
+		cout << setw(7) << right << baseClass::getSerial(maxpos) << "   " << setw(display::getMTitlelength() + 2) << left << baseClass::getTitle(maxpos) << setw(display::getMPublisherlength() + 2) << left << baseClass::getPublisher(maxpos) << setw(25)
 			<< left << baseClass::getAuthor(maxpos) << setw(15) << left << baseClass::getISBN(maxpos) << setw(8) << left << baseClass::getCost(maxpos) << setw(8) << left << baseClass::getMSRP(maxpos)
 			<< setw(5) << left << baseClass::getQty(maxpos) << setw(10) << left << baseClass::getType(maxpos) << endl;
 		max = 0;
 	}
 	delete[] chk;
+	cout << endl << "Press ENTER to continue..." << endl;
 }
 
-void display::getCostlist() //complete
+void display::getCostlist() //Displays all books sorted by cost price
 {
+	system("cls");
+	
 	double max = 0;
 	int maxpos = 0;
 	int x = baseClass::getSizeLine();
@@ -169,7 +198,7 @@ void display::getCostlist() //complete
 	cout << "*                                                              LIST BY COST REPORT                                                              *" << endl;
 	cout << "*************************************************************************************************************************************************" << endl << endl;
 
-	cout << setw(4) << "No." << setw(35) << left << "Title" << setw(35) << left << "Publisher" << setw(25) << left << "Author" << setw(15)
+	cout << setw(10) << left << "Item Code" << setw(display::getMTitlelength() + 2) << left << "Title" << setw(display::getMPublisherlength() + 2) << left << "Publisher" << setw(25) << left << "Author" << setw(15)
 		<< left << "ISBN" << setw(8) << left << "Cost($) " << setw(8) << left << "MSRP($) " << setw(5) << left << "Qty" << setw(10) << left
 		<< "Type" << endl;
 	cout << "------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
@@ -183,20 +212,24 @@ void display::getCostlist() //complete
 		}
 
 		chk[maxpos] = 1;
-		cout << setw(4) << left << baseClass::getSerial(maxpos) << setw(35) << left << baseClass::getTitle(maxpos) << setw(35) << left << baseClass::getPublisher(maxpos) << setw(25)
+		cout << setprecision(2) << fixed;
+		cout << setw(7) << right << baseClass::getSerial(maxpos) << "   " << setw(display::getMTitlelength() + 2) << left << baseClass::getTitle(maxpos) << setw(display::getMPublisherlength() + 2) << left << baseClass::getPublisher(maxpos) << setw(25)
 			<< left << baseClass::getAuthor(maxpos) << setw(15) << left << baseClass::getISBN(maxpos) << setw(8) << left << baseClass::getCost(maxpos) << setw(8) << left << baseClass::getMSRP(maxpos)
 			<< setw(5) << left << baseClass::getQty(maxpos) << setw(10) << left << baseClass::getType(maxpos) << endl;
 		max = 0;
 	}
+	cout << endl << "Press ENTER to continue..." << endl;
 }
 
-void display::getAgelist()
+void display::getAgelist() //Displays all books sorted by date added
 {
-	int  miny = 10000; // depeds from list (qty,cost,age) sort displaylistis
+	system("cls");
+	
+	int  miny = 10000; 
 	int  minm = 10000;
 	int  mind = 10000;
 	int minpos = 0;
-	int x = baseClass::getSizeLine();
+	int x = baseClass::getSizeLine(); 
 	int *chk = NULL;
 	chk = new int[25];
 	for (int i = 0; i < x; i++){
@@ -209,7 +242,7 @@ void display::getAgelist()
 	cout << "***********************************************************************************************************************************************************" << endl;
 	cout << "*                                                                     LIST BY AGE REPORT                                                                  *" << endl;
 	cout << "***********************************************************************************************************************************************************" << endl << endl;
-	cout << setw(4) << "No." << setw(35) << left << "Title" << setw(35) << left << "Publisher" << setw(25) << left << "Author" << setw(15)
+	cout << setw(10) << left << "Item Code" << setw(display::getMTitlelength() + 2) << left << "Title" << setw(display::getMPublisherlength() + 2) << left << "Publisher" << setw(25) << left << "Author" << setw(15)
 		<< left << "ISBN" << setw(8) << left << "Cost($) " << setw(8) << left << "MSRP($) " << setw(5) << left << "Qty" << setw(10) << left
 		<< "Type" << setw(8) << left << "Date Added" << endl;
 	cout << "-----------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
@@ -242,16 +275,19 @@ void display::getAgelist()
 			}
 		}
 		chk[minpos] = 1;
-		cout << setw(4) << left << baseClass::getSerial(minpos) << setw(35) << left << baseClass::getTitle(minpos) << setw(35) << left << baseClass::getPublisher(minpos) << setw(25)
+		cout << setprecision(2) << fixed;
+		cout << setw(7) << right << baseClass::getSerial(minpos) << "   " << setw(display::getMTitlelength() + 2) << left << baseClass::getTitle(minpos) << setw(display::getMPublisherlength() + 2) << left << baseClass::getPublisher(minpos) << setw(25)
 			<< left << baseClass::getAuthor(minpos) << setw(15) << left << baseClass::getISBN(minpos) << setw(8) << left << baseClass::getCost(minpos) << setw(8) << left << baseClass::getMSRP(minpos)
 			<< setw(5) << left << baseClass::getQty(minpos) << setw(10) << left << baseClass::getType(minpos) << setw(8) << left << baseClass::getDate(minpos) << endl;
 		miny = 10000;
 		minm = 10000;
 		mind = 10000;
 	}
+	cout << endl << "Press ENTER to continue..." << endl;
 }
 
-void display::getShortListCustom(int i) //Complete
+void display::getShortListCustom(int i) // Displays selective book information for cashier module
 {
+	cout << setprecision(2) << fixed;
 	cout << setw(4) << left << baseClass::getSerial(i) << setw(35) << left << baseClass::getTitle(i) << setw(15) << left << baseClass::getISBN(i) << setw(8) << left << baseClass::getMSRP(i) << endl;
 }

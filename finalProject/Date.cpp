@@ -43,7 +43,7 @@ void Date::setDate(int m, int d, int y)
 	year = y;
 }
 
-// Accesors
+// Accessors
 int Date::getDay() const
 {
 	return day;
@@ -105,7 +105,7 @@ fstream& operator>>(fstream& in, Date& d)
 	return in;
 }
 
-// Operator << overloader for cout date
+// Operator << overloader for displaying date
 ostream& operator<<(ostream& out, Date& d)
 {
 	out << to_string(d.day)+" "+ to_string(d.month) +" "+ to_string(d.year);

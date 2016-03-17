@@ -1,16 +1,19 @@
+// Inventory Class Implementation
 #include "inventory.h"
 #include <iomanip>
 using namespace std;
 
+//Default Constructor
 inventory::inventory()
 {
 }
 
+//Default Destructor
 inventory::~inventory()
 {
 }
 
-void inventory::setDate(int i)
+void inventory::setDate(int i) //Used to add current date from the machine
 {
 	Date todaysDate;
 	string temp, tempd, d, y, x;
@@ -22,7 +25,7 @@ void inventory::setDate(int i)
 	dateAdded[i] = { stoi(d), stoi(y), stoi(x) };
 }
 
-void inventory::add()
+void inventory::add() //Used to add new book to inventory
 {
 	int c = 0;
 	max = baseClass::getSizeLine() + 1;
@@ -70,20 +73,21 @@ void inventory::add()
 	baseClass::fileMod(max + 1);
 }
 
-void inventory::modify(char y, int x)
+void inventory::modify(char y, int x) //Used to make changes to book in inventory
 {
 	string name = "";
 	int number = 0;
 	int d, m, ya;
 	double price = 0;
 
+	//Switch statemnet allow accesses to users choice of field to modify
 	switch (y)
 	{
 	default:
 		cout << "Let's try again" << endl;
 		break;
 	case 'T':
-		cout << "Enter the new title: ";
+		cout << "Enter the new title: "; //Program ignores first field (item code) which is permanent
 		cin.ignore();
 		getline(cin, name);
 		baseClass::setTitle(name, x - 1);
@@ -130,7 +134,7 @@ void inventory::modify(char y, int x)
 	}
 }
 
-void inventory::del(int x)
+void inventory::del(int x) //Used to make remove a book from inventory
 {
 	baseClass::setTitle("", x);
 	baseClass::setPublisher("", x);
@@ -155,7 +159,8 @@ void inventory::del(int x)
 	baseClass::fileClear();
 	baseClass::fileMod(baseClass::getSizeLine());
 }
-void inventory::shift(){
+void inventory::shift() //Removes empty spaces in the array after item has been removed
+{
 	for (int j = 0; j < inventory::getNumOfdeletedBooks(); j++){
 		for (int i = inventory::getArrOfdelBooks(j); i < baseClass::getSizeLine(); i++){
 			baseClass::setTitle(baseClass::getTitle(i + 1), i);
@@ -168,13 +173,11 @@ void inventory::shift(){
 			baseClass::setType(baseClass::getType(i + 1), i);
 		}
 	}
-
-
 }
-int inventory::search2(int s)
+int inventory::search2(int s) //Searches through serial numbers and returns position in array
 {
 	int first = 0,						// First array element
-		last = getSizeLine() - 1,			// Last array element
+		last = getSizeLine() - 1,		// Last array element
 		middle,							// Midpoint of search
 		position = -1;					// Position of search value
 	bool found = false;					// Flag
@@ -196,7 +199,7 @@ int inventory::search2(int s)
 
 	return position;
 }
-int inventory::search(string term)
+int inventory::search(string term) //Searches through book titles and returns position in array
 {
 	string hold;
 	bool found, vty = true;
@@ -223,7 +226,11 @@ int inventory::search(string term)
 	return 0;
 
 }
+
+//Mutators
 void inventory::setNumOfdeletedBooks(int n){ NumOfdeletedBooks = n; }
 void inventory::setArrOfdelBooks(int i, int el){ ArrOfdelBooks[i] = el; }
+
+//Accessors
 int inventory::getNumOfdeletedBooks(){ return NumOfdeletedBooks; }
 int inventory::getArrOfdelBooks(int i){ return ArrOfdelBooks[i]; }

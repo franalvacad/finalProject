@@ -1,21 +1,25 @@
-#pragma once
+#ifndef DISPLAYCLASS_H
+#define DISPLAYCLASS_H
 #include "baseClass.h"
 #include "iostream"
 #include "Date.h"
 #include "string"
 using namespace std;
 
-class display : public baseClass
+class display : public baseClass //display class is child class of baseclass
 {
 private:
 	string tempstr;
 	string outstr;
 	
 public:
+	 //Default Constructor
 	display();
+
+	//Default Destructor
 	~display();
 
-//	accsessors afsdadg
+    //Accsessors 
 	void getList();
 	void getListCustom(int);
 	void getShortListCustom(int);
@@ -28,3 +32,4 @@ public:
 	int getMPublisherlength();
 	int getMTitlelength();
 };
+#endif
