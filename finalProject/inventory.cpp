@@ -2,15 +2,14 @@
 #include <iomanip>
 using namespace std;
 
-
 inventory::inventory()
 {
 }
 
-
 inventory::~inventory()
 {
 }
+
 void inventory::setDate(int i)
 {
 	Date todaysDate;
