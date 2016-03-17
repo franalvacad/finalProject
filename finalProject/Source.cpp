@@ -10,9 +10,9 @@ void cashMod()
 	Cashier alpha;
 	Cart takeOut;
 	int inp = 0;
-	cout << "***********************************************************************************************************" << endl;
-	cout << "*                                            CASHIER MODULE                                               *" << endl;
-	cout << "***********************************************************************************************************" << endl << endl;
+	cout << "********************************************************************" << endl;
+	cout << "*                          CASHIER MODULE                          *" << endl;
+	cout << "********************************************************************" << endl << endl;
 
 
 
@@ -175,21 +175,19 @@ int main()
 		{
 			//Menu displayed for user to make a choice
 	
-
-
 			do {
 				valid = false;
 
-				cout << "***********************************************************************************************************" << endl;
-				cout << "*                                          SERENDIPITY BOOKSELLERS                                        *" << endl;
-				cout << "***********************************************************************************************************" << endl << endl;
-				cout << "No. CHOICE" << endl;
-				cout << "----------------------------" << endl;
-				cout << " 1: Cashier Module" << endl;
-				cout << " 2: Inventory Database Module" << endl;
-				cout << " 3: Report Module" << endl;
-				cout << " 4: Exit" << endl << endl;
-				cout << "Input choice number: ";
+				cout << "********************************************************************" << endl;
+				cout << "*                     SERENDIPITY BOOKSELLERS                      *" << endl;
+				cout << "********************************************************************" << endl << endl;
+				cout << "		No. CHOICE" << endl;
+				cout << "		----------------------------" << endl;
+				cout << "		1: Cashier Module" << endl;
+				cout << "		2: Inventory Database Module" << endl;
+				cout << "		3: Report Module" << endl;
+				cout << "		4: EXIT" << endl << endl;
+				cout << "		Input choice number: ";
 				cin >> choice;
 
 				// Validate user input

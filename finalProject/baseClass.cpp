@@ -1,12 +1,10 @@
 //Base Class Implementation
-
 #include "baseClass.h"
 #include <fstream>
 #include <string>
 #include <sstream>
 #include <iostream>
 using namespace std;
-
 
 bool baseClass::countFile(fstream &inFile)
 {
@@ -53,15 +51,13 @@ baseClass::baseClass()
 	}
 }
 
-
-
-
+//Destructor
 baseClass::~baseClass()
 {
 	mainData.close();
 }
 
-//sets
+//Mutators for each variable in the class
 void baseClass::setTitle(string x, int c)
 {
 	title[c] = x;
@@ -98,17 +94,19 @@ void baseClass::setType(string x, int c)
 {
 	type[c] = x;
 }
-void baseClass::fileClear()
+
+void baseClass::fileClear() //Clears in input file once data has been moved to the array in the program
 {
 	mainData.close();
 	mainData.open("serial.txt", ofstream::out | ofstream::trunc);
 	mainData.close();
 
 }
+
 void baseClass::fileMod(int x) //Essentially copies whatever is in array to the end of file. Var x is max value
 {
 	//Date time;
-//	mainData.open("serial.txt", ofstream::out | ofstream::trunc);
+	//mainData.open("serial.txt", ofstream::out | ofstream::trunc);
 	//mainData << " ";
 	//mainData.clear();
 	//mainData.seekg(0);
@@ -128,12 +126,11 @@ void baseClass::fileMod(int x) //Essentially copies whatever is in array to the 
 	}
 	mainData.close();
 }
-//gets
+//Accessors for each variable in the class
 string baseClass::getType(int c)
 {
 	return type[c];
 }
-
 string baseClass::getTitle(int c)
 {
 	return title[c];
@@ -166,12 +163,10 @@ int baseClass::getSerial(int c)
 {
 	return serial[c];
 }
-
 string baseClass::getDate(int c)
 {
 	return dateAdded[c].getDate();
 }
-
 int baseClass::getSizeLine()
 {
 	return numOfLines/10;
