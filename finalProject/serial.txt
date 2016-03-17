@@ -59,16 +59,6 @@ Suzanne Collins
 Paperback
 2-15-2014
 7
-Catching Fire
-Scholastic, Inc.
-Suzanne Collins
-9780545586177
-12.99
-7.92
-13
-Paperback
-5-7-2014
-8
 Mockingjay
 Scholastic, Inc.
 Suzanne Collins
@@ -77,8 +67,8 @@ Suzanne Collins
 7.92
 6
 Paperback
-5-10-2014
-9
+5-7-2014
+8
 Divergent
 HarperCollins Publishers
 Veronica Roth
@@ -88,7 +78,7 @@ Veronica Roth
 7
 Hardcover
 5-10-2014
-10
+9
 Insurgent
 HarperCollins Publishers
 Veronica Roth
@@ -97,8 +87,8 @@ Veronica Roth
 11.28
 89
 Hardcover
-5-12-2014
-11
+5-10-2014
+10
 Allegiant
 HarperCollins Publishers
 Veronica Roth
@@ -107,8 +97,8 @@ Veronica Roth
 11.76
 0
 Hardcover
-8-1-2014
-12
+5-12-2014
+11
 The Fault in Our Stars
 Penguin Young Readers Group
 John Green
@@ -117,8 +107,8 @@ John Green
 7.92
 5
 Paperback
-8-4-2014
-13
+8-1-2014
+12
 Looking for Alaska
 Penguin Young Readers Group
 John Green
@@ -127,8 +117,8 @@ John Green
 8.99
 4
 Paperback
-10-8-2014
-14
+8-4-2014
+13
 The Maze Runner
 Random House Children's Books
 James Dashner
@@ -137,8 +127,8 @@ James Dashner
 6.49
 3
 Paperback
-10-15-2014
-15
+10-8-2014
+14
 The Scorch Trials
 Random House Children's Books
 James Dashner
@@ -147,8 +137,8 @@ James Dashner
 8.2
 2
 Paperback
-3-17-2015
-16
+10-15-2014
+15
 The Death Cure
 Random House Children's Books
 James Dashner
@@ -158,7 +148,7 @@ James Dashner
 7
 Paperback
 3-17-2015
-17
+16
 The Kill Order
 HarperCollins Publishers
 James Dashner
@@ -167,8 +157,8 @@ James Dashner
 8.4
 8
 Paperback
-3-19-2015
-18
+3-17-2015
+17
 The Kill Order
 HarperCollins Publishers
 James Dashner
@@ -177,8 +167,8 @@ James Dashner
 8.4
 9
 Hardcover
-4-20-2015
-19
+3-19-2015
+18
 The Kill Order
 HarperCollins Publishers
 James Dashner
@@ -187,8 +177,8 @@ James Dashner
 14.58
 0
 Hardcover
-4-29-2015
-20
+4-20-2015
+19
 Allegiant
 HarperCollins Publishers
 Veronica Roth
@@ -197,8 +187,8 @@ Veronica Roth
 11.76
 3
 Hardcover
-5-20-2015
-21
+4-29-2015
+20
 Insurgent
 HarperCollins Publishers
 Veronica Roth
@@ -207,8 +197,8 @@ Veronica Roth
 11.28
 5
 Hardcover
-5-21-2015
-22
+5-20-2015
+21
 Divergent
 HarperCollins Publishers
 Veronica Roth
@@ -217,8 +207,8 @@ Veronica Roth
 14.34
 8
 Paperback
-6-5-2015
-23
+5-21-2015
+22
 Fifty Shades of Grey
 Knopf Doubleday Publishing Group
 E L James
@@ -227,4 +217,4 @@ E L James
 9.85
 9
 Paperback
-6-7-2015
+6-5-2015
