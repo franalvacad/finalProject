@@ -145,14 +145,34 @@ void Cashier::removeFromCart(Cart &t)
 {
 	int serial, bookNum, bookQty;
 	char finish = 'N';
+	bool valid = false;
 
 	system("cls");
 
 
 	viewCart(t);
-		
-	cout << "What book do you wish to remove from the cart? (Item Code): " << endl;
-	cin >> serial;
+
+	do {
+		valid = false;
+
+		cout << "What book do you wish to remove from the cart? (Item Code): " << endl;
+		cin >> serial;
+
+		// Validate user input
+		if (cin.fail())
+		{
+			cin.clear();
+			cin.ignore(500, '\n');
+			cout << "\n\t**Invalid input.**\n" << endl;
+		}
+		else if (serial <= 0)
+			cout << "\n\t**Please enter a valid Item Code**\n";
+		else
+			valid = true;
+
+	} while (!valid);
+
+
 
 	if (!t.itemExist(serial))
 		cout << "Book not found in cart." << endl;
@@ -166,14 +186,32 @@ void Cashier::removeFromCart(Cart &t)
 		}
 		else
 		{
-			cout << "How many titles of \"" << getTitle(serial) << "\" do you wish to remove?" << endl;
-			cin >> bookQty;
 
-			if (bookQty < 0)
-				cout << "Invalid Quantity" << endl;
-			else if (bookQty > getQty(serial))
-				cout << "Not enough books in cart to remove" << endl;
-			else if (bookQty == getQty(serial))
+
+			do
+			{
+				valid = false;
+
+				cout << "How many titles of \"" << getTitle(serial) << "\" do you wish to remove?" << endl;
+				cin >> bookQty;
+
+				// Validate user input
+				if (cin.fail())
+				{
+					cin.clear();
+					cin.ignore(500, '\n');
+					cout << "\n\t**Invalid input.**\n" << endl;
+				}
+				else if (bookQty <= 0)
+					cout << "\n\t**Please enter a valid quantity**\n" << endl;
+				else if (bookQty > getQty(serial))
+					cout << "\n\t**Not enough books in cart to remove**\n" << endl;
+				else
+					valid = true;
+
+			} while (!valid);
+
+			if (bookQty == getQty(serial))
 			{
 				cout << "Removed \"" << getTitle(serial) << "\"" << endl;
 				t.removeItem(serial);
@@ -181,7 +219,7 @@ void Cashier::removeFromCart(Cart &t)
 			}
 			else
 			{
-				cout << "Removed " << bookQty << " titles of \"" << getTitle(serial) << "\""<< endl;
+				cout << "Removed " << bookQty << " titles of \"" << getTitle(serial) << "\"" << endl;
 				t.removeQty(serial, bookQty);
 			}
 		}

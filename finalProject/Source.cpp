@@ -18,6 +18,7 @@ void cashMod()
 
 	alpha.addToCart(takeOut);
 	alpha.viewCart(takeOut);
+	alpha.removeFromCart(takeOut);
 	alpha.finishCheckout(takeOut);
 
 }
@@ -135,6 +136,8 @@ void repMod()
 	cout << " 6: List by Age" << endl;
 	cout << " 9: RETURN" << endl << endl;
 	cout << "Input choice: ";
+
+
 	cin >> type;
 
 	if (type == 1)
@@ -164,6 +167,7 @@ int main()
 	//inventory test;
 	int choice;
 	bool menu = 0;
+	bool valid = false;
 	
 	try 
 	{
@@ -171,17 +175,42 @@ int main()
 		{
 			//Menu displayed for user to make a choice
 	
-			cout << "***********************************************************************************************************" << endl;
-			cout << "*                                          SERENDIPITY BOOKSELLERS                                        *" << endl;
-			cout << "***********************************************************************************************************" << endl << endl;
-			cout << "No. CHOICE" << endl;
-			cout << "----------------------------" << endl;
-			cout << " 1: Cashier Module" << endl;
-			cout << " 2: Inventory Database Module" << endl;
-			cout << " 3: Report Module" << endl;
-			cout << " 9: Exit" << endl << endl;
-			cout << "Input choice number: ";
-			cin >> choice;
+
+
+			do {
+				valid = false;
+
+				cout << "***********************************************************************************************************" << endl;
+				cout << "*                                          SERENDIPITY BOOKSELLERS                                        *" << endl;
+				cout << "***********************************************************************************************************" << endl << endl;
+				cout << "No. CHOICE" << endl;
+				cout << "----------------------------" << endl;
+				cout << " 1: Cashier Module" << endl;
+				cout << " 2: Inventory Database Module" << endl;
+				cout << " 3: Report Module" << endl;
+				cout << " 4: Exit" << endl << endl;
+				cout << "Input choice number: ";
+				cin >> choice;
+
+				// Validate user input
+				if (cin.fail())
+				{
+					system("cls");
+					cin.clear();
+					cin.ignore(500, '\n');
+					cout << "\n\t**Invalid input.**\n\n" << endl;
+				}
+				else if (choice <= 0 || choice > 4)
+				{
+					system("cls");
+					cout << "\n\t**Please enter a choice between 1 and 4**\n\n";
+				}
+				else
+					valid = true;
+
+			} while (!valid);
+
+
 			if (choice == 1)
 			{
 				system("cls");
@@ -197,7 +226,7 @@ int main()
 				system("cls");
 				repMod();
 			}
-			else if (choice == 9)
+			else if (choice == 4)
 				menu = true;
 			
 		} //loop to make sure program does not terminate unless user exits
