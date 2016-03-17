@@ -11,15 +11,13 @@ private:
 	const double salesTaxRate = 0.0825;
 
 public:
-	Cashier();
-	~Cashier();
 
-	void addToCart(Cart (&t)[50]);
-	void removeFromCart(Cart (&t)[50]);
-	void viewCart(Cart (&t)[50]);
+	void addToCart(Cart &t);
+	void removeFromCart(Cart &t);
+	void viewCart(Cart &t);
 
 	int findBook(int);
-	int searchCart(const Cart(&t)[50], int);
+	//int searchCart(const Cart(&t), int);
 
 };
 
