@@ -32,37 +32,173 @@ void inventory::add() //Used to add new book to inventory
 	cout << "*                INVENTORY DATABASE ADD NEW BOOK                   *" << endl;
 	cout << "********************************************************************" << endl << endl;
 	
+
+	bool valid = false;
+	bool exit = false;
+	int choice;
 	int c = 0;
 	max = baseClass::getSizeLine() + 1;
-	while (c == 0){
+
+	do{
 		serialHold = max;
-		cin.ignore();
 		cout << endl << "Title: ";
 		getline(cin, titleHold);
+
 		cout << endl << "Publisher: ";
 		getline(cin, publisherHold);
+
 		cout << endl << "Author: ";
 		getline(cin, authorHold);
-		cout << endl << "ISBN: ";
-		cin.ignore();
-		cin >> isbnHold;
-		cout << endl << "Cost: ";
-		cin.ignore();
-		cin >> costHold;
-		cout << endl << "MSRP: ";
-		cin.ignore();
-		cin >> msrpHold;
-		cout << endl << "Quantity: ";
-		cin.ignore();
-		cin >> qtyHold;
-		cout << endl << "Hardcover or Paperback: ";
-		cin.ignore();
-		cin >> typeHold;
-		cout << "Press 1 to confirm changes. Else, press 0.\n";//change later
-		cin.ignore();
-			cin >> c;
-			if (c == 0){ cout << "You can rewrite your input now\n"; }
-	}
+
+		do {
+			valid = false;
+
+			cout << endl << "ISBN: ";
+			cin >> isbnHold;
+			cin.ignore();
+
+			// Validate user input
+			if (cin.fail())
+			{
+				cin.clear();
+				cin.ignore(500, '\n');
+				cout << "\n\t**Invalid input.**\n" << endl;
+			}
+			else if (isbnHold.length() != 13)
+				cout << "\n\t**Please enter a valid 13 digit ISBN**\n";
+			else
+				valid = true;
+
+		} while (!valid);
+
+
+
+		do {
+			valid = false;
+
+			cout << endl << "Cost: ";
+			cin >> costHold;
+			cin.ignore();
+
+			// Validate user input
+			if (cin.fail())
+			{
+				cin.clear();
+				cin.ignore(500, '\n');
+				cout << "\n\t**Invalid input.**\n" << endl;
+			}
+			else if (costHold <= 0)
+				cout << "\n\t**Please enter a valid price**\n";
+			else
+				valid = true;
+
+		} while (!valid);
+
+
+
+		do {
+			valid = false;
+
+			cout << endl << "MSRP: ";
+			cin >> msrpHold;
+			cin.ignore();
+
+			// Validate user input
+			if (cin.fail())
+			{
+				cin.clear();
+				cin.ignore(500, '\n');
+				cout << "\n\t**Invalid input.**\n" << endl;
+			}
+			else if (msrpHold <= 0)
+				cout << "\n\t**Please enter a valid price**\n";
+			else
+				valid = true;
+
+		} while (!valid);
+
+		do {
+			valid = false;
+
+			cout << endl << "Quantity: ";
+			cin >> qtyHold;
+			cin.ignore();
+
+			// Validate user input
+			if (cin.fail())
+			{
+				cin.clear();
+				cin.ignore(500, '\n');
+				cout << "\n\t**Invalid input.**\n" << endl;
+			}
+			else if (qtyHold <= 0)
+				cout << "\n\t**Please enter a valid quantity**\n";
+			else
+				valid = true;
+
+		} while (!valid);
+
+				do {
+			valid = false;
+			int choice;
+
+			cout << "Enter the type: (1-2)\n"
+				<< "1. Paperback\n"
+				<< "2. Hardcover\n";
+
+			cin >> choice;
+			cin.ignore();
+
+			// Validate user input
+			if (cin.fail())
+			{
+				cin.clear();
+				cin.ignore(500, '\n');
+				cout << "\n\t**Invalid input.**\n" << endl;
+			}
+			else if (choice == 1 || choice == 2)
+			{ 
+				if (choice == 1)
+					typeHold = "Paperback";
+				else
+					typeHold = "Hardcover";
+
+				valid = true;
+			}
+			else
+				cout << "\n\t**Please enter a valid type**\n";
+
+
+		} while (!valid);
+
+			do {
+				valid = false;
+
+
+				cout << "\nEnter 1 to confirm changes. Enter 2 to try again.\n" << endl;
+				cin >> choice;
+				cin.ignore();
+
+				// Validate user input
+				if (cin.fail())
+				{
+					cin.clear();
+					cin.ignore(500, '\n');
+					cout << "\n\t**Invalid input.**\n" << endl;
+				}
+				else if (choice == 1 || choice == 2)
+				{
+					valid = true;
+				}
+				else
+					cout << "\n\t**Please enter either Y/N**\n";
+
+			} while (!valid);
+
+			if (choice == 1)
+				exit = true;
+
+	} while (!exit);
 
 	baseClass::setSerial(serialHold, max - 1);
 	baseClass::setTitle(titleHold, max - 1);
@@ -93,19 +229,16 @@ void inventory::modify(char y, int x) //Used to make changes to book in inventor
 		break;
 	case 'T':
 		cout << "Enter the new title: "; //Program ignores first field (item code) which is permanent
-		cin.ignore();
 		getline(cin, strInput);
 		baseClass::setTitle(strInput, x - 1);
 		break;
 	case 'P':
 		cout << "Enter the new publisher: ";
-		cin.ignore();
 		getline(cin, strInput);
 		baseClass::setPublisher(strInput, x - 1);
 		break;
 	case 'A':
 		cout << "Enter the new author: ";
-		cin.ignore();
 		getline(cin, strInput);
 		baseClass::setAuthor(strInput, x - 1);
 		break;
@@ -115,7 +248,6 @@ void inventory::modify(char y, int x) //Used to make changes to book in inventor
 			valid = false;
 
 			cout << "Enter the new ISBN: ";
-			cin.ignore();
 			getline(cin, strInput);
 
 			// Validate user input
@@ -197,7 +329,7 @@ void inventory::modify(char y, int x) //Used to make changes to book in inventor
 				cin.ignore(500, '\n');
 				cout << "\n\t**Invalid input.**\n" << endl;
 			}
-			else if (price <= 0)
+			else if (intInput <= 0)
 				cout << "\n\t**Please enter a valid quantity**\n";
 			else
 				valid = true;
@@ -215,7 +347,6 @@ void inventory::modify(char y, int x) //Used to make changes to book in inventor
 				<< "1. Paperback\n"
 				<< "2. Hardcover\n";
 
-			cin.ignore();
 			cin >> intInput;
 
 			// Validate user input

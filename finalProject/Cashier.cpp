@@ -12,6 +12,10 @@ void Cashier::addToCart(Cart &t)
 	bool exit = false;		// Flag for exit
 	bool valid = false;
 
+	cout << "********************************************************************" << endl;
+	cout << "*                          CASHIER MODULE                          *" << endl;
+	cout << "********************************************************************" << endl << endl;
+
 	do
 	{
 
@@ -90,7 +94,7 @@ void Cashier::addToCart(Cart &t)
 			valid = false;
 
 			cout << "\n" << endl
-				<< "	To Checkout Insert (Y)\n"
+				<< "	To exit Cart(Y)\n"
 				<< "	To Continue Adding to Cart (N)\n"
 				<< "	Choice: ";
 			cin >> choice;
@@ -114,7 +118,7 @@ void Cashier::addToCart(Cart &t)
 
 	} while (!exit);
 
-	system("pause");
+	system("cls");
 }
 
 void Cashier::viewCart(Cart &t)
@@ -122,6 +126,11 @@ void Cashier::viewCart(Cart &t)
 	Date todaysDate;	// Date object for today's date
 
 	system("cls");
+
+	cout << "********************************************************************" << endl;
+	cout << "*                          CASHIER MODULE                          *" << endl;
+	cout << "********************************************************************" << endl << endl;
+
 
 	cout << "Date: " << todaysDate.getComputerDate() << "\n" << endl;
 	cout << setw(11) << left << "Item Code" << setw(35) << left << "Title" << setw(15) << left << "ISBN" << setw(10) << left << "Price($)" << setw(8) << left << "Qty" << setw(8) << left << "Total($)" << endl;
@@ -134,24 +143,31 @@ void Cashier::viewCart(Cart &t)
 	while (i < itemCount)
 	{
 		cout << setw(11) << left << t.getSerial(i)
-			<< setw(35) << left << getTitle(t.getSerial(i) -1)
-			<< setw(15) << left << getISBN(t.getSerial(i) -1)
-			<< setw(10) << left << getMSRP(t.getSerial(i) -1)
+			<< setw(35) << left << getTitle(t.getSerial(i) - 1)
+			<< setw(15) << left << getISBN(t.getSerial(i) - 1)
+			<< fixed << setprecision(2)
+			<< setw(10) << left << getCost(t.getSerial(i) -1)
 			<< setw(8) << left << t.getQty(t.getSerial(i))
-			<< setw(8) << left << t.getQty(t.getSerial(i)) * getMSRP(t.getSerial(i) - 1) << endl;
+			<< fixed << setprecision(2)
+			<< setw(8) << left << t.getQty(t.getSerial(i)) * getCost(t.getSerial(i) - 1) << endl;
 		i++;
 	}
+	cout << endl;
 	system("pause");
 }
 
 void Cashier::removeFromCart(Cart &t)
 {
+
 	int serial, bookNum, bookQty;
 	char finish = 'N';
 	bool valid = false;
 
 	system("cls");
 
+	cout << "********************************************************************" << endl;
+	cout << "*                          CASHIER MODULE                          *" << endl;
+	cout << "********************************************************************" << endl << endl;
 
 	viewCart(t);
 
@@ -227,21 +243,19 @@ void Cashier::removeFromCart(Cart &t)
 			}
 		}
 	}
-
-	system("pause");
-		
-
-
+	system("cls");
 }
 
 void Cashier::finishCheckout(Cart &t)
 {
 	viewCart(t);
 	cout << "\n\n\n" << endl;
-	cout << "Subtotal $" << subtotal(t) << "\n"
-		<< "Tax $" << tax(subtotal(t)) << "\n"
-		<< "Total $" << total(subtotal(t), tax(subtotal(t))) << "\n"
+	cout << setw(10) << "        \t\tSubtotal" << setw(3) << fixed << setprecision(2) << right << "$"<< subtotal(t) << "\n";
+	cout << setw(20) << "\t\tTax  " << setw(6) << fixed << setprecision(2) << right << "$" << tax(subtotal(t)) << "\n";
+	cout << setw(20) << "\t\tTotal" << setw(6) << fixed << setprecision(2) << right << "$" << total(subtotal(t), tax(subtotal(t))) << "\n"
 		<< endl;
+
+	cout << "\t\t**Thank you for shopping at Serendipity BookSellers!**\n" << endl;
 
 	// Change inventory
 
@@ -265,7 +279,8 @@ void Cashier::finishCheckout(Cart &t)
 		}
 		i++;
 	}
-
+	system("pause");
+	system("cls");
 }
 
 int Cashier::findBook(int s)
@@ -296,7 +311,8 @@ int Cashier::findBook(int s)
 
 double Cashier::subtotal(Cart &t) 
 {
-	int items, subTotal;
+	int items;
+	double subTotal;
 	subTotal = 0;
 	items = t.countCart();
 
@@ -304,7 +320,7 @@ double Cashier::subtotal(Cart &t)
 	int i = 0;
 	while (i < items)
 	{  
-		subTotal += getQty(t.getSerial(i) - 1) * getMSRP(t.getSerial(i)) ;
+		subTotal += t.getQty(t.getSerial(i)) * getCost(t.getSerial(i) - 1);
 		i++;
 	}
 	return subTotal;

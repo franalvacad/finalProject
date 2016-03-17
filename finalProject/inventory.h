@@ -1,3 +1,4 @@
+// Inventory Specification
 #ifndef INVENTORY_H
 #define INVENTORY_H
 #include "displayClass.h"

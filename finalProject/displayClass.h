@@ -1,3 +1,4 @@
+// DisplayClass Specification
 #ifndef DISPLAYCLASS_H
 #define DISPLAYCLASS_H
 #include "baseClass.h"

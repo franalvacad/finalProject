@@ -1,3 +1,4 @@
+// Cashier Specification
 #ifndef CASHIER_H
 #define CASHIER_H
 #include "Date.h"
