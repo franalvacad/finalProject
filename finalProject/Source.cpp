@@ -4,6 +4,7 @@
 #include <time.h>
 using namespace std;
 
+
 void cashMod()
 {
 	Cashier alpha;
@@ -31,12 +32,18 @@ void invMod()
 	string query;
 	int ser;
 	int term;
-	char res;
-	bool test = 0;
+	char res,modPic;
+	bool test = 0, modBool = 0;
 
 	while (!test)
 	{
-		cout << "(A)dd, (M)odify, (D)elete: ";
+		cout << "Inventory" << endl;
+		cout << "------------------------------" << endl;
+		cout << " A: Add" << endl;
+		cout << " M: Modify" << endl;
+		cout << " D: Delete" << endl;
+		cout << " 9: RETURN" << endl << endl;
+		cout << "Input choice: ";
 		cin >> res;
 		if (islower(res))
 			res = toupper(res);
@@ -79,17 +86,34 @@ void invMod()
 
 			cout << endl;
 
-			cout << "Change: (T)itle, (P)ublisher, (A)uthor, ";
+			while (!modBool)
+			{
+				cout << "Change: (T)itle, (P)ublisher, (A)uthor, (I)SBN, (C)ost, (M)SRP, (Q)ty, typ(E),e(X)it: ";
+				cin >> modPic;
+				if (islower(modPic))
+					modPic = toupper(modPic);
 
+				if (modPic != 'X')
+					changes.modify(modPic, term);
+
+				else modBool = 1;
+			}
 			cout << endl;
+
+			changes.fileClear();
+			changes.fileMod(changes.getSizeLine() + 1);
 
 			break;
 		}
 
+		else if (res == '9')
+			test = true;
+		
 		else cout << "Try again please!" << endl;
 	}
 
 	cout << endl;
+	system("cls");
 }
 
 void repMod()
