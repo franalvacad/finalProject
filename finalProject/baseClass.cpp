@@ -84,7 +84,7 @@ void baseClass::setMSRP(double x, int c)
 }
 void baseClass::setQty(int x, int c)
 {
-	qty[c] = x;;
+	qty[c] = x;
 }
 void baseClass::setSerial(int x, int c)
 {

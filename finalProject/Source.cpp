@@ -15,8 +15,8 @@ void cashMod()
 	cout << "********************************************************************" << endl << endl;
 
 	alpha.addToCart(takeOut);
-	alpha.viewCart(takeOut);
-	alpha.removeFromCart(takeOut);
+	//alpha.viewCart(takeOut);
+	//alpha.removeFromCart(takeOut);
 	alpha.finishCheckout(takeOut);
 }
 

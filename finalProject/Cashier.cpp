@@ -14,10 +14,11 @@ void Cashier::addToCart(Cart &t)
 
 	do
 	{
+
 		do {
 			valid = false;
 
-			cout << "\nInsert Item Code for Book: ";
+			cout << "\nWhat book would you like to add? (Item Code): " << endl;
 			cin >> serial;
 
 			// Validate user input
@@ -47,16 +48,16 @@ void Cashier::addToCart(Cart &t)
 			// If the item is already in the cart then subtract it from avaible quantity
 			if (t.itemExist(serial))
 			{
-				remQty = getQty(serial) - t.getQty(serial);
+				remQty = getQty(serial - 1) - t.getQty(serial);
 			}
 			else
-				remQty = getQty(serial);
+				remQty = getQty(serial - 1);
 
 			do {
 				valid = false;
 
-				cout << "We have " << remQty << " books of \"" << getTitle(serial) << "\"\n" << endl;
-				cout << "Insert Quantity Purchased: ";
+				cout << "We have " << remQty << " books of \"" << getTitle(serial - 1) << "\"\n" << endl;
+				cout << "How many books would you like to add to the cart?: " << endl;
 				cin >> bookQty;
 
 				// Validate user input
@@ -81,17 +82,14 @@ void Cashier::addToCart(Cart &t)
 				// If it does exist then add to the existing quantity
 				else
 					t.addQty(serial, bookQty);
-				cout << "Added " << bookQty << " titles of \"" << getTitle(serial) << "\"" << endl;
+				cout << "Added " << bookQty << " titles of \"" << getTitle(serial -1) << "\"" << endl;
 
 		}
 
 		do {
 			valid = false;
 
-			cout << endl << endl;
-			cout << "	To Checkout Insert(Y)" << endl;
-			cout << "	To Continue Sale Insert(N)" << endl;
-			cout << "	Choice: ";
+			cout << "Would you like to finish adding to the cart? (Y/N)" << endl;
 			cin >> choice;
 
 			// Validate user input
@@ -133,11 +131,11 @@ void Cashier::viewCart(Cart &t)
 	while (i < itemCount)
 	{
 		cout << setw(11) << left << t.getSerial(i)
-			<< setw(35) << left << getTitle(t.getSerial(i))
-			<< setw(15) << left << getISBN(t.getSerial(i))
-			<< setw(10) << left << getMSRP(t.getSerial(i))
+			<< setw(35) << left << getTitle(t.getSerial(i) -1)
+			<< setw(15) << left << getISBN(t.getSerial(i) -1)
+			<< setw(10) << left << getMSRP(t.getSerial(i) -1)
 			<< setw(8) << left << t.getQty(t.getSerial(i))
-			<< setw(8) << left << t.getQty(t.getSerial(i)) * getMSRP(t.getSerial(i)) << endl;
+			<< setw(8) << left << t.getQty(t.getSerial(i)) * getMSRP(t.getSerial(i) - 1) << endl;
 		i++;
 	}
 	system("pause");
@@ -183,7 +181,7 @@ void Cashier::removeFromCart(Cart &t)
 		// If theres only 1 book then remove the entry
 		if (t.getQty(serial) == 1)
 		{
-			cout << "Removed \"" << getTitle(serial) << "\"" << endl;
+			cout << "Removed \"" << getTitle(serial - 1) << "\"" << endl;
 			t.removeItem(serial);
 		}
 		else
@@ -194,7 +192,7 @@ void Cashier::removeFromCart(Cart &t)
 			{
 				valid = false;
 
-				cout << "How many titles of \"" << getTitle(serial) << "\" do you wish to remove?" << endl;
+				cout << "How many titles of \"" << getTitle(serial - 1) << "\" do you wish to remove?" << endl;
 				cin >> bookQty;
 
 				// Validate user input
@@ -206,22 +204,22 @@ void Cashier::removeFromCart(Cart &t)
 				}
 				else if (bookQty <= 0)
 					cout << "\n\t**Please enter a valid quantity**\n" << endl;
-				else if (bookQty > getQty(serial))
+				else if (bookQty > getQty(serial - 1))
 					cout << "\n\t**Not enough books in cart to remove**\n" << endl;
 				else
 					valid = true;
 
 			} while (!valid);
 
-			if (bookQty == getQty(serial))
+			if (bookQty == getQty(serial - 1))
 			{
-				cout << "Removed \"" << getTitle(serial) << "\"" << endl;
+				cout << "Removed \"" << getTitle(serial - 1) << "\"" << endl;
 				t.removeItem(serial);
 
 			}
 			else
 			{
-				cout << "Removed " << bookQty << " titles of \"" << getTitle(serial) << "\"" << endl;
+				cout << "Removed " << bookQty << " titles of \"" << getTitle(serial - 1) << "\"" << endl;
 				t.removeQty(serial, bookQty);
 			}
 		}
@@ -252,12 +250,15 @@ void Cashier::finishCheckout(Cart &t)
 	while (i < items)
 	{
 		// Check if	item's qty in cart is equal to that in inventory
-		if (t.getQty(t.getSerial(i)) == getQty(t.getSerial(i)))
+		if (t.getQty(t.getSerial(i)) == getQty(t.getSerial(i) - 1))
 			del(t.getSerial(i) - 1);
-		
 		else  // If not equal then decrement qty in inventory
 		{
-			cout << "no";
+			int newQty;
+			newQty = getQty(t.getSerial(i) - 1) - t.getQty(t.getSerial(i));
+			setQty(newQty, t.getSerial(i) - 1);
+			fileClear();
+			fileMod(getSizeLine() + 1);
 		}
 		i++;
 	}
@@ -300,7 +301,7 @@ double Cashier::subtotal(Cart &t)
 	int i = 0;
 	while (i < items)
 	{  
-		subTotal += getQty(t.getSerial(i)) * getMSRP(t.getSerial(i)) ;
+		subTotal += getQty(t.getSerial(i) - 1) * getMSRP(t.getSerial(i)) ;
 		i++;
 	}
 	return subTotal;
