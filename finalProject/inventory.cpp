@@ -40,7 +40,7 @@ void inventory::add()
 		cout << endl << "Hardcover or Paperback: ";
 		cin.ignore();
 		cin >> typeHold;
-		cout << "If you want to change anythingpress 0 or 1 otherwise.\n";//change later
+		cout << "Press 1 to confirm changes. Else, press 0.\n";//change later
 		cin.ignore();
 			cin >> c;
 			if (c == 0){ cout << "You can rewrite your input now\n"; }
@@ -59,8 +59,63 @@ void inventory::add()
 	baseClass::fileMod(max + 1);
 }
 
-void inventory::modify(int x)
+void inventory::modify(char y, int x)
 {
+	string name = "";
+	int number = 0;
+	double price = 0;
+
+	switch (y)
+	{
+	default:
+		cout << "Let's try again" << endl;
+		break;
+	case 'T':
+		cout << "Enter the new title: ";
+		cin.ignore();
+		getline(cin, name);
+		baseClass::setTitle(name, x - 1);
+		break;
+	case 'P':
+		cout << "Enter the new publisher: ";
+		cin.ignore();
+		getline(cin, name);
+		baseClass::setPublisher(name, x - 1);
+		break;
+	case 'A':
+		cout << "Enter the new author: ";
+		cin.ignore();
+		getline(cin, name);
+		baseClass::setAuthor(name, x - 1);
+		break;
+	case 'I':
+		cout << "Enter the new ISBN: ";
+		cin.ignore();
+		getline(cin, name);
+		baseClass::setISBN(name, x - 1);
+		break;
+	case 'C':
+		cout << "Enter the new cost: ";
+		cin >> price;
+		baseClass::setCost(price, x - 1);
+		break;
+	case 'M':
+		cout << "Enter the new MSRP: ";
+		cin >> price;
+		baseClass::setMSRP(price, x - 1);
+		break;
+	case 'Q':
+		cout << "Enter the new quantity: ";
+		cin >> number;
+		baseClass::setQty(number, x - 1);
+		break;
+	case 'E':
+		cout << "Enter the new type: ";
+		cin.ignore();
+		getline(cin, name);
+		baseClass::setType(name, x - 1);
+		break;
+	}
 }
 
 void inventory::del(int x)

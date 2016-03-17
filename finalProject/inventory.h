@@ -19,7 +19,7 @@ public:
 	int getArrOfdelBooks(int);
     void add();
 	int search2(int);
-    void modify(int);
+    void modify(char,int);
 	void del(int);
 	int search(string);
 	void shift();

@@ -4,6 +4,7 @@
 #include <time.h>
 using namespace std;
 
+
 void cashMod()
 {
 	Cashier alpha;
@@ -28,14 +29,21 @@ void invMod()
 	cout << "***********************************************************************************************************" << endl << endl;
 
 	inventory changes;
+	string query;
 	int ser;
 	int term;
-	char res;
-	bool test = 0;
+	char res,modPic;
+	bool test = 0, modBool = 0;
 
 	while (!test)
 	{
-		cout << "(A)dd, (M)odify, (D)elete: ";
+		cout << "Inventory" << endl;
+		cout << "------------------------------" << endl;
+		cout << " A: Add" << endl;
+		cout << " M: Modify" << endl;
+		cout << " D: Delete" << endl;
+		cout << " 9: RETURN" << endl << endl;
+		cout << "Input choice: ";
 		cin >> res;
 		if (islower(res))
 			res = toupper(res);
@@ -45,24 +53,67 @@ void invMod()
 			test = true;
 			changes.add();
 		}
-		else if (res == 'M' || res == 'D')
+		else if (res == 'D')
 		{
 			test = true;
-			cout << "Search for isbn of book: ";
+			cout << "Search for title: ";
+			cin.ignore();
+			getline(cin, query);
+			cout << endl;
+			changes.search(query);
+
+			cout << "Pick a serial: ";
 			cin >> term;
 
 			changes.del(changes.search2(term));
 
 			cout << endl;
 
-			cout << "Enter ayy";
 			break;
 		}
 
+		else if (res == 'M')
+		{
+			test = true;
+			cout << "Search for title: ";
+			cin.ignore();
+			getline(cin, query);
+			cout << endl;
+			changes.search(query);
+
+			cout << "Pick a serial: ";
+			cin >> term;
+
+			cout << endl;
+
+			while (!modBool)
+			{
+				cout << "Change: (T)itle, (P)ublisher, (A)uthor, (I)SBN, (C)ost, (M)SRP, (Q)ty, typ(E),e(X)it: ";
+				cin >> modPic;
+				if (islower(modPic))
+					modPic = toupper(modPic);
+
+				if (modPic != 'X')
+					changes.modify(modPic, term);
+
+				else modBool = 1;
+			}
+			cout << endl;
+
+			changes.fileClear();
+			changes.fileMod(changes.getSizeLine() + 1);
+
+			break;
+		}
+
+		else if (res == '9')
+			test = true;
+		
 		else cout << "Try again please!" << endl;
 	}
 
 	cout << endl;
+	system("cls");
 }
 
 void repMod()
