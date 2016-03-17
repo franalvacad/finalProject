@@ -19,6 +19,7 @@ baseClass::baseClass()
 	string tempd,d,y;
 	string holder;
 	string temp;
+	int holdl;
 	mainData.open("serial.txt"); //master file
 	if (mainData.is_open() == false)
 		throw "Error, can't open the serial file";
@@ -31,7 +32,7 @@ baseClass::baseClass()
 
 	mainData.clear();
 	for (int i = 0; i < numOfLines/10; i++){
-		getline(mainData, temp); 
+		getline(mainData, temp);
 		serial[i] = stoi(temp);
 		getline(mainData, title[i]);
 		getline(mainData, publisher[i]);
