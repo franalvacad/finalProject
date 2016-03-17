@@ -65,22 +65,24 @@ void inventory::del(int x)
 	baseClass::setCost(0, x);
 	baseClass::setMSRP(0, x);
 	baseClass::setQty(0, x);
-	baseClass::setSerial(0, x);
 	baseClass::setType("", x);
-	inventory::setNumOfdeletedBooks(1);                           // use in the cashiere module
-	for (int i = 0; i < inventory::getNumOfdeletedBooks(); i++){  //
-		inventory::setArrOfdelBooks(0, x);                        //
-	}								                              //
-	inventory::shift();                                           //
-	for (int i = 0; i < inventory::getNumOfdeletedBooks(); i++){  //
-		inventory::setArrOfdelBooks(i, 0);                        //
-	}                                                             //
+	inventory::setNumOfdeletedBooks(1);							 
+	for (int i = baseClass::getSizeLine() - inventory::getNumOfdeletedBooks(); i < baseClass::getSizeLine(); i++){
+		baseClass::setSerial(0, i);
+	}
+	for (int i = 0; i < inventory::getNumOfdeletedBooks(); i++){  
+		inventory::setArrOfdelBooks(0, x);                        
+	}								                              
+	inventory::shift();                                           
+	for (int i = 0; i < inventory::getNumOfdeletedBooks(); i++){  
+		inventory::setArrOfdelBooks(i, 0);                        
+	}                                                             
 	inventory::setNumOfdeletedBooks(0);  
-	
+	baseClass::fileMod(baseClass::getSizeLine());
 }
 void inventory::shift(){
 	for (int j = 0; j < inventory::getNumOfdeletedBooks(); j++){
-		for (int i = inventory::getArrOfdelBooks(j); i < 1000; i++){
+		for (int i = inventory::getArrOfdelBooks(j); i < baseClass::getSizeLine(); i++){
 			baseClass::setTitle(baseClass::getTitle(i + 1), i);
 			baseClass::setPublisher(baseClass::getPublisher(i + 1), i);
 			baseClass::setAuthor(baseClass::getAuthor(i + 1), i);
@@ -88,7 +90,6 @@ void inventory::shift(){
 			baseClass::setCost(baseClass::getCost(i + 1), i);
 			baseClass::setMSRP(baseClass::getMSRP(i + 1), i);
 			baseClass::setQty(baseClass::getQty(i + 1), i);
-			baseClass::setSerial(baseClass::getSerial(i + 1), i);
 			baseClass::setType(baseClass::getType(i + 1), i);
 		}
 	}

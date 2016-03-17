@@ -47,7 +47,7 @@ public:
 	string getPublisher(int c);
 	string getDate(int c);
 	int getSizeLine();
-
+	int getNumLines();
 
 };
 
