@@ -6,15 +6,36 @@
 
 void Cashier::addToCart(Cart &t)
 {
-	int serial, bookNum, bookQty;
-	char choice;
-	bool exit = false;
+	int serial,				// Inputted book's item code
+		bookQty;			// Inputted desired qty
+	char choice;			// User choice to exit or not
+	bool exit = false;		// Flag for exit
+	bool valid = false;
 
 	do
 	{
-		cout << "\nWhat book would you like to add? (Item Code): " << endl;
 
-		cin >> serial;
+		do {
+			valid = false;
+
+			cout << "\nWhat book would you like to add? (Item Code): " << endl;
+			cin >> serial;
+
+			// Validate user input
+			if (cin.fail())
+			{
+				cin.clear();
+				cin.ignore(500, '\n');
+				cout << "\n\t**Invalid input.**\n" << endl;
+			}
+			else if (serial <= 0)
+				cout << "\n\t**Please enter a valid Item Code**\n";
+			else
+				valid = true;
+
+		} while (!valid);
+		
+	
 
 		if (findBook(serial) == -1)
 			cout << "The item code " << serial << " cannot be found." << endl;
@@ -32,16 +53,29 @@ void Cashier::addToCart(Cart &t)
 			else
 				remQty = getQty(serial);
 
-			cout << "We have " << remQty << " books of \"" << getTitle(serial) << "\"\n" << endl;
-			cout << "How many books would you like to add to the cart?: " << endl;
-			cin >> bookQty;
+			do {
+				valid = false;
 
-			if (bookQty < 0)
-				cout << "Invalid Quantity" << endl;
-			else if (bookQty > remQty)
-				cout << "Not enough books in inventory" << endl;
-			else
-			{
+				cout << "We have " << remQty << " books of \"" << getTitle(serial) << "\"\n" << endl;
+				cout << "How many books would you like to add to the cart?: " << endl;
+				cin >> bookQty;
+
+				// Validate user input
+				if (cin.fail())
+				{
+					cin.clear();
+					cin.ignore(500, '\n');
+					cout << "\n\t**Invalid input.**\n" << endl;
+				}
+				else if (bookQty <= 0)
+					cout << "\n\t**Please enter a valid quantity**\n" << endl;
+				else if (bookQty > remQty)
+					cout << "\n\t**Not enough books in inventory**\n" << endl;
+				else
+					valid = true;
+
+			} while (!valid);
+
 				// If item doesn't already exist in cart then add
 				if (!t.itemExist(serial))
 					t.addItem(serial, bookQty);
@@ -50,12 +84,28 @@ void Cashier::addToCart(Cart &t)
 					t.addQty(serial, bookQty);
 				cout << "Added " << bookQty << " titles of \"" << getTitle(serial) << "\"" << endl;
 
-			}
-
 		}
 
-		cout << "Would you like to finish adding to the cart? (Y/N)" << endl;
-		cin >> choice; 
+		do {
+			valid = false;
+
+			cout << "Would you like to finish adding to the cart? (Y/N)" << endl;
+			cin >> choice;
+
+			// Validate user input
+			if (cin.fail())
+			{
+				cin.clear();
+				cin.ignore(500, '\n');
+				cout << "\n\t**Invalid input.**\n" << endl;
+			}
+			else if (!(choice == 'Y' || choice == 'y' || choice == 'N' || choice == 'n'))
+				cout << "\n\t**Please enter either Y/N**\n" << endl;
+			else
+				valid = true;
+
+		} while (!valid);
+
 		if (choice == 'Y' || choice == 'y')
 			exit = true;
 
@@ -66,7 +116,7 @@ void Cashier::addToCart(Cart &t)
 
 void Cashier::viewCart(Cart &t)
 {
-	Date todaysDate;
+	Date todaysDate;	// Date object for today's date
 
 	system("cls");
 
@@ -163,7 +213,7 @@ void Cashier::finishCheckout(Cart &t)
 	{
 		// Check if	item's qty in cart is equal to that in inventory
 		if (t.getQty(t.getSerial(i)) == getQty(t.getSerial(i)))
-			cout << "equal";
+			del(t.getSerial(i) - 1);
 		
 		else  // If not equal then decrement qty in inventory
 		{
