@@ -134,21 +134,20 @@ int main()
 			if (choice == 1)
 			{
 				system("cls");
-				menu = true;
 				cashMod();
 			}
 			else if (choice == 2)
 			{
 				system("cls");
-				menu = true;
 				invMod();
 			}
 			else if (choice == 3)
 			{
 				system("cls");
-				menu = true;
 				repMod();
 			}
+			else if (choice == 9)
+				menu = true;
 			
 		} //loop to make sure program does not terminate unless user exits
 

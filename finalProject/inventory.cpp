@@ -10,7 +10,6 @@ inventory::inventory()
 
 inventory::~inventory()
 {
-	baseClass::fileMod(max - 1);
 }
 
 void inventory::add()
