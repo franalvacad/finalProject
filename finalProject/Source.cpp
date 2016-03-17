@@ -35,7 +35,7 @@ void invMod()
 
 	inventory changes;
 	int ser;
-	string term;
+	int term;
 	char res;
 	bool test = 0;
 
@@ -54,12 +54,15 @@ void invMod()
 		else if (res == 'M' || res == 'D')
 		{
 			test = true;
-			cout << "Search for book title: ";
-			cin.ignore();
-			getline(cin, term);
-			
-			changes.search(term);
+			cout << "Search for isbn of book: ";
+			cin >> term;
+
+			changes.del(changes.search2(term));
+
+			cout << endl;
+
 			cout << "Enter ayy";
+			break;
 		}
 
 		else cout << "Try again please!" << endl;

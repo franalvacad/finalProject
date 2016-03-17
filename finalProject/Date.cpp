@@ -13,7 +13,7 @@ Date::Date()
 	year = 2000;
 }
 
-Date::Date(int d, int m, int y)
+Date::Date(int m, int d, int y)
 {
 	day = d;
 	month = m;
