@@ -101,6 +101,6 @@ fstream& operator>>(fstream& in, Date& d)
 // Operator << overloader for cout date
 ostream& operator<<(ostream& out, Date& d)
 {
-	out << to_string(d.day) + "-" + to_string(d.month) + "-" + to_string(d.year);
+	out << to_string(d.day)+" "+ to_string(d.month) +" "+ to_string(d.year);
 	return out;
 }

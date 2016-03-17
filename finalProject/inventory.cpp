@@ -121,33 +121,33 @@ int inventory::search2(int s)
 
 	return position;
 }
-//int inventory::search(string term)
-//{
-//	string hold;
-//	bool found, vty = true;
-//
-//	for (int c = 0; c < baseClass::getSizeLine(); c++)
-//	{
-//		hold = baseClass::getTitle(c);
-//		found = hold.find(term) != string::npos;
-//		
-//		if (found)
-//		{
-//			display::getListCustom(c);
-//			vty = false;
-//		}
-//	}
-//	
-//	if (!vty)
-//	{
-//		cout << "----------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;// what is it (Andrei)?
-//		cout << setw(4) << "No." << setw(35) << left << "Title" << setw(35) << left << "Publisher" << setw(25) << left << "Author" << setw(15)
-//			<< left << "ISBN" << setw(8) << left << "Cost($) " << setw(8) << left << "MSRP($) " << setw(5) << left << "Qty" << setw(10) << left
-//			<< "Type" << setw(8) << left << "Date Added" << endl;
-//	}
-//	return 0;
-//
-//}
+int inventory::search(string term)
+{
+	string hold;
+	bool found, vty = true;
+
+	for (int c = 0; c < baseClass::getSizeLine(); c++)
+	{
+		hold = baseClass::getTitle(c);
+		found = hold.find(term) != string::npos;
+		
+		if (found)
+		{
+			display::getListCustom(c);
+			vty = false;
+		}
+	}
+	
+	if (!vty)
+	{
+		cout << "----------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;// what is it (Andrei)?
+		cout << setw(4) << "No." << setw(35) << left << "Title" << setw(35) << left << "Publisher" << setw(25) << left << "Author" << setw(15)
+			<< left << "ISBN" << setw(8) << left << "Cost($) " << setw(8) << left << "MSRP($) " << setw(5) << left << "Qty" << setw(10) << left
+			<< "Type" << setw(8) << left << "Date Added" << endl;
+	}
+	return 0;
+
+}
 void inventory::setNumOfdeletedBooks(int n){ NumOfdeletedBooks = n; }
 void inventory::setArrOfdelBooks(int i, int el){ ArrOfdelBooks[i] = el; }
 int inventory::getNumOfdeletedBooks(){ return NumOfdeletedBooks; }
