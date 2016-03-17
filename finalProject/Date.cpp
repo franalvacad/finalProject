@@ -15,8 +15,8 @@ Date::Date()
 
 Date::Date(int m, int d, int y)
 {
-	day = d;
 	month = m;
+	day = d;
 	year = y;
 }
 
@@ -34,6 +34,13 @@ void Date::setMonth(int x)
 void Date::setYear(int x)
 {
 	year = x;
+}
+
+void Date::setDate(int m, int d, int y)
+{
+	month = m;
+	day = d;
+	year = y;
 }
 
 // Accesors
@@ -61,7 +68,7 @@ string Date::getComputerDate() const
 {
 	time_t now = time(0);
 	tm *tPtr = localtime(&now);
-	return to_string(tPtr->tm_mday) + "-" + to_string(tPtr->tm_mon) + "-" + to_string(tPtr->tm_year);
+	return to_string((tPtr->tm_mon) + 1) + "-" + to_string(tPtr->tm_mday) + "-" + to_string((tPtr->tm_year) + 1900);
 }
 
 // Operator >> overloader for inserting date
