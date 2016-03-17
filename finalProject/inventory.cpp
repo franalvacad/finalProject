@@ -78,6 +78,7 @@ void inventory::del(int x)
 		inventory::setArrOfdelBooks(i, 0);                        
 	}                                                             
 	inventory::setNumOfdeletedBooks(0);  
+	baseClass::fileClear();
 	baseClass::fileMod(baseClass::getSizeLine());
 }
 void inventory::shift(){

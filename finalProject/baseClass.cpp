@@ -16,6 +16,7 @@ bool baseClass::countFile(fstream &inFile)
 
 baseClass::baseClass()
 {
+	string tempd, d, y, x;
 	string holder;
 	string temp;
 	mainData.open("serial.txt"); //master file
@@ -28,27 +29,9 @@ baseClass::baseClass()
 	mainData.clear();
 	mainData.seekg(0);
 
-	mainData.clear();
-
-	/*
-	string line;
-	stringstream iss;
-
-	// Insert line into iss
-	getline(mainData, line);
-	iss << line;
-
-	// Extract iss for date into array
-	while (iss >> )
-	{
-		dateArray[x++] = dayPart;
-	}
-
-
-	// uncomment
-	/*
-	for (int i = 0; i < numOfLines/10-1; i++){
-		getline(mainData, temp); 
+	//mainData.clear();
+	for (int i = 0; i < numOfLines / 10; i++){
+		getline(mainData, temp);
 		serial[i] = stoi(temp);
 		getline(mainData, title[i]);
 		getline(mainData, publisher[i]);
@@ -61,10 +44,15 @@ baseClass::baseClass()
 		getline(mainData, temp);
 		qty[i] = stoi(temp);
 		getline(mainData, type[i]);
-		mainData >> dateAdded[i];
-		}
-		*/
+		getline(mainData, temp);
+		tempd = temp.substr(temp.find("-") + 1, temp.length());
+		d = temp.substr(0, temp.find("-"));
+		y = tempd.substr(0, temp.find("-") + 1);
+		x = tempd.substr(tempd.find("-") + 1, tempd.length());
+		dateAdded[i] = { stoi(d), stoi(y), stoi(x) };
 	}
+}
+
 
 
 
@@ -111,20 +99,23 @@ void baseClass::setType(string x, int c)
 {
 	type[c] = x;
 }
+void baseClass::fileClear()
+{
+	mainData.close();
+	mainData.open("serial.txt", ofstream::out | ofstream::trunc);
+	mainData.close();
 
+}
 void baseClass::fileMod(int x) //Essentially copies whatever is in array to the end of file. Var x is max value
 {
 	//Date time;
-	mainData.close();
-	mainData.open("serial.txt",ofstream::out | ofstream::trunc);
-	mainData.close();
-	mainData.open("serial.txt", ofstream::out | ofstream::trunc);
+//	mainData.open("serial.txt", ofstream::out | ofstream::trunc);
 	//mainData << " ";
 	//mainData.clear();
 	//mainData.seekg(0);
+	mainData.open("serial.txt", ofstream::out | ofstream::app);
 	for (int c = 0; c < x; c++)
 	{	
-		mainData.open("serial.txt", ofstream::out | ofstream::app);
 		mainData << getSerial(c) << endl
 			<< getTitle(c) << endl
 			<< getPublisher(c) << endl
@@ -135,8 +126,8 @@ void baseClass::fileMod(int x) //Essentially copies whatever is in array to the 
 			<< getQty(c) << endl
 			<< getType(c) << endl
 			<< getDate(c) << endl;
-		mainData.close();
 	}
+	mainData.close();
 }
 //gets
 string baseClass::getType(int c)
