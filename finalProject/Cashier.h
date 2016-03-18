@@ -1,24 +1,27 @@
+// Cashier Specification
 #ifndef CASHIER_H
 #define CASHIER_H
-#include "baseClass.h"
 #include "Date.h"
 #include "inventory.h"
 #include "Cart.h"
 
-class Cashier : public baseClass
+class Cashier : public inventory
 {
 private:
 	const double salesTaxRate = 0.0825;
 
 public:
-	Cashier();
 
-	void addToCart(Cart (&takeOut)[50]);
-	void removeFromCart(Cart(&takeOut)[50]);
-	void viewCart(Cart(&takeOut)[50]);
+	void addToCart(Cart &t);
+	void removeFromCart(Cart &t);
+	void viewCart(Cart &t);
+	void finishCheckout(Cart &t);
 
-	int findBook(int serial);
+	double subtotal(Cart &t);
+	double tax(double);
+	double total(double, double);
 
+	int findBook(int);
 };
 
 

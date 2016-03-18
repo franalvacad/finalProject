@@ -27,13 +27,13 @@
     <ClCompile Include="displayClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="inventory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Cashier.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Date.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="inventory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Cart.cpp">
@@ -50,10 +50,10 @@
     <ClInclude Include="Cashier.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Date.h">
+    <ClInclude Include="inventory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inventory.h">
+    <ClInclude Include="Date.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Cart.h">
@@ -61,34 +61,10 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+  </ItemGroup>
+  <ItemGroup>
     <Text Include="serial.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="date.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="author.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="cost.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="isbn.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="msrp.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="pub.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="qty.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="title.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
-    <Text Include="type.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

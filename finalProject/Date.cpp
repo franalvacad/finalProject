@@ -13,10 +13,10 @@ Date::Date()
 	year = 2000;
 }
 
-Date::Date(int d, int m, int y)
+Date::Date(int m, int d, int y)
 {
-	day = d;
 	month = m;
+	day = d;
 	year = y;
 }
 
@@ -36,7 +36,14 @@ void Date::setYear(int x)
 	year = x;
 }
 
-// Accesors
+void Date::setDate(int m, int d, int y)
+{
+	month = m;
+	day = d;
+	year = y;
+}
+
+// Accessors
 int Date::getDay() const
 {
 	return day;
@@ -61,7 +68,7 @@ string Date::getComputerDate() const
 {
 	time_t now = time(0);
 	tm *tPtr = localtime(&now);
-	return to_string(tPtr->tm_mday) + "-" + to_string(tPtr->tm_mon) + "-" + to_string(tPtr->tm_year);
+	return to_string((tPtr->tm_mon) + 1) + "-" + to_string(tPtr->tm_mday) + "-" + to_string((tPtr->tm_year) + 1900);
 }
 
 // Operator >> overloader for inserting date
@@ -98,9 +105,9 @@ fstream& operator>>(fstream& in, Date& d)
 	return in;
 }
 
-// Operator << overloader for cout date
+// Operator << overloader for displaying date
 ostream& operator<<(ostream& out, Date& d)
 {
-	out << to_string(d.day) + "-" + to_string(d.month) + "-" + to_string(d.year);
+	out << to_string(d.day)+" "+ to_string(d.month) +" "+ to_string(d.year);
 	return out;
 }
