@@ -71,7 +71,7 @@ void inventory::add() //Used to add new book to inventory
 
 		} while (!valid);
 
-
+		//fgh
 
 		do {
 			valid = false;
